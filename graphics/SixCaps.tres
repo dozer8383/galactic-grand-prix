@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://cxh21tuuh01u3"]
+
+[ext_resource type="FontFile" uid="uid://dqae8nltbsopi" path="res://graphics/Unbounded-Medium.ttf" id="1_o8lbc"]
+
+[resource]
+default_font = ExtResource("1_o8lbc")
+Label/font_sizes/font_size = 69
