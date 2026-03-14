@@ -21,10 +21,10 @@ func getInput(delta: float):
 	drift *= 0.95
 	enginerpm *= 0.99
 	#$"../Control/Label".text = str(abs(velocity.normalized()-drift.normalized()) > Vector3(0.1,0,0.1))
-	$"../Control/Label".text = str(abs(velocity.normalized()-drift.normalized()))
+	#$"../Control/Label".text = str(abs(velocity.normalized()-drift.normalized()))
 	if is_on_wall():
-		drift = drift.bounce(get_wall_normal())
-		speed = -speed
+		drift += get_wall_normal()*100
+		enginerpm *= 0.9
 	if Input.is_action_just_pressed("forward"):
 		drift = Vector3.ZERO
 

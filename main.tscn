@@ -12,6 +12,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.7
 motion_mode = 0
 
 [node name="Control" type="Control" parent="." unique_id=72570046]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
