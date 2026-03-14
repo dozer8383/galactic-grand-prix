@@ -5,7 +5,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hwms0"]
 height = 0.0871582
-radius = 0.07714844
+radius = 0.06933594
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1552050558]
 motion_mode = 1

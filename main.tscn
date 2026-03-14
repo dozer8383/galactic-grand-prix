@@ -5,20 +5,30 @@
 
 [node name="Node3D" type="Node3D" unique_id=299422792]
 
-[node name="track1" parent="." unique_id=172602624 instance=ExtResource("1_0xm2m")]
+[node name="track1" parent="." unique_id=291375235 instance=ExtResource("1_0xm2m")]
 
 [node name="ray" parent="." unique_id=1185787226 instance=ExtResource("2_h2yge")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.7621995, 0.5537758, -7.110049)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2109338, 0.5537758, -8.519391)
 motion_mode = 0
 
 [node name="Control" type="Control" parent="." unique_id=72570046]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="Control" unique_id=1498494659]
+[node name="DebugLabel" type="Label" parent="Control" unique_id=1498494659]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Speedometer" type="Label" parent="Control" unique_id=865123399]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Tachometer" type="Label" parent="Control" unique_id=262699165]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
