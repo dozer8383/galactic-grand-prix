@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bqjtooq2j1son"]
+
+[ext_resource type="PackedScene" uid="uid://ccdkjr0n7k0i7" path="res://graphics/ray.glb" id="1_hwms0"]
+[ext_resource type="Script" uid="uid://f168ju7uora2" path="res://ship.gd" id="1_y0vx7"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hwms0"]
+height = 0.0871582
+radius = 0.07714844
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1552050558]
+motion_mode = 1
+script = ExtResource("1_y0vx7")
+
+[node name="ray" parent="." unique_id=76260297 instance=ExtResource("1_hwms0")]
+transform = Transform3D(-1.3113416e-09, 0, 0.03, 0, 0.03, 0, -0.03, 0, -1.3113416e-09, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=779243984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.016350992)
+shape = SubResource("CylinderShape3D_hwms0")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=390519163]
+transform = Transform3D(1, 0, 0, 0, 0.877983, 0.47869185, 0, -0.47869185, 0.877983, 0, 0.3101334, 0.30577105)
+fov = 90.0
