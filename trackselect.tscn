@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://de20pchjeyo1y"]
+
+[ext_resource type="FontFile" uid="uid://dqae8nltbsopi" path="res://graphics/Unbounded-Medium.ttf" id="1_6vlms"]
+[ext_resource type="Script" uid="uid://cu4m7kit5xjbc" path="res://trackselect.gd" id="1_7wbs0"]
+[ext_resource type="Theme" uid="uid://cxh21tuuh01u3" path="res://graphics/SixCaps.tres" id="2_7aadh"]
+[ext_resource type="Texture2D" uid="uid://nlaw33ln2g0d" path="res://graphics/background.png" id="2_o1ubp"]
+[ext_resource type="Texture2D" uid="uid://c68iblq8bks8p" path="res://graphics/track1_track1 (1).png" id="5_q7p7d"]
+[ext_resource type="Texture2D" uid="uid://di3me54js3vlh" path="res://graphics/track2_track2.png" id="6_1p8ft"]
+
+[sub_resource type="Theme" id="Theme_7aadh"]
+default_font = ExtResource("1_6vlms")
+Label/font_sizes/font_size = 18
+
+[node name="TrackSelect" type="Control" unique_id=961979706]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7wbs0")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1639734985]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -252.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_o1ubp")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1306346051]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=2063348419]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer" unique_id=1782641834]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=1541875853]
+layout_mode = 2
+theme = SubResource("Theme_7aadh")
+text = "Bronze League"
+
+[node name="BronzeTracks" type="ItemList" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=1243745008]
+layout_mode = 2
+theme = ExtResource("2_7aadh")
+auto_width = true
+auto_height = true
+text_overrun_behavior = 0
+item_count = 5
+fixed_icon_size = Vector2i(20, 20)
+item_0/text = "MIASMA LAKE"
+item_0/icon = ExtResource("5_q7p7d")
+item_1/text = "CRYSTAL PLATEAU I"
+item_1/icon = ExtResource("6_1p8ft")
+item_2/text = "DARKNESS"
+item_3/text = "BLIZZARD LAND I"
+item_4/text = "LUMINOUS OCEAN"
+
+[connection signal="item_clicked" from="HBoxContainer/MarginContainer/VBoxContainer/BronzeTracks" to="." method="_on_bronze_tracks_item_clicked"]

@@ -11,16 +11,19 @@ config_version=5
 [application]
 
 config/name="GalacticGrandPrix"
-run/main_scene="uid://dhpgy2mgt2k76"
+run/main_scene="uid://de20pchjeyo1y"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 DebugMenu="*uid://cggqb75a8w8r"
+globals="*uid://m71bsom4wd0g"
 
 [display]
 
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 window/vsync/vsync_mode=0
 
 [editor_plugins]
