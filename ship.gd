@@ -16,6 +16,7 @@ func getInput(delta: float):
 	if power <= 0 and not crashed:
 		crashed = true
 		crash.emit()
+		print("crash emitted")
 	if power > 0:
 		if power < 15:
 			enginerpm += moveInput/200
@@ -37,15 +38,16 @@ func getInput(delta: float):
 	drift *= 0.97
 	enginerpm *= 0.995
 	
-	if Input.is_action_just_pressed("forward") or Input.is_action_just_pressed("backward"):
-		drift *= 0.5
+	if Input.is_action_just_pressed("forward") or Input.is_action_pressed("backward"):
+		drift *= 0.9
+		enginerpm *= 0.98
 	
 	#$"../Control/DebugLabel".text = str(abs(velocity.normalized()-drift.normalized()) > Vector3(0.1,0,0.1))
 	#$"../Control/DebugLabel".text = str(abs(velocity.normalized()-drift.normalized()))
 	if is_on_wall():
-		power -= 1*speed
+		power -= 0.8*speed
 		drift += get_wall_normal()*speed*30
-		turnVel += (get_wall_normal().x+get_wall_normal().z)/5
+		turnVel += (get_wall_normal().x+get_wall_normal().z)/3
 		enginerpm *= 0.9
 		rotation.z = move_toward(rotation.z, get_wall_normal().x+get_wall_normal().z,delta)
 		$ray.rotation.x = move_toward($ray.rotation.x, get_wall_normal().x+get_wall_normal().z,delta)

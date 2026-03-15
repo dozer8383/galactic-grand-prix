@@ -1,13 +1,18 @@
 extends Node
 
 var currenttrackid = 0
-var start_time
+var start_time = 0
+var timerStarted = false
 
 func timerStart():
 	start_time = Time.get_ticks_msec()
+	timerStarted = true
 
 func timerGet():
-	return Time.get_ticks_msec() - start_time
+	if timerStarted:
+		return Time.get_ticks_msec() - start_time
+	else:
+		return 0
 
 func saveGame():
 	var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)

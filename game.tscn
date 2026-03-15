@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://bq6t6f2c3pg1j" path="res://game.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://bqjtooq2j1son" path="res://ray.tscn" id="2_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://bqcas01uj6y0e" path="res://gui.tscn" id="3_7jktm"]
-[ext_resource type="PackedScene" uid="uid://kgrm8wo3igwi" path="res://graphics/track1.glb" id="4_fc0e3"]
 
 [node name="Game" type="Node3D" unique_id=299422792]
 script = ExtResource("1_fc0e3")
@@ -14,4 +13,5 @@ motion_mode = 0
 
 [node name="gui" parent="." unique_id=700108634 instance=ExtResource("3_7jktm")]
 
-[node name="track1" parent="." unique_id=1517779252 instance=ExtResource("4_fc0e3")]
+[connection signal="crash" from="ray" to="." method="_on_ray_crash"]
+[connection signal="crash" from="ray" to="." method="_on_crash"]
