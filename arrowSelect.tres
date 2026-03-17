@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://b7wa2cf30coej"]
+
+[ext_resource type="Texture2D" uid="uid://dnk6jkvq4yghu" path="res://graphics/arrowSelection.png" id="1_8m4gu"]
+
+[resource]
+texture = ExtResource("1_8m4gu")
+texture_margin_left = 30.0

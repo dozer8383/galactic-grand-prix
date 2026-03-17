@@ -77,3 +77,4 @@ item_3/text = "BLIZZARD LAND I"
 item_4/text = "LUMINOUS OCEAN"
 
 [connection signal="item_clicked" from="HBoxContainer/MarginContainer/VBoxContainer/BronzeTracks" to="." method="_on_bronze_tracks_item_clicked"]
+[connection signal="item_selected" from="HBoxContainer/MarginContainer/VBoxContainer/BronzeTracks" to="." method="_on_bronze_tracks_item_selected"]

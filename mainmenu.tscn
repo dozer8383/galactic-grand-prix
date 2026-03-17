@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://bwlxuy1akqmnt"]
+
+[ext_resource type="Script" uid="uid://dyo252o3bespi" path="res://control.gd" id="1_3pujl"]
+[ext_resource type="Texture2D" uid="uid://1qn3mxxt2j6h" path="res://graphics/ggp-logo.png" id="1_d2nv2"]
+[ext_resource type="Theme" uid="uid://cxh21tuuh01u3" path="res://graphics/SixCaps.tres" id="1_wgsso"]
+[ext_resource type="PackedScene" uid="uid://ckfrsuvx3wynb" path="res://track_1.tscn" id="2_d2nv2"]
+[ext_resource type="Script" uid="uid://c1uj1hdrc7n2f" path="res://practice_button.gd" id="2_igs2m"]
+
+[node name="Node3D" type="Node3D" unique_id=1272696323]
+
+[node name="Control" type="Control" parent="." unique_id=909883907]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3pujl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1436759929]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 55.0
+offset_right = 100.0
+offset_bottom = 153.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimeTrialButton" type="Button" parent="Control/VBoxContainer" unique_id=1365209895]
+layout_mode = 2
+theme = ExtResource("1_wgsso")
+text = "Time Trial"
+alignment = 2
+script = ExtResource("2_igs2m")
+
+[node name="ChallengesButton" type="Button" parent="Control/VBoxContainer" unique_id=2051879567]
+layout_mode = 2
+theme = ExtResource("1_wgsso")
+text = "Challenges"
+alignment = 2
+script = ExtResource("2_igs2m")
+
+[node name="SettingsButton" type="Button" parent="Control/VBoxContainer" unique_id=1625408503]
+layout_mode = 2
+theme = ExtResource("1_wgsso")
+text = "Settings"
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1847103316]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.01105
+offset_top = -140.5
+offset_right = 217.01099
+offset_bottom = -3.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_d2nv2")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=972953568]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.2872127, 2.0001698, -11.289756)
+fov = 90.0
+
+[node name="track" parent="." unique_id=1495171405 instance=ExtResource("2_d2nv2")]
+
+[connection signal="pressed" from="Control/VBoxContainer/TimeTrialButton" to="Control/VBoxContainer/TimeTrialButton" method="_on_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/ChallengesButton" to="Control/VBoxContainer/ChallengesButton" method="_on_pressed"]

@@ -72,6 +72,7 @@ func _physics_process(delta: float) -> void:
 func onRough() -> void:
 	enginerpm *= 0.99
 	drift *= 0.98
+	$ray.position.y -= 0.004*randf()+0.002
 
 func onSpeed() -> void:
 	enginerpm = 1.7

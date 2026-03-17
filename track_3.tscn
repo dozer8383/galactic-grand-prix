@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://babqrn7shrh0y" path="res://graphics/weirdsky.png" id="2_i2j0o"]
 [ext_resource type="ArrayMesh" uid="uid://jr00fux8n1vj" path="res://graphics/track3-collision.obj" id="3_i2j0o"]
 [ext_resource type="Script" uid="uid://4tbfbh854hxt" path="res://finish_checkpoint.gd" id="4_6d1d2"]
+[ext_resource type="Script" uid="uid://tth7vtpn1lxr" path="res://rough.gd" id="6_6d1d2"]
+[ext_resource type="Script" uid="uid://2iskuaqdhb2" path="res://speed.gd" id="7_5d4uf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6d1d2"]
 resource_name = "track"
@@ -80,6 +82,18 @@ data = PackedVector3Array(-8.622399, 4.3018, -5.7507, -9.300099, 1, -4.9172997, 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j311s"]
 size = Vector3(0.27734375, 0.6669922, 1.6367188)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_5d4uf"]
+size = Vector3(1.9039036, 1, 5.220791)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6d1d2"]
+size = Vector3(2.278056, 1, 2.4455962)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2p5kl"]
+size = Vector3(3.4409587, 1, 1.264241)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ut2nc"]
+size = Vector3(0.6543775, 1, 0.44851026)
+
 [node name="track" unique_id=1225507885 instance=ExtResource("1_e514l")]
 
 [node name="trackPlane" parent="." index="0" unique_id=1492783229]
@@ -102,6 +116,7 @@ visible = false
 mesh = ExtResource("3_i2j0o")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="1" unique_id=1680073626]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_g86pc")
 
 [node name="FinishCheckpoint" type="Area3D" parent="." index="4" unique_id=198114075]
@@ -112,4 +127,40 @@ script = ExtResource("4_6d1d2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9002867, 1.776561, -11.309495)
 shape = SubResource("BoxShape3D_j311s")
 
+[node name="rough" type="Area3D" parent="." index="5" unique_id=1568495102]
+script = ExtResource("6_6d1d2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="rough" index="0" unique_id=1017459154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.063644, 1.8807008, 8.449983)
+shape = SubResource("BoxShape3D_5d4uf")
+
+[node name="rough2" type="Area3D" parent="." index="6" unique_id=46475546]
+script = ExtResource("6_6d1d2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="rough2" index="0" unique_id=2068033986]
+transform = Transform3D(0.8885292, 0, -0.45882013, 0, 1, 0, 0.45882013, 0, 0.8885292, 3.5156212, 1.8807008, 4.477491)
+shape = SubResource("BoxShape3D_6d1d2")
+
+[node name="rough3" type="Area3D" parent="." index="7" unique_id=635102771]
+script = ExtResource("6_6d1d2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="rough3" index="0" unique_id=1102324148]
+transform = Transform3D(0.72232777, 0, 0.69155085, 0, 1, 0, -0.69155085, 0, 0.72232777, -11.158286, 0, 0.28337204)
+shape = SubResource("BoxShape3D_2p5kl")
+
+[node name="rough4" type="Area3D" parent="." index="8" unique_id=1333293748]
+script = ExtResource("6_6d1d2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="rough4" index="0" unique_id=1900422996]
+transform = Transform3D(0.7358961, 0, -0.67709434, 0, 1, 0, 0.67709434, 0, 0.7358961, -15.672542, 1.9513128, -3.4456668)
+shape = SubResource("BoxShape3D_2p5kl")
+
+[node name="speed" type="Area3D" parent="." index="9" unique_id=1170551131]
+script = ExtResource("7_5d4uf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="speed" index="0" unique_id=1904884686]
+transform = Transform3D(0.99998975, 0, -0.004520446, 0, 1, 0, 0.004520446, 0, 0.99998975, -11.83227, 1.8807008, 6.701222)
+shape = SubResource("BoxShape3D_ut2nc")
+
 [connection signal="body_entered" from="FinishCheckpoint" to="FinishCheckpoint" method="_on_body_entered"]
+[connection signal="body_entered" from="speed" to="speed" method="_on_body_entered"]

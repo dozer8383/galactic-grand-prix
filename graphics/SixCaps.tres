@@ -1,8 +1,18 @@
 [gd_resource type="Theme" format=3 uid="uid://cxh21tuuh01u3"]
 
+[ext_resource type="StyleBox" uid="uid://b7wa2cf30coej" path="res://arrowSelect.tres" id="1_3c45g"]
 [ext_resource type="FontFile" uid="uid://dqae8nltbsopi" path="res://graphics/Unbounded-Medium.ttf" id="1_o8lbc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3c45g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6exd1"]
 
 [resource]
 default_font = ExtResource("1_o8lbc")
+Button/font_sizes/font_size = 24
+Button/styles/focus = ExtResource("1_3c45g")
+Button/styles/hover = ExtResource("1_3c45g")
+Button/styles/normal = SubResource("StyleBoxEmpty_3c45g")
+Button/styles/pressed = SubResource("StyleBoxEmpty_6exd1")
 ItemList/colors/font_color = Color(1, 1, 1, 1)
-Label/font_sizes/font_size = 69
+Label/font_sizes/font_size = 65
