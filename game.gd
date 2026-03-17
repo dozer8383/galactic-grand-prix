@@ -2,6 +2,7 @@ extends Node3D
 
 var tempBestTime = 0
 var trackscene
+signal crossedfinish
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	globals.timerStarted = false
@@ -20,6 +21,7 @@ func newLap() -> void:
 	if globals.timerGet() < tempBestTime or tempBestTime == 0:
 		tempBestTime = globals.timerGet()
 	globals.timerStart()
+	crossedfinish.emit()
 
 func _process(delta: float) -> void:
 	var currenttime = globals.timerGet()

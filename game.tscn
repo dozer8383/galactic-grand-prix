@@ -8,10 +8,10 @@
 script = ExtResource("1_fc0e3")
 
 [node name="ray" parent="." unique_id=1185787226 instance=ExtResource("2_fc0e3")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.511061, 1.5691738, -11.872006)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.88959193, 1.5691738, -11.317709)
 motion_mode = 0
 
 [node name="gui" parent="." unique_id=700108634 instance=ExtResource("3_7jktm")]
 
-[connection signal="crash" from="ray" to="." method="_on_ray_crash"]
+[connection signal="crossedfinish" from="." to="ray" method="_on_crossedfinish"]
 [connection signal="crash" from="ray" to="." method="_on_crash"]

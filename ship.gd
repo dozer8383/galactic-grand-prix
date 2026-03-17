@@ -26,7 +26,7 @@ func getInput(delta: float):
 	speed = enginerpm * enginepower
 	velocity = -transform.basis.z * speed
 	drift += velocity
-	velocity = (velocity+(drift*0.8)).normalized()*speed
+	velocity = (velocity+(drift*clamp((speed-6.5)*1.3,0.03,0.7))).normalized()*speed
 	turnVel = clamp(turnVel,-3,3)
 	rotate_y(turnVel * delta)
 	#drift *= (1-Input.get_action_strength("backward"))
@@ -38,13 +38,14 @@ func getInput(delta: float):
 		turnVel *= 0.99
 	drift *= 0.98
 	enginerpm *= 0.995
+	power = clamp(power,0,100)
 	
 	if Input.is_action_just_pressed("forward") or Input.is_action_pressed("backward"):
 		drift *= 0.85
 		enginerpm *= 0.96
 	
 	#$"../Control/DebugLabel".text = str(abs(velocity.normalized()-drift.normalized()) > Vector3(0.1,0,0.1))
-	#$"../Control/DebugLabel".text = str(abs(velocity.normalized()-drift.normalized()))
+	$"../gui/DebugLabel".text = str(clamp((speed-6.5)*1.3,0.03,0.7))
 	if is_on_wall():
 		power -= 0.8*speed
 		drift += get_wall_normal()*speed*25
@@ -55,9 +56,16 @@ func getInput(delta: float):
 		
 	$ray.rotation.x = move_toward($ray.rotation.x,-turnInput*0.1,delta*0.3)
 	rotation.z = move_toward(rotation.z,turnInput*0.02,delta*0.05)
+	$ray.rotation.z = clamp((speed-5.5)*0.15,0,0.5)
+	$ray.position.y = clamp((speed-6)*0.02,0,0.5)
+	$ray.rotation.x = clamp($ray.rotation.x,-3,3)
 	$"../gui/Speedometer".text = str(int(floor(abs(speed)*60)))
 	$"../gui/TextureProgressBar".value = power
 
 func _physics_process(delta: float) -> void:
 	getInput(delta)
 	move_and_slide()
+
+
+func _on_crossedfinish() -> void:
+	power += 20
