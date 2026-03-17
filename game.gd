@@ -13,6 +13,8 @@ func _ready() -> void:
 			trackscene = preload("res://track_2.tscn")
 		2:
 			trackscene = preload("res://track_3.tscn")
+		3:
+			trackscene = preload("res://track_4.tscn")
 	var track = trackscene.instantiate()
 	add_child(track)
 	$"track/FinishCheckpoint".connect("finishcrossed",newLap)

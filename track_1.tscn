@@ -139,13 +139,21 @@ size = Vector3(9.875095, 1, 2.0850048)
 [sub_resource type="BoxShape3D" id="BoxShape3D_npa3b"]
 size = Vector3(0.6543775, 1, 0.44851026)
 
+[sub_resource type="Curve3D" id="Curve3D_tms4g"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.016759872, 0, -11.333728, 0, 0, 0, 0, 0, 0, 11.078108, 0, -11.266486, 0, 0, 0, 0, 0, 0, 14.238497, 0, -9.01387, 0, 0, 0, 0, 0, 0, 12.860029, 0, -6.59315, 0, 0, 0, 0, 0, 0, 12.019503, 0, -3.331901, 0, 0, 0, 0, 0, 0, 13.700556, 0, -0.7094524, 0, 0, 0, 0, 0, 0, 13.633314, 0, 2.9216292, 0, 0, 0, 0, 0, 0, 10.405687, 0, 4.0647464, 0, 0, 0, 0, 0, 0, 6.203047, 0, 3.190598, 0, 0, 0, 0, 0, 0, 2.8409328, 0, 2.2155855, 0, 0, 0, 0, 0, 0, -1.9668865, 0, 0.6017715, 0, 0, 0, 0, 0, 0, -6.337637, 0, 0.26556015, 0, 0, 0, 0, 0, 0, -8.59025, 0, 1.139709, 0, 0, 0, 0, 0, 0, -10.103203, 0, 2.8543866, 0, 0, 0, 0, 0, 0, -10.405794, 0, 4.77079, 0, 0, 0, 0, 0, 0, -10.742004, 0, 8.032041, 0, 0, 0, 0, 0, 0, -11.145458, 0, 9.343265, 0, 0, 0, 0, 0, 0, -12.725651, 0, 10.08293, 0, 0, 0, 0, 0, 0, -13.90239, 0, 9.040674, 0, 0, 0, 0, 0, 0, -14.070496, 0, 6.485468, 0, 0, 0, 0, 0, 0, -14.373085, 0, 1.5095415, 0, 0, 0, 0, 0, 0, -14.50757, 0, -4.105187, 0, 0, 0, 0, 0, 0, -13.532557, 0, -10.392337, 0, 0, 0, 0, 0, 0, -9.5988865, 0, -11.501834),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 24
+
 [node name="track" unique_id=1495171405 instance=ExtResource("1_uc7aa")]
 
-[node name="Plane" parent="." index="0" unique_id=441421478]
+[node name="Plane" parent="." index="0" unique_id=161141846]
 transform = Transform3D(50, 0, 0, 0, 5, 0, 0, 0, 50, 0, 0, 0)
 mesh = SubResource("ArrayMesh_43v1i")
 
-[node name="Plane_001" parent="." index="1" unique_id=540876692]
+[node name="Plane_001" parent="." index="1" unique_id=500801652]
 mesh = SubResource("ArrayMesh_irn3w")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2" unique_id=1293211455]
@@ -202,6 +210,10 @@ script = ExtResource("9_tms4g")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="speed" index="0" unique_id=209937240]
 transform = Transform3D(0.64834577, 0, -0.761346, 0, 1, 0, 0.761346, 0, 0.64834577, -10.310992, 1.8807008, 0.919266)
 shape = SubResource("BoxShape3D_npa3b")
+
+[node name="Path3D" type="Path3D" parent="." index="10" unique_id=334911054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5862236, 0)
+curve = SubResource("Curve3D_tms4g")
 
 [connection signal="body_entered" from="FinishCheckpoint" to="FinishCheckpoint" method="_on_body_entered"]
 [connection signal="body_entered" from="speed" to="speed" method="_on_body_entered"]

@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://pdixhj40tl88" path="res://graphics/track1_track1.png" id="5_q7p7d"]
 [ext_resource type="Texture2D" uid="uid://di3me54js3vlh" path="res://graphics/track2_track2.png" id="6_1p8ft"]
 [ext_resource type="Texture2D" uid="uid://dd3fsf2111wwv" path="res://graphics/track3_track3.png" id="7_1p8ft"]
+[ext_resource type="Texture2D" uid="uid://biwdrg3m88ygo" path="res://graphics/track4_track4.png" id="8_voa2l"]
 
 [sub_resource type="Theme" id="Theme_7aadh"]
 default_font = ExtResource("1_6vlms")
@@ -67,13 +68,14 @@ auto_height = true
 text_overrun_behavior = 0
 item_count = 5
 fixed_icon_size = Vector2i(20, 20)
-item_0/text = "MIASMA LAKE"
+item_0/text = "MIASMA LAKE I"
 item_0/icon = ExtResource("5_q7p7d")
 item_1/text = "CRYSTAL PLATEAU I"
 item_1/icon = ExtResource("6_1p8ft")
 item_2/text = "DARKNESS"
 item_2/icon = ExtResource("7_1p8ft")
-item_3/text = "BLIZZARD LAND I"
+item_3/text = "FIRE STORM I"
+item_3/icon = ExtResource("8_voa2l")
 item_4/text = "LUMINOUS OCEAN"
 
 [connection signal="item_clicked" from="HBoxContainer/MarginContainer/VBoxContainer/BronzeTracks" to="." method="_on_bronze_tracks_item_clicked"]
