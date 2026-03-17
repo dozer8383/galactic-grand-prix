@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dtyxvy17nkrn8" path="res://graphics/track2_surface2.png" id="3_ncy53"]
 [ext_resource type="Texture2D" uid="uid://dar8gimg31xi7" path="res://graphics/track2_surface2-bump.png" id="4_davg4"]
 [ext_resource type="Script" uid="uid://4tbfbh854hxt" path="res://finish_checkpoint.gd" id="7_ncy53"]
+[ext_resource type="Script" uid="uid://tth7vtpn1lxr" path="res://rough.gd" id="8_davg4"]
+[ext_resource type="Script" uid="uid://2iskuaqdhb2" path="res://speed.gd" id="9_7vc2v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7vc2v"]
 resource_name = "track"
@@ -82,13 +84,13 @@ shadow_mesh = SubResource("ArrayMesh_r3som")
 panorama = ExtResource("2_nw4t1")
 energy_multiplier = 0.7
 
-[sub_resource type="Sky" id="Sky_cqc7h"]
+[sub_resource type="Sky" id="Sky_ncy53"]
 sky_material = SubResource("PanoramaSkyMaterial_lpn3u")
 radiance_size = 4
 
 [sub_resource type="Environment" id="Environment_ebjun"]
 background_mode = 2
-sky = SubResource("Sky_cqc7h")
+sky = SubResource("Sky_ncy53")
 ssr_enabled = true
 sdfgi_use_occlusion = true
 glow_enabled = true
@@ -112,6 +114,21 @@ data = PackedVector3Array(-10.981, 3.4641, 0.5721, -10.940499, 1, 0.46409997, -1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_davg4"]
 size = Vector3(0.27734375, 0.6669922, 1.6367188)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s7n6n"]
+size = Vector3(7.7325788, 1, 2.9662955)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nd1r1"]
+size = Vector3(5.9310474, 1, 2.127001)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rrudx"]
+size = Vector3(14.587053, 1, 1.3380821)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_es5uq"]
+size = Vector3(14.587053, 1, 1.3380821)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j5aep"]
+size = Vector3(0.6543775, 1, 0.44851026)
 
 [node name="track" unique_id=461639217 instance=ExtResource("1_ht7c6")]
 
@@ -148,4 +165,40 @@ script = ExtResource("7_ncy53")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9002867, 1.776561, -11.309495)
 shape = SubResource("BoxShape3D_davg4")
 
+[node name="rough" type="Area3D" parent="." index="6" unique_id=893080409]
+script = ExtResource("8_davg4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="rough" index="0" unique_id=1930489481]
+transform = Transform3D(0.74098045, 0, 0.6715266, 0, 1, 0, -0.6715266, 0, 0.74098045, -14.082611, 1.8807008, -10.26375)
+shape = SubResource("BoxShape3D_s7n6n")
+
+[node name="rough2" type="Area3D" parent="." index="7" unique_id=1405279350]
+script = ExtResource("8_davg4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="rough2" index="0" unique_id=1786223718]
+transform = Transform3D(0.88161665, 0, 0.47196618, 0, 1, 0, -0.47196618, 0, 0.88161665, -8.157387, 1.6787901, 0.3405646)
+shape = SubResource("BoxShape3D_nd1r1")
+
+[node name="rough3" type="Area3D" parent="." index="8" unique_id=1222159215]
+script = ExtResource("8_davg4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="rough3" index="0" unique_id=1336858928]
+transform = Transform3D(0.70338225, 0, -0.7108118, 0, 1, 0, 0.7108118, 0, 0.70338225, 2.6470397, 1.7923315, 7.378533)
+shape = SubResource("BoxShape3D_rrudx")
+
+[node name="rough4" type="Area3D" parent="." index="9" unique_id=518993002]
+script = ExtResource("8_davg4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="rough4" index="0" unique_id=1174650702]
+transform = Transform3D(0.6502042, 0, -0.75975955, 0, 1, 0, 0.75975955, 0, 0.6502042, 0.60875994, 1.7923315, 9.1456585)
+shape = SubResource("BoxShape3D_es5uq")
+
+[node name="speed" type="Area3D" parent="." index="10" unique_id=397774756]
+script = ExtResource("9_7vc2v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="speed" index="0" unique_id=369491308]
+transform = Transform3D(0.9851573, 0, -0.171654, 0, 1, 0, 0.171654, 0, 0.9851573, -15.026212, 1.8807008, -3.5873015)
+shape = SubResource("BoxShape3D_j5aep")
+
 [connection signal="body_entered" from="FinishCheckpoint" to="FinishCheckpoint" method="_on_body_entered"]
+[connection signal="body_entered" from="speed" to="speed" method="_on_body_entered"]

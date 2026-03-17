@@ -16,6 +16,11 @@ func _ready() -> void:
 	var track = trackscene.instantiate()
 	add_child(track)
 	$"track/FinishCheckpoint".connect("finishcrossed",newLap)
+	for node in $track.get_children():
+		if node.name.contains("rough"):
+			node.connect("shipOnRough",$ray.onRough)
+		if node.name.contains("speed"):
+			node.connect("shipOnSpeed",$ray.onSpeed)
 
 func newLap() -> void:
 	if globals.timerGet() < tempBestTime or tempBestTime == 0:
