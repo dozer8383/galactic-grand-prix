@@ -8,7 +8,7 @@
 script = ExtResource("1_fc0e3")
 
 [node name="ray" parent="." unique_id=1185787226 instance=ExtResource("2_fc0e3")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2109338, 0.55207455, -8.112383)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.511061, 1.5691738, -11.872006)
 motion_mode = 0
 
 [node name="gui" parent="." unique_id=700108634 instance=ExtResource("3_7jktm")]

@@ -4,8 +4,9 @@
 [ext_resource type="Script" uid="uid://cu4m7kit5xjbc" path="res://trackselect.gd" id="1_7wbs0"]
 [ext_resource type="Theme" uid="uid://cxh21tuuh01u3" path="res://graphics/SixCaps.tres" id="2_7aadh"]
 [ext_resource type="Texture2D" uid="uid://nlaw33ln2g0d" path="res://graphics/background.png" id="2_o1ubp"]
-[ext_resource type="Texture2D" uid="uid://c68iblq8bks8p" path="res://graphics/track1_track1 (1).png" id="5_q7p7d"]
+[ext_resource type="Texture2D" uid="uid://pdixhj40tl88" path="res://graphics/track1_track1.png" id="5_q7p7d"]
 [ext_resource type="Texture2D" uid="uid://di3me54js3vlh" path="res://graphics/track2_track2.png" id="6_1p8ft"]
+[ext_resource type="Texture2D" uid="uid://dd3fsf2111wwv" path="res://graphics/track3_track3.png" id="7_1p8ft"]
 
 [sub_resource type="Theme" id="Theme_7aadh"]
 default_font = ExtResource("1_6vlms")
@@ -71,6 +72,7 @@ item_0/icon = ExtResource("5_q7p7d")
 item_1/text = "CRYSTAL PLATEAU I"
 item_1/icon = ExtResource("6_1p8ft")
 item_2/text = "DARKNESS"
+item_2/icon = ExtResource("7_1p8ft")
 item_3/text = "BLIZZARD LAND I"
 item_4/text = "LUMINOUS OCEAN"
 

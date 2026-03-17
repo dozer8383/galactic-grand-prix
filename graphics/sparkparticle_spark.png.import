@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgn7fkaryfn11"
 path.s3tc="res://.godot/imported/sparkparticle_spark.png-9c466d5c72dcf8de8b32ee1a95df3553.s3tc.ctex"
+path.etc2="res://.godot/imported/sparkparticle_spark.png-9c466d5c72dcf8de8b32ee1a95df3553.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://graphics/sparkparticle_spark.png"
-dest_files=["res://.godot/imported/sparkparticle_spark.png-9c466d5c72dcf8de8b32ee1a95df3553.s3tc.ctex"]
+dest_files=["res://.godot/imported/sparkparticle_spark.png-9c466d5c72dcf8de8b32ee1a95df3553.s3tc.ctex", "res://.godot/imported/sparkparticle_spark.png-9c466d5c72dcf8de8b32ee1a95df3553.etc2.ctex"]
 
 [params]
 

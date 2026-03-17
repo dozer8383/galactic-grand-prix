@@ -135,3 +135,8 @@ theme_override_constants/shadow_offset_y = 2
 theme_override_constants/shadow_outline_size = 0
 text = "BEST  0:00.00"
 vertical_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=585317160]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

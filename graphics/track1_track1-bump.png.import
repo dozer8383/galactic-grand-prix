@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2g8cakqmkqot"
 path.s3tc="res://.godot/imported/track1_track1-bump.png-a243d52a45a4cfd625247a8150f2e332.s3tc.ctex"
+path.etc2="res://.godot/imported/track1_track1-bump.png-a243d52a45a4cfd625247a8150f2e332.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://graphics/track1_track1-bump.png"
-dest_files=["res://.godot/imported/track1_track1-bump.png-a243d52a45a4cfd625247a8150f2e332.s3tc.ctex"]
+dest_files=["res://.godot/imported/track1_track1-bump.png-a243d52a45a4cfd625247a8150f2e332.s3tc.ctex", "res://.godot/imported/track1_track1-bump.png-a243d52a45a4cfd625247a8150f2e332.etc2.ctex"]
 
 [params]
 

@@ -4,18 +4,19 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://di3me54js3vlh"
 path.s3tc="res://.godot/imported/track2_track2.png-a92a6b0845fd9878f9bb6c883ff66635.s3tc.ctex"
+path.etc2="res://.godot/imported/track2_track2.png-a92a6b0845fd9878f9bb6c883ff66635.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "89e73d3c01402a09235a045cfd6d3dab"
+"md5": "864429316fedeeb1ee51c9f03d3d7c5a"
 }
 
 [deps]
 
 source_file="res://graphics/track2_track2.png"
-dest_files=["res://.godot/imported/track2_track2.png-a92a6b0845fd9878f9bb6c883ff66635.s3tc.ctex"]
+dest_files=["res://.godot/imported/track2_track2.png-a92a6b0845fd9878f9bb6c883ff66635.s3tc.ctex", "res://.godot/imported/track2_track2.png-a92a6b0845fd9878f9bb6c883ff66635.etc2.ctex"]
 
 [params]
 

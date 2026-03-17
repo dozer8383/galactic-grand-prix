@@ -10,6 +10,8 @@ func _ready() -> void:
 			trackscene = preload("res://track_1.tscn")
 		1:
 			trackscene = preload("res://track_2.tscn")
+		2:
+			trackscene = preload("res://track_3.tscn")
 	var track = trackscene.instantiate()
 	add_child(track)
 	$"track/FinishCheckpoint".connect("finishcrossed",newLap)
@@ -21,8 +23,8 @@ func newLap() -> void:
 
 func _process(delta: float) -> void:
 	var currenttime = globals.timerGet()
-	$gui/Time.text = "%01d:%02d.%03d" % [currenttime/60000,currenttime/1000,currenttime%1000]
-	$gui/BestTime.text = "BEST  %01d:%02d.%03d" % [tempBestTime/60000,tempBestTime/1000,tempBestTime%1000]
+	$gui/Time.text = "%01d:%02d.%03d" % [currenttime/60000,(currenttime/1000)%60,currenttime%1000]
+	$gui/BestTime.text = "BEST  %01d:%02d.%03d" % [tempBestTime/60000,(tempBestTime/1000)%60,tempBestTime%1000]
 
 func _on_crash() -> void:
 	$gui.hide()
