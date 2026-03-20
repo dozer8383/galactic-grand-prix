@@ -46,7 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.018925738)
 shape = SubResource("CylinderShape3D_hwms0")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=390519163]
-transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0, 0.262, 0.208)
+transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0, 0.262, 0.2)
 compositor = SubResource("Compositor_nk5m5")
 fov = 110.0
 size = 0.1

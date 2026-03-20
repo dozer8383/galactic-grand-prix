@@ -96,7 +96,7 @@ size = Vector3(0.6543775, 1, 0.44851026)
 
 [node name="track" unique_id=1225507885 instance=ExtResource("1_e514l")]
 
-[node name="trackPlane" parent="." index="0" unique_id=1492783229]
+[node name="trackPlane" parent="." index="0" unique_id=1519047274]
 mesh = SubResource("ArrayMesh_5d4uf")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="1" unique_id=869478762]
@@ -161,6 +161,14 @@ script = ExtResource("7_5d4uf")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="speed" index="0" unique_id=1904884686]
 transform = Transform3D(0.99998975, 0, -0.004520446, 0, 1, 0, 0.004520446, 0, 0.99998975, -11.83227, 1.8807008, 6.701222)
 shape = SubResource("BoxShape3D_ut2nc")
+
+[node name="DashPanelGlow" type="OmniLight3D" parent="." index="10" unique_id=140473632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.832553, 1.8349373, 6.710602)
+light_color = Color(0.99999994, 0.7097535, 0.10690499, 1)
+light_energy = 0.5
+omni_range = 3.0
+omni_attenuation = 2.0
+omni_shadow_mode = 0
 
 [connection signal="body_entered" from="FinishCheckpoint" to="FinishCheckpoint" method="_on_body_entered"]
 [connection signal="body_entered" from="speed" to="speed" method="_on_body_entered"]

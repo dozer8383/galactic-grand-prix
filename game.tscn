@@ -12,6 +12,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.88
 motion_mode = 0
 
 [node name="gui" parent="." unique_id=700108634 instance=ExtResource("3_7jktm")]
+visible = false
 
 [connection signal="crossedfinish" from="." to="ray" method="_on_crossedfinish"]
 [connection signal="crash" from="ray" to="." method="_on_crash"]

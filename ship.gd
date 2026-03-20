@@ -7,8 +7,11 @@ var turnVel = 0
 var drift = Vector3.ZERO
 var enginerpm = 0
 var power = 100
+var addPower = 0
 var crashed = false
+var canStart = false
 signal crash
+signal showHud
 
 func getInput(delta: float):
 	var moveInput = Input.get_action_strength("forward")
@@ -65,9 +68,23 @@ func getInput(delta: float):
 	$"../gui/Speedometer".text = str(int(floor(abs(speed)*60)))
 	$"../gui/TextureProgressBar".value = power
 
+func _ready() -> void:
+	$Camera3D.position.z = 15
+	$Camera3D.position.y = 5.06
+
 func _physics_process(delta: float) -> void:
-	getInput(delta)
-	move_and_slide()
+	if !canStart:
+		$Camera3D.position.z = move_toward($Camera3D.position.z, 0.2, delta*9)
+		$Camera3D.position.y = move_toward($Camera3D.position.y, 0.26, delta*3)
+		if round($Camera3D.position.z*100)/100 == 0.2 and round($Camera3D.position.y*100)/100 == 0.26:
+			canStart = true
+			showHud.emit()
+	else:
+		getInput(delta)
+		move_and_slide()
+		if addPower > 0:
+			addPower -= 1
+			power += 1
 
 func onRough() -> void:
 	enginerpm *= 0.99
@@ -79,4 +96,4 @@ func onSpeed() -> void:
 	drift *= 0.5
 
 func _on_crossedfinish() -> void:
-	power += 20
+	addPower += 20

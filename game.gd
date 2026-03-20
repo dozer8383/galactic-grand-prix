@@ -25,6 +25,7 @@ func _ready() -> void:
 			node.connect("shipOnRough",$ray.onRough)
 		if node.name.contains("speed"):
 			node.connect("shipOnSpeed",$ray.onSpeed)
+	$ray.connect("showHud",$gui.show)
 
 func newLap() -> void:
 	if globals.timerGet() < tempBestTime or tempBestTime == 0:

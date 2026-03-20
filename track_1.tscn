@@ -215,5 +215,13 @@ shape = SubResource("BoxShape3D_npa3b")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5862236, 0)
 curve = SubResource("Curve3D_tms4g")
 
+[node name="DashPanelGlow" type="OmniLight3D" parent="." index="11" unique_id=928674280]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.343323, 1.8349373, 0.9230885)
+light_color = Color(0.99999994, 0.7097535, 0.10690499, 1)
+light_energy = 0.5
+omni_range = 3.0
+omni_attenuation = 2.0
+omni_shadow_mode = 0
+
 [connection signal="body_entered" from="FinishCheckpoint" to="FinishCheckpoint" method="_on_body_entered"]
 [connection signal="body_entered" from="speed" to="speed" method="_on_body_entered"]
