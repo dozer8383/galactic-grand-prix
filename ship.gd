@@ -76,6 +76,7 @@ func onRough() -> void:
 
 func onSpeed() -> void:
 	enginerpm = 1.7
+	drift *= 0.5
 
 func _on_crossedfinish() -> void:
 	power += 20
