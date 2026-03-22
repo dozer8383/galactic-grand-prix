@@ -3,6 +3,10 @@ extends Node
 var currenttrackid = 0
 var start_time = 0
 var timerStarted = false
+var bestTimes = [0,0,0,0,0]
+
+func _ready() -> void:
+	loadGame()
 
 func timerStart():
 	start_time = Time.get_ticks_msec()
@@ -16,23 +20,26 @@ func timerGet():
 
 func saveGame():
 	var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
-	var save_nodes = get_tree().get_nodes_in_group("Persist")
-	for node in save_nodes:
-		# Check the node is an instanced scene so it can be instanced again during load.
-		if node.scene_file_path.is_empty():
-			print("persistent node '%s' is not an instanced scene, skipped" % node.name)
-			continue
 
-		# Check the node has a save function.
-		if !node.has_method("save"):
-			print("persistent node '%s' is missing a save() function, skipped" % node.name)
-			continue
+	# JSON provides a static method to serialized JSON string.
+	var json_string = JSON.stringify(globals.bestTimes)
 
-		# Call the node's save function.
-		var node_data = node.call("save")
+	# Store the save dictionary as a new line in the save file.
+	save_file.store_line(json_string)
 
-		# JSON provides a static method to serialized JSON string.
-		var json_string = JSON.stringify(node_data)
-
-		# Store the save dictionary as a new line in the save file.
-		save_file.store_line(json_string)
+func loadGame():
+	if not FileAccess.file_exists("user://savegame.save"):
+		return
+		
+	var save_file = FileAccess.open("user://savegame.save", FileAccess.READ)
+	var json_string = save_file.get_line()
+	
+	var json = JSON.new()
+	
+	var parse_result = json.parse(json_string)
+	if not parse_result == OK:
+		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+	
+	globals.bestTimes = json.data
+	if len(globals.bestTimes) < 5:
+		globals.bestTimes.resize(5)

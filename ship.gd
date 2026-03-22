@@ -1,8 +1,9 @@
 extends CharacterBody3D
 
-const enginepower = 7
+var enginepower = 5
 const turnSpeed = 0.3
 var speed = 0
+var thrust = 0
 var turnVel = 0
 var drift = Vector3.ZERO
 var enginerpm = 0
@@ -10,6 +11,7 @@ var power = 100
 var addPower = 0
 var crashed = false
 var canStart = false
+var thrustcolor = Vector3.ZERO
 signal crash
 signal showHud
 
@@ -27,6 +29,7 @@ func getInput(delta: float):
 			enginerpm += moveInput/170
 		turnVel += turnSpeed * turnInput
 	
+	enginepower = 4.5+speed/4
 	speed = enginerpm * enginepower
 	velocity = -transform.basis.z * speed
 	drift += velocity
@@ -67,15 +70,21 @@ func getInput(delta: float):
 	$ray.rotation.x = clamp($ray.rotation.x,-3,3)
 	$"../gui/Speedometer".text = str(int(floor(abs(speed)*60)))
 	$"../gui/TextureProgressBar".value = power
+	if Input.is_action_pressed("forward"):
+		thrust = speed
+	else:
+		thrust = move_toward(thrust, 0, delta*5)
+	$Thrust.light_energy = thrust/40
+	$Thrust2.light_energy = thrust/40
 
 func _ready() -> void:
-	$Camera3D.position.z = 15
-	$Camera3D.position.y = 5.06
+	$Camera3D.position.z = 15.2
+	$Camera3D.position.y = 7.77
 
 func _physics_process(delta: float) -> void:
 	if !canStart:
-		$Camera3D.position.z = move_toward($Camera3D.position.z, 0.2, delta*9)
-		$Camera3D.position.y = move_toward($Camera3D.position.y, 0.26, delta*3)
+		$Camera3D.position.z = move_toward($Camera3D.position.z, 0.2, delta*8)
+		$Camera3D.position.y = move_toward($Camera3D.position.y, 0.26, delta*4)
 		if round($Camera3D.position.z*100)/100 == 0.2 and round($Camera3D.position.y*100)/100 == 0.26:
 			canStart = true
 			showHud.emit()
@@ -92,8 +101,8 @@ func onRough() -> void:
 	$ray.position.y -= 0.004*randf()+0.002
 
 func onSpeed() -> void:
-	enginerpm = 1.7
+	enginerpm = 1.5
 	drift *= 0.5
 
 func _on_crossedfinish() -> void:
-	addPower += 20
+	addPower += 35

@@ -1,0 +1,41 @@
+[gd_resource type="Theme" format=3 uid="uid://v32jg1x66ioj"]
+
+[ext_resource type="Texture2D" uid="uid://pkxe1k7073ai" path="res://graphics/button-white.png" id="1_cfkk5"]
+[ext_resource type="FontFile" uid="uid://dqae8nltbsopi" path="res://graphics/Unbounded-Medium.ttf" id="2_88hm4"]
+[ext_resource type="Texture2D" uid="uid://bqn6m2h0y7jhc" path="res://graphics/button.png" id="2_cfkk5"]
+[ext_resource type="StyleBox" uid="uid://by3hp1m22vg40" path="res://marbleButton.tres" id="2_n1lar"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n1lar"]
+texture = ExtResource("1_cfkk5")
+texture_margin_left = 32.0
+texture_margin_top = 8.0
+texture_margin_right = 32.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yxp4k"]
+texture = ExtResource("2_cfkk5")
+texture_margin_left = 32.0
+texture_margin_top = 8.0
+texture_margin_right = 32.0
+texture_margin_bottom = 8.0
+modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_80ktb"]
+texture = ExtResource("2_cfkk5")
+texture_margin_left = 32.0
+texture_margin_top = 8.0
+texture_margin_right = 32.0
+texture_margin_bottom = 8.0
+modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
+
+[resource]
+default_font = ExtResource("2_88hm4")
+Button/colors/font_disabled_color = Color(0.17430946, 0.3049821, 0.29870704, 1)
+Button/font_sizes/font_size = 16
+Button/styles/disabled = SubResource("StyleBoxTexture_n1lar")
+Button/styles/focus = SubResource("StyleBoxTexture_yxp4k")
+Button/styles/hover = SubResource("StyleBoxTexture_80ktb")
+Button/styles/normal = ExtResource("2_n1lar")
+Button/styles/pressed = ExtResource("2_n1lar")
+ItemList/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 65

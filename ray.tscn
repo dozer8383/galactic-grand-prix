@@ -50,3 +50,19 @@ transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90
 compositor = SubResource("Compositor_nk5m5")
 fov = 110.0
 size = 0.1
+
+[node name="Thrust" type="OmniLight3D" parent="." unique_id=117587883]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.046235584, -0.026178088, 0.08209117)
+light_color = Color(0.30547777, 0.8156511, 0.9999998, 1)
+light_energy = 0.0
+omni_range = 1.0
+omni_attenuation = 1.2
+omni_shadow_mode = 0
+
+[node name="Thrust2" type="OmniLight3D" parent="." unique_id=1401228337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.046735704, -0.026178088, 0.08209117)
+light_color = Color(0.30547777, 0.8156511, 0.9999998, 1)
+light_energy = 0.0
+omni_range = 1.0
+omni_attenuation = 1.2
+omni_shadow_mode = 0

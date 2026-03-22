@@ -9,11 +9,39 @@
 [ext_resource type="Texture2D" uid="uid://dd3fsf2111wwv" path="res://graphics/track3_track3.png" id="7_1p8ft"]
 [ext_resource type="Texture2D" uid="uid://biwdrg3m88ygo" path="res://graphics/track4_track4.png" id="8_voa2l"]
 [ext_resource type="Texture2D" uid="uid://cjaju65xryj2l" path="res://graphics/track5_track5.png" id="9_4qkc3"]
+[ext_resource type="Theme" uid="uid://v32jg1x66ioj" path="res://trackselect.tres" id="10_1l5nq"]
 [ext_resource type="PackedScene" uid="uid://ckfrsuvx3wynb" path="res://track_1.tscn" id="10_si4sn"]
+[ext_resource type="Script" uid="uid://cmmmku2nx2r6s" path="res://trackbutton.gd" id="11_a4abw"]
+[ext_resource type="Script" uid="uid://djo6nm8kuxvlt" path="res://tracktime.gd" id="12_n3dh0"]
+[ext_resource type="StyleBox" uid="uid://b7wa2cf30coej" path="res://arrowSelect.tres" id="12_r4j7a"]
 
 [sub_resource type="Theme" id="Theme_7aadh"]
 default_font = ExtResource("1_6vlms")
 Label/font_sizes/font_size = 18
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3c45g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6exd1"]
+
+[sub_resource type="Theme" id="Theme_n3dh0"]
+default_font = ExtResource("1_6vlms")
+Button/font_sizes/font_size = 24
+Button/styles/focus = ExtResource("12_r4j7a")
+Button/styles/hover = ExtResource("12_r4j7a")
+Button/styles/normal = SubResource("StyleBoxEmpty_3c45g")
+Button/styles/pressed = SubResource("StyleBoxEmpty_6exd1")
+ItemList/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 48
+
+[sub_resource type="Theme" id="Theme_r4j7a"]
+default_font = ExtResource("1_6vlms")
+Button/font_sizes/font_size = 24
+Button/styles/focus = ExtResource("12_r4j7a")
+Button/styles/hover = ExtResource("12_r4j7a")
+Button/styles/normal = SubResource("StyleBoxEmpty_3c45g")
+Button/styles/pressed = SubResource("StyleBoxEmpty_6exd1")
+ItemList/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 24
 
 [node name="Node3D" type="Node3D" unique_id=1502830682]
 
@@ -41,6 +69,7 @@ expand_mode = 5
 stretch_mode = 6
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TrackSelect" unique_id=1306346051]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,21 +80,34 @@ grow_vertical = 2
 [node name="MarginContainer" type="MarginContainer" parent="TrackSelect/HBoxContainer" unique_id=2063348419]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 300
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 300
-theme_override_constants/margin_bottom = 16
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 400
+theme_override_constants/margin_bottom = 48
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TrackSelect/HBoxContainer/MarginContainer" unique_id=1782641834]
-layout_mode = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="TrackSelect" unique_id=1782641834]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -199.0
+offset_right = 216.0
+offset_bottom = 276.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="TrackSelect/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1541875853]
+[node name="Label" type="Label" parent="TrackSelect/VBoxContainer" unique_id=1541875853]
 layout_mode = 2
 theme = SubResource("Theme_7aadh")
 text = "Bronze League"
+horizontal_alignment = 1
 
-[node name="BronzeTracks" type="ItemList" parent="TrackSelect/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1243745008]
+[node name="BronzeTracks" type="ItemList" parent="TrackSelect/VBoxContainer" unique_id=1243745008]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_7aadh")
 auto_width = true
@@ -84,11 +126,89 @@ item_3/icon = ExtResource("8_voa2l")
 item_4/text = "LUMINOUS OCEAN"
 item_4/icon = ExtResource("9_4qkc3")
 
+[node name="HBoxContainer" type="HBoxContainer" parent="TrackSelect/VBoxContainer" unique_id=1626216809]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TrackSelect/VBoxContainer/HBoxContainer" unique_id=1436347028]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Track1" type="Button" parent="TrackSelect/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=358673439]
+layout_mode = 2
+theme = ExtResource("10_1l5nq")
+text = "MIASMA LAKE I"
+icon = ExtResource("5_q7p7d")
+expand_icon = true
+script = ExtResource("11_a4abw")
+metadata/trackID = 0
+
+[node name="Track2" type="Button" parent="TrackSelect/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=904746711]
+layout_mode = 2
+theme = ExtResource("10_1l5nq")
+text = "CRYSTAL PLATEAU I"
+icon = ExtResource("6_1p8ft")
+expand_icon = true
+script = ExtResource("11_a4abw")
+metadata/trackID = 1
+
+[node name="Track3" type="Button" parent="TrackSelect/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1565463499]
+layout_mode = 2
+theme = ExtResource("10_1l5nq")
+text = "DARKNESS"
+icon = ExtResource("7_1p8ft")
+expand_icon = true
+script = ExtResource("11_a4abw")
+metadata/trackID = 2
+
+[node name="Track4" type="Button" parent="TrackSelect/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=307618073]
+layout_mode = 2
+theme = ExtResource("10_1l5nq")
+text = "FIRE STORM I"
+icon = ExtResource("8_voa2l")
+expand_icon = true
+script = ExtResource("11_a4abw")
+metadata/trackID = 3
+
+[node name="Track5" type="Button" parent="TrackSelect/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1486173163]
+layout_mode = 2
+theme = ExtResource("10_1l5nq")
+text = "LUMINOUS OCEAN"
+icon = ExtResource("9_4qkc3")
+expand_icon = true
+script = ExtResource("11_a4abw")
+metadata/trackID = 4
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TrackSelect/VBoxContainer/HBoxContainer" unique_id=54269305]
+layout_mode = 2
+
+[node name="TrackTime1" type="Button" parent="TrackSelect/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1252855479]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("10_1l5nq")
+disabled = true
+text = "0:00.00"
+script = ExtResource("12_n3dh0")
+
+[node name="Label" type="Label" parent="TrackSelect" unique_id=1829274835]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 196.0
+offset_bottom = 47.0
+theme = SubResource("Theme_n3dh0")
+text = "Time Trial"
+
+[node name="Label2" type="Label" parent="TrackSelect" unique_id=2099562509]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 87.0
+offset_right = 236.0
+offset_bottom = 117.0
+theme = SubResource("Theme_r4j7a")
+text = "Select a track"
+
 [node name="track" parent="." unique_id=1495171405 instance=ExtResource("10_si4sn")]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1593440332]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.2872127, 2.0001698, -11.289756)
 fov = 90.0
-
-[connection signal="item_clicked" from="TrackSelect/HBoxContainer/MarginContainer/VBoxContainer/BronzeTracks" to="TrackSelect" method="_on_bronze_tracks_item_clicked"]
-[connection signal="item_selected" from="TrackSelect/HBoxContainer/MarginContainer/VBoxContainer/BronzeTracks" to="TrackSelect" method="_on_bronze_tracks_item_selected"]

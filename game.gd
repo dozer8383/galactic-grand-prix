@@ -5,6 +5,8 @@ var trackscene
 signal crossedfinish
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	globals.loadGame()
+	tempBestTime = int(globals.bestTimes[globals.currenttrackid])
 	globals.timerStarted = false
 	match globals.currenttrackid:
 		0:
@@ -28,10 +30,13 @@ func _ready() -> void:
 	$ray.connect("showHud",$gui.show)
 
 func newLap() -> void:
-	if globals.timerGet() < tempBestTime or tempBestTime == 0:
-		tempBestTime = globals.timerGet()
+	if globals.timerStarted:
+		if globals.timerGet() < tempBestTime or tempBestTime == 0:
+			tempBestTime = globals.timerGet()
+			globals.bestTimes[globals.currenttrackid] = tempBestTime
 	globals.timerStart()
 	crossedfinish.emit()
+	globals.saveGame()
 
 func _process(delta: float) -> void:
 	var currenttime = globals.timerGet()

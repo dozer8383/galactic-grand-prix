@@ -136,6 +136,7 @@ size = Vector3(0.6543775, 1, 0.44851026)
 mesh = SubResource("ArrayMesh_s7n6n")
 
 [node name="Plane" parent="." index="1" unique_id=988254975]
+transform = Transform3D(100, 0, 0, 0, 2, 0, 0, 0, 100, 0, 0, 0)
 mesh = SubResource("ArrayMesh_rrudx")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2" unique_id=1406401025]
