@@ -1,0 +1,13 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://tsukxknl8shi"]
+
+[ext_resource type="FontFile" uid="uid://dqae8nltbsopi" path="res://graphics/Unbounded-Medium.ttf" id="1_3j8gu"]
+
+[resource]
+font = ExtResource("1_3j8gu")
+font_size = 40
+font_color = Color(0.59318715, 0.78558743, 7.70092e-07, 1)
+stacked_shadow_count = 2
+stacked_shadow_0/offset = Vector2(2, 3)
+stacked_shadow_0/color = Color(3.128499e-07, 0.4389931, 0.31457826, 1)
+stacked_shadow_1/offset = Vector2(4, 6)
+stacked_shadow_1/color = Color(0, 0.27389124, 0.4606145, 1)

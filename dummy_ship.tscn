@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://qvwd3ggvg4dw"]
+
+[ext_resource type="PackedScene" uid="uid://cmo68d02hoaxn" path="res://graphics/bumper.glb" id="1_lcyky"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_staxp"]
+height = 0.1015625
+radius = 0.080566406
+
+[node name="dummyShip" type="CharacterBody3D" unique_id=1676720759]
+
+[node name="bumper" parent="." unique_id=314746845 instance=ExtResource("1_lcyky")]
+transform = Transform3D(-3.496911e-09, 0, 0.08, 0, 0.08, 0, -0.08, 0, -3.496911e-09, 0, 0.03976281, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=327980191]
+transform = Transform3D(1, 0, 3.5527137e-15, 0, 1, 0, -3.5527137e-15, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_staxp")
+
+[node name="Thrust" type="OmniLight3D" parent="." unique_id=1066430462]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.060863875, -0.026178088, 0.1093539)
+light_color = Color(0.6149648, 0.45298356, 0.99999493, 1)
+light_energy = 0.1
+omni_range = 1.0
+omni_attenuation = 1.2
+omni_shadow_mode = 0
+
+[node name="Thrust2" type="OmniLight3D" parent="." unique_id=448170079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.062231027, -0.026178088, 0.1093539)
+light_color = Color(0.6149648, 0.45298356, 0.99999493, 1)
+light_energy = 0.1
+omni_range = 1.0
+omni_attenuation = 1.2
+omni_shadow_mode = 0

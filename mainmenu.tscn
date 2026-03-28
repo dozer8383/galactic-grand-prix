@@ -4,7 +4,40 @@
 [ext_resource type="Texture2D" uid="uid://1qn3mxxt2j6h" path="res://graphics/ggp-logo.png" id="1_d2nv2"]
 [ext_resource type="Theme" uid="uid://cxh21tuuh01u3" path="res://graphics/SixCaps.tres" id="1_wgsso"]
 [ext_resource type="PackedScene" uid="uid://ckfrsuvx3wynb" path="res://track_1.tscn" id="2_d2nv2"]
-[ext_resource type="Script" uid="uid://c1uj1hdrc7n2f" path="res://practice_button.gd" id="2_igs2m"]
+[ext_resource type="StyleBox" uid="uid://dwhhwupgv26ua" path="res://orangeMarble.tres" id="4_0y70q"]
+[ext_resource type="Texture2D" uid="uid://pkxe1k7073ai" path="res://graphics/button-white.png" id="4_rqglp"]
+[ext_resource type="Texture2D" uid="uid://bqn6m2h0y7jhc" path="res://graphics/button.png" id="5_0y70q"]
+[ext_resource type="StyleBox" uid="uid://by3hp1m22vg40" path="res://marbleButton.tres" id="6_qrn07"]
+[ext_resource type="FontFile" uid="uid://dqae8nltbsopi" path="res://graphics/Unbounded-Medium.ttf" id="7_lidg2"]
+[ext_resource type="Script" uid="uid://djo6nm8kuxvlt" path="res://tracktime.gd" id="8_raimv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yxp4k"]
+texture = ExtResource("5_0y70q")
+texture_margin_left = 32.0
+texture_margin_top = 8.0
+texture_margin_right = 32.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.7248709, 1.3528494, 1.0493263, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qrn07"]
+texture = ExtResource("4_rqglp")
+texture_margin_left = 32.0
+texture_margin_top = 8.0
+texture_margin_right = 32.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.8492183, 0.60049736, 0.39547062, 1)
+
+[sub_resource type="Theme" id="Theme_qy7ti"]
+default_font = ExtResource("7_lidg2")
+Button/colors/font_disabled_color = Color(0.43893322, 0.15931511, 0.31992233, 1)
+Button/font_sizes/font_size = 16
+Button/styles/disabled = ExtResource("4_0y70q")
+Button/styles/focus = SubResource("StyleBoxTexture_yxp4k")
+Button/styles/hover = SubResource("StyleBoxTexture_qrn07")
+Button/styles/normal = ExtResource("4_0y70q")
+Button/styles/pressed = ExtResource("6_qrn07")
+ItemList/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 65
 
 [node name="Node3D" type="Node3D" unique_id=1272696323]
 
@@ -25,25 +58,31 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
-offset_top = 55.0
+offset_top = 46.0
 offset_right = 100.0
-offset_bottom = 153.0
+offset_bottom = 178.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="GrandPrixButton" type="Button" parent="Control/VBoxContainer" unique_id=1863225253]
+layout_mode = 2
+theme = ExtResource("1_wgsso")
+text = "Grand Prix"
+alignment = 2
 
 [node name="TimeTrialButton" type="Button" parent="Control/VBoxContainer" unique_id=1365209895]
 layout_mode = 2
 theme = ExtResource("1_wgsso")
 text = "Time Trial"
 alignment = 2
-script = ExtResource("2_igs2m")
 
 [node name="ChallengesButton" type="Button" parent="Control/VBoxContainer" unique_id=2051879567]
 layout_mode = 2
 theme = ExtResource("1_wgsso")
+disabled = true
 text = "Challenges"
+flat = true
 alignment = 2
-script = ExtResource("2_igs2m")
 
 [node name="SettingsButton" type="Button" parent="Control/VBoxContainer" unique_id=1625408503]
 layout_mode = 2
@@ -68,11 +107,35 @@ texture = ExtResource("1_d2nv2")
 expand_mode = 3
 stretch_mode = 4
 
+[node name="CompatWarning" type="Button" parent="Control" unique_id=1971267627]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -283.5
+offset_top = -127.0
+offset_right = 283.5
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = SubResource("Theme_qy7ti")
+text = "WARNING
+Playing Galactic Grand Prix in the brower sucks!
+Click this button to be taken to the downloads page
+and select the native executable for your OS."
+script = ExtResource("8_raimv")
+metadata/trackID = 0
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=972953568]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.2872127, 2.0001698, -11.289756)
 fov = 90.0
 
 [node name="track" parent="." unique_id=1495171405 instance=ExtResource("2_d2nv2")]
 
-[connection signal="pressed" from="Control/VBoxContainer/TimeTrialButton" to="Control/VBoxContainer/TimeTrialButton" method="_on_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/ChallengesButton" to="Control/VBoxContainer/ChallengesButton" method="_on_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/GrandPrixButton" to="Control" method="_on_grand_prix_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/TimeTrialButton" to="Control" method="_on_time_trial_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/SettingsButton" to="Control" method="_on_settings_button_pressed"]

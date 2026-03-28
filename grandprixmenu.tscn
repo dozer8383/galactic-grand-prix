@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://wlgwtwumt6ja"]
+
+[ext_resource type="Script" uid="uid://cdb5ibh5181a6" path="res://prixtrackselect.gd" id="1_ia2d6"]
+[ext_resource type="FontFile" uid="uid://dqae8nltbsopi" path="res://graphics/Unbounded-Medium.ttf" id="1_wmq5x"]
+[ext_resource type="Texture2D" uid="uid://p24jcm7alfer" path="res://graphics/bronzetrophy.png" id="2_jjgod"]
+[ext_resource type="Texture2D" uid="uid://b2ap2l0tic465" path="res://graphics/silvertrophy.png" id="3_jjgod"]
+[ext_resource type="Texture2D" uid="uid://dm1jo7esojowr" path="res://graphics/goldtrophy.png" id="4_jn1k1"]
+[ext_resource type="StyleBox" uid="uid://b7wa2cf30coej" path="res://arrowSelect.tres" id="5_wjdbo"]
+[ext_resource type="Script" uid="uid://cuuy0ne8lyyix" path="res://back_button.gd" id="7_ia2d6"]
+[ext_resource type="Theme" uid="uid://v32jg1x66ioj" path="res://trackselect.tres" id="8_480bq"]
+[ext_resource type="PackedScene" uid="uid://ckfrsuvx3wynb" path="res://track_1.tscn" id="8_wjdbo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n3dh0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jwbgh"]
+
+[sub_resource type="Theme" id="Theme_wmq5x"]
+default_font = ExtResource("1_wmq5x")
+Button/font_sizes/font_size = 24
+Button/styles/focus = ExtResource("5_wjdbo")
+Button/styles/hover = ExtResource("5_wjdbo")
+Button/styles/normal = SubResource("StyleBoxEmpty_n3dh0")
+Button/styles/pressed = SubResource("StyleBoxEmpty_jwbgh")
+ItemList/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 48
+
+[sub_resource type="Theme" id="Theme_loilo"]
+default_font = ExtResource("1_wmq5x")
+Button/font_sizes/font_size = 24
+Button/styles/focus = ExtResource("5_wjdbo")
+Button/styles/hover = ExtResource("5_wjdbo")
+Button/styles/normal = SubResource("StyleBoxEmpty_n3dh0")
+Button/styles/pressed = SubResource("StyleBoxEmpty_jwbgh")
+ItemList/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 24
+
+[node name="Node3D" type="Node3D" unique_id=1637265840]
+
+[node name="TrackSelect" type="Control" parent="." unique_id=458597201]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ia2d6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TrackSelect" unique_id=1290056941]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -98.0
+offset_right = 200.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="BronzeLeague" type="Button" parent="TrackSelect/VBoxContainer" unique_id=918552979]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8_480bq")
+text = "BRONZE LEAGUE"
+icon = ExtResource("2_jjgod")
+expand_icon = true
+metadata/trackID = 0
+
+[node name="SilverLeague" type="Button" parent="TrackSelect/VBoxContainer" unique_id=890373989]
+layout_mode = 2
+theme = ExtResource("8_480bq")
+text = "COMING SOON"
+icon = ExtResource("3_jjgod")
+expand_icon = true
+metadata/trackID = 1
+
+[node name="GoldLeague" type="Button" parent="TrackSelect/VBoxContainer" unique_id=856872478]
+layout_mode = 2
+theme = ExtResource("8_480bq")
+text = "COMING SOON"
+icon = ExtResource("4_jn1k1")
+expand_icon = true
+metadata/trackID = 2
+
+[node name="Label" type="Label" parent="TrackSelect" unique_id=695838789]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 196.0
+offset_bottom = 47.0
+theme = SubResource("Theme_wmq5x")
+text = "Grand Prix"
+
+[node name="Label2" type="Label" parent="TrackSelect" unique_id=977698679]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 87.0
+offset_right = 236.0
+offset_bottom = 117.0
+theme = SubResource("Theme_loilo")
+text = "Select a league"
+
+[node name="BackButton" type="Button" parent="TrackSelect" unique_id=210004656]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -68.0
+offset_right = 154.0
+offset_bottom = -32.0
+grow_vertical = 0
+theme = ExtResource("8_480bq")
+text = "Back"
+expand_icon = true
+script = ExtResource("7_ia2d6")
+metadata/trackID = 4
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=442092954]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.2872127, 2.0001698, -11.289756)
+fov = 90.0
+
+[node name="track" parent="." unique_id=1495171405 instance=ExtResource("8_wjdbo")]
+
+[connection signal="pressed" from="TrackSelect/VBoxContainer/BronzeLeague" to="TrackSelect" method="_on_bronze_league_pressed"]
+[connection signal="pressed" from="TrackSelect/VBoxContainer/SilverLeague" to="TrackSelect" method="_on_silver_league_pressed"]
+[connection signal="pressed" from="TrackSelect/VBoxContainer/GoldLeague" to="TrackSelect" method="_on_gold_league_pressed"]

@@ -6,11 +6,14 @@
 [ext_resource type="ArrayMesh" uid="uid://bv88uedbysncd" path="res://graphics/track4-collision.obj" id="4_5caal"]
 [ext_resource type="Script" uid="uid://4tbfbh854hxt" path="res://finish_checkpoint.gd" id="4_lgih1"]
 [ext_resource type="Script" uid="uid://tth7vtpn1lxr" path="res://rough.gd" id="6_5caal"]
+[ext_resource type="Script" uid="uid://cvyehwxdwex2j" path="res://mid_checkpoint.gd" id="6_taxx2"]
 [ext_resource type="Script" uid="uid://2iskuaqdhb2" path="res://speed.gd" id="7_e31gr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70lex"]
 resource_name = "track"
-transparency = 4
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
 cull_mode = 2
 albedo_texture = ExtResource("2_qxh41")
 texture_filter = 0
@@ -82,6 +85,9 @@ data = PackedVector3Array(17.321, 1, -16.432499, 17.7741, 1, -15.527599, 20.0134
 [sub_resource type="BoxShape3D" id="BoxShape3D_84ljm"]
 size = Vector3(0.27734375, 0.6669922, 1.6367188)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_o4rbg"]
+size = Vector3(3.256836, 0.6669922, 0.27319336)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_e31gr"]
 size = Vector3(4.8125, 1, 1.5127063)
 
@@ -139,63 +145,72 @@ script = ExtResource("4_lgih1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9002867, 1.776561, -11.309495)
 shape = SubResource("BoxShape3D_84ljm")
 
-[node name="rough" type="Area3D" parent="." index="6" unique_id=560437997]
+[node name="MidCheckpoint" type="Area3D" parent="." index="6" unique_id=346049781]
+monitorable = false
+script = ExtResource("6_taxx2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MidCheckpoint" index="0" unique_id=1060123265]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.495564, 1.8096172, 1.005238)
+shape = SubResource("BoxShape3D_o4rbg")
+debug_color = Color(0.88235295, 0, 0.8235294, 1)
+
+[node name="rough" type="Area3D" parent="." index="7" unique_id=560437997]
 script = ExtResource("6_5caal")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="rough" index="0" unique_id=322257838]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0425024, 1.8807008, 14.844599)
 shape = SubResource("BoxShape3D_e31gr")
 
-[node name="rough2" type="Area3D" parent="." index="7" unique_id=594500307]
+[node name="rough2" type="Area3D" parent="." index="8" unique_id=594500307]
 script = ExtResource("6_5caal")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="rough2" index="0" unique_id=836208889]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.579468, 1.8807008, 4.365941)
 shape = SubResource("BoxShape3D_taxx2")
 
-[node name="rough3" type="Area3D" parent="." index="8" unique_id=194690223]
+[node name="rough3" type="Area3D" parent="." index="9" unique_id=194690223]
 script = ExtResource("6_5caal")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="rough3" index="0" unique_id=414024690]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.579468, 1.8807008, -9.002449)
 shape = SubResource("BoxShape3D_cadft")
 
-[node name="rough4" type="Area3D" parent="." index="9" unique_id=365982547]
+[node name="rough4" type="Area3D" parent="." index="10" unique_id=365982547]
 script = ExtResource("6_5caal")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="rough4" index="0" unique_id=217366148]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.675451, 1.8807008, -1.1504126)
 shape = SubResource("BoxShape3D_f8kit")
 
-[node name="rough5" type="Area3D" parent="." index="10" unique_id=1441750718]
+[node name="rough5" type="Area3D" parent="." index="11" unique_id=1441750718]
 script = ExtResource("6_5caal")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="rough5" index="0" unique_id=1218603809]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.453152, 1.8807008, -1.1504126)
 shape = SubResource("BoxShape3D_f8kit")
 
-[node name="rough6" type="Area3D" parent="." index="11" unique_id=437396646]
+[node name="rough6" type="Area3D" parent="." index="12" unique_id=437396646]
 script = ExtResource("6_5caal")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="rough6" index="0" unique_id=1269820775]
 transform = Transform3D(0.96758586, 0, 0.25254223, 0, 1, 0, -0.25254223, 0, 0.96758586, -6.5339303, 1.8807008, 1.0080984)
 shape = SubResource("BoxShape3D_5caal")
 
-[node name="rough7" type="Area3D" parent="." index="12" unique_id=813978445]
+[node name="rough7" type="Area3D" parent="." index="13" unique_id=813978445]
 script = ExtResource("6_5caal")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="rough7" index="0" unique_id=1778582357]
 transform = Transform3D(0.66341716, 0, 0.7482499, 0, 1, 0, -0.7482499, 0, 0.66341716, 15.998432, 1.8807008, -8.87282)
 shape = SubResource("BoxShape3D_8laiq")
 
-[node name="speed" type="Area3D" parent="." index="13" unique_id=1087126476]
+[node name="speed" type="Area3D" parent="." index="14" unique_id=1087126476]
 script = ExtResource("7_e31gr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="speed" index="0" unique_id=1747513329]
 transform = Transform3D(0.95119125, 0, 0.3086019, 0, 1, 0, -0.3086019, 0, 0.95119125, -14.3691635, 1.8807008, -15.586844)
 shape = SubResource("BoxShape3D_ruucs")
 
-[node name="DashPanelGlow" type="OmniLight3D" parent="." index="14" unique_id=1138540050]
+[node name="DashPanelGlow" type="OmniLight3D" parent="." index="15" unique_id=1138540050]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.377604, 1.8349373, -15.595798)
 light_color = Color(0.99999994, 0.7097535, 0.10690499, 1)
 light_energy = 0.5
@@ -204,4 +219,5 @@ omni_attenuation = 2.0
 omni_shadow_mode = 0
 
 [connection signal="body_entered" from="FinishCheckpoint" to="FinishCheckpoint" method="_on_body_entered"]
+[connection signal="body_entered" from="MidCheckpoint" to="MidCheckpoint" method="_on_body_entered"]
 [connection signal="body_entered" from="speed" to="speed" method="_on_body_entered"]

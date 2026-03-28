@@ -8,10 +8,11 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
-func _on_body_entered(body: Node3D) -> void:
-	print("speed from area")
-	shipOnSpeed.emit()
+func _on_body_entered(_body: Node3D) -> void:
+	for body2 in get_overlapping_bodies():
+		if body2.name == "ray":
+			shipOnSpeed.emit()

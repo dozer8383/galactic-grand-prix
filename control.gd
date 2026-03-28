@@ -3,9 +3,18 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_node("VBoxContainer/TimeTrialButton").grab_focus()
+	get_node("VBoxContainer/GrandPrixButton").grab_focus()
+	globals.raceType = 0
+	globals.raceStarted = false
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_time_trial_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://trackselect.tscn")
+
+
+func _on_settings_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://settings.tscn")
+
+
+func _on_grand_prix_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://grandprixmenu.tscn")

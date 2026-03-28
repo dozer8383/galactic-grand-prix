@@ -1,0 +1,13 @@
+extends Button
+
+var sure = false
+
+func _pressed() -> void:
+	if sure:
+		globals.bestTimes = [0,0,0,0,0]
+		globals.saveGame()
+		text = "Deleted."
+	else:
+		text = "u sure bro?"
+		sure = true
+		

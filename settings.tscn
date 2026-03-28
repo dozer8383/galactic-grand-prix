@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://dcpj43tjc0qli"]
+
+[ext_resource type="Script" uid="uid://b26cg0nphtoqe" path="res://settings.gd" id="1_71mqq"]
+[ext_resource type="StyleBox" uid="uid://b7wa2cf30coej" path="res://arrowSelect.tres" id="1_cj1lu"]
+[ext_resource type="PackedScene" uid="uid://ckfrsuvx3wynb" path="res://track_1.tscn" id="1_x2hje"]
+[ext_resource type="FontFile" uid="uid://dqae8nltbsopi" path="res://graphics/Unbounded-Medium.ttf" id="2_71mqq"]
+[ext_resource type="Theme" uid="uid://v32jg1x66ioj" path="res://trackselect.tres" id="3_3j6r5"]
+[ext_resource type="Script" uid="uid://cuuy0ne8lyyix" path="res://back_button.gd" id="4_3lj6o"]
+[ext_resource type="Script" uid="uid://i6lbq20dfi2o" path="res://delete_save.gd" id="6_3j6r5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3c45g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6exd1"]
+
+[sub_resource type="Theme" id="Theme_6mhpt"]
+default_font = ExtResource("2_71mqq")
+Button/font_sizes/font_size = 24
+Button/styles/focus = ExtResource("1_cj1lu")
+Button/styles/hover = ExtResource("1_cj1lu")
+Button/styles/normal = SubResource("StyleBoxEmpty_3c45g")
+Button/styles/pressed = SubResource("StyleBoxEmpty_6exd1")
+ItemList/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 48
+
+[sub_resource type="Theme" id="Theme_3j6r5"]
+default_font = ExtResource("2_71mqq")
+Label/font_sizes/font_size = 18
+
+[node name="Node3D" type="Node3D" unique_id=1754734018]
+
+[node name="Settings" type="Control" parent="." unique_id=2091775594]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_71mqq")
+
+[node name="Label" type="Label" parent="Settings" unique_id=2048597359]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 196.0
+offset_bottom = 47.0
+theme = SubResource("Theme_6mhpt")
+text = "Settings"
+
+[node name="BackButton" type="Button" parent="Settings" unique_id=1617203049]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -68.0
+offset_right = 154.0
+offset_bottom = -32.0
+grow_vertical = 0
+theme = ExtResource("3_3j6r5")
+text = "Back"
+expand_icon = true
+script = ExtResource("4_3lj6o")
+metadata/trackID = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings" unique_id=104287215]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -201.0
+offset_top = -223.0
+offset_right = 201.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Settings/VBoxContainer" unique_id=969836332]
+layout_mode = 2
+theme = SubResource("Theme_3j6r5")
+text = "Game"
+horizontal_alignment = 1
+
+[node name="DeleteSave" type="Button" parent="Settings/VBoxContainer" unique_id=1549873555]
+layout_mode = 2
+tooltip_text = "Clears best time trials permanently."
+theme = ExtResource("3_3j6r5")
+text = "(!) DELETE SAVE DATA"
+expand_icon = true
+script = ExtResource("6_3j6r5")
+metadata/trackID = 0
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1880173872]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.2872127, 2.0001698, -11.289756)
+fov = 90.0
+
+[node name="track" parent="." unique_id=1495171405 instance=ExtResource("1_x2hje")]

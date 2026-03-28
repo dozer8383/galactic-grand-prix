@@ -4,8 +4,27 @@
 [ext_resource type="Theme" uid="uid://cxh21tuuh01u3" path="res://graphics/SixCaps.tres" id="1_u77ya"]
 [ext_resource type="FontFile" uid="uid://dqae8nltbsopi" path="res://graphics/Unbounded-Medium.ttf" id="2_jf511"]
 [ext_resource type="Texture2D" uid="uid://csdpwvblc5gto" path="res://graphics/power-under.png" id="3_0wv8u"]
+[ext_resource type="LabelSettings" uid="uid://mgwoxa57ag8d" path="res://retro.tres" id="3_67jta"]
 [ext_resource type="Texture2D" uid="uid://dj76cgn4g37ui" path="res://graphics/power-over.png" id="4_67jta"]
 [ext_resource type="Texture2D" uid="uid://bydeuouoaadbw" path="res://graphics/power-progress.png" id="5_p8208"]
+[ext_resource type="Theme" uid="uid://v32jg1x66ioj" path="res://trackselect.tres" id="8_67jta"]
+[ext_resource type="Script" uid="uid://df61ft88bwk2t" path="res://pause.gd" id="8_axmix"]
+[ext_resource type="LabelSettings" uid="uid://tsukxknl8shi" path="res://retro-green.tres" id="8_p8208"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jf511"]
+font = ExtResource("2_jf511")
+font_size = 27
+stacked_shadow_count = 1
+stacked_shadow_0/offset = Vector2(4, 4)
+stacked_shadow_0/color = Color(0, 0, 0, 0.7137255)
+
+[sub_resource type="LabelSettings" id="LabelSettings_axmix"]
+font = ExtResource("2_jf511")
+
+[sub_resource type="LabelSettings" id="LabelSettings_0wv8u"]
+font_size = 66
+shadow_color = Color(0, 0, 0, 0.2901961)
+shadow_offset = Vector2(0, 2)
 
 [sub_resource type="Theme" id="Theme_lquwl"]
 default_font = ExtResource("2_jf511")
@@ -19,6 +38,10 @@ Label/font_sizes/font_size = 16
 default_font = ExtResource("2_jf511")
 Label/font_sizes/font_size = 33
 
+[sub_resource type="LabelSettings" id="LabelSettings_7u6ry"]
+font = ExtResource("2_jf511")
+font_size = 51
+
 [node name="gui" type="Control" unique_id=700108634]
 layout_mode = 3
 anchors_preset = 15
@@ -28,7 +51,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jf511")
 
-[node name="DebugLabel" type="Label" parent="." unique_id=1965364392]
+[node name="TrackTitle" type="Label" parent="." unique_id=1114770693]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -17.0
+offset_right = 125.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TRACK NAME I"
+label_settings = SubResource("LabelSettings_jf511")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Countdown" type="Label" parent="." unique_id=661797457]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -36,19 +78,64 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -75.5
+offset_top = -11.5
 offset_right = 20.0
-offset_bottom = -52.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "READY"
+label_settings = ExtResource("3_67jta")
+horizontal_alignment = 1
+
+[node name="Prompt" type="Label" parent="." unique_id=878882648]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 116.5
+offset_right = 20.0
+offset_bottom = 139.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press B button/forward to continue"
+label_settings = SubResource("LabelSettings_axmix")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="hud" type="Control" parent="." unique_id=662537484]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Speedometer" type="Label" parent="." unique_id=1872463156]
+[node name="DebugLabel" type="Label" parent="hud" unique_id=1965364392]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 536.0
+offset_top = 228.5
+offset_right = 576.0
+offset_bottom = 251.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Speedometer" type="Label" parent="hud" unique_id=1872463156]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 24.0
-offset_top = -49.0
+offset_top = -107.0
 offset_right = 253.0
 offset_bottom = -24.0
 grow_vertical = 0
@@ -59,15 +146,16 @@ theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/shadow_outline_size = 0
 text = "000"
+label_settings = SubResource("LabelSettings_0wv8u")
 
-[node name="SpeedUnit" type="Label" parent="." unique_id=1084050989]
+[node name="SpeedUnit" type="Label" parent="hud" unique_id=1084050989]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 217.0
+offset_left = 216.0
 offset_top = -76.0
-offset_right = 337.0
+offset_right = 336.0
 offset_bottom = -32.0
 grow_vertical = 0
 theme = SubResource("Theme_lquwl")
@@ -77,18 +165,18 @@ theme_override_constants/shadow_offset_y = 2
 theme_override_constants/shadow_outline_size = 0
 text = "KM/H"
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1945206098]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="hud" unique_id=1945206098]
 layout_mode = 0
 offset_left = 27.0
 offset_top = 25.0
-offset_right = 67.0
-offset_bottom = 65.0
+offset_right = 283.0
+offset_bottom = 73.0
 value = 100.0
 texture_under = ExtResource("3_0wv8u")
 texture_over = ExtResource("4_67jta")
 texture_progress = ExtResource("5_p8208")
 
-[node name="PowerLabel" type="Label" parent="." unique_id=68241766]
+[node name="PowerLabel" type="Label" parent="hud" unique_id=68241766]
 layout_mode = 1
 offset_left = 27.0
 offset_top = 73.0
@@ -102,11 +190,11 @@ theme_override_constants/shadow_outline_size = 0
 text = "POWER"
 vertical_alignment = 1
 
-[node name="TimeLabel" type="Label" parent="." unique_id=1980668908]
+[node name="TimeLabel" type="Label" parent="hud" unique_id=1980668908]
 layout_mode = 1
 offset_left = 27.0
 offset_top = 137.0
-offset_right = 102.0
+offset_right = 120.0
 offset_bottom = 157.0
 theme = SubResource("Theme_272bh")
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.27058825)
@@ -116,7 +204,7 @@ theme_override_constants/shadow_outline_size = 0
 text = "LAP TIME"
 vertical_alignment = 1
 
-[node name="Time" type="Label" parent="." unique_id=486902838]
+[node name="Time" type="Label" parent="hud" unique_id=486902838]
 layout_mode = 0
 offset_left = 27.0
 offset_top = 102.0
@@ -130,7 +218,8 @@ theme_override_constants/shadow_outline_size = 0
 text = "0:00.00"
 vertical_alignment = 1
 
-[node name="BestTime" type="Label" parent="." unique_id=1490379199]
+[node name="BestTime" type="Label" parent="hud" unique_id=1490379199]
+visible = false
 layout_mode = 0
 offset_left = 27.0
 offset_top = 177.0
@@ -144,9 +233,89 @@ theme_override_constants/shadow_outline_size = 0
 text = "BEST  0:00.00"
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="." unique_id=585317160]
+[node name="Label" type="Label" parent="hud" unique_id=585317160]
 layout_mode = 0
 offset_left = 539.0
 offset_top = 204.0
 offset_right = 579.0
 offset_bottom = 227.0
+
+[node name="Lap" type="Label" parent="hud" unique_id=67223196]
+visible = false
+layout_mode = 1
+offset_left = 25.0
+offset_top = 165.0
+offset_right = 211.0
+offset_bottom = 207.0
+theme = SubResource("Theme_5vw27")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.27058825)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
+text = "LAP 1/4"
+vertical_alignment = 1
+
+[node name="Position" type="Label" parent="hud" unique_id=1234634505]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -131.0
+offset_top = -96.0
+offset_right = -40.0
+offset_bottom = -32.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "1st"
+label_settings = SubResource("LabelSettings_7u6ry")
+horizontal_alignment = 1
+
+[node name="pause" type="Control" parent="." unique_id=344183915]
+process_mode = 2
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_axmix")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pause" unique_id=982563639]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.0
+offset_top = -106.0
+offset_right = 166.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="pause/VBoxContainer" unique_id=782244965]
+layout_mode = 2
+size_flags_vertical = 3
+text = "PAUSED"
+label_settings = ExtResource("8_p8208")
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="pause/VBoxContainer" unique_id=1944360668]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("8_67jta")
+text = "CONTINUE"
+
+[node name="ExitButton" type="Button" parent="pause/VBoxContainer" unique_id=472358313]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("8_67jta")
+text = "EXIT TO MAIN MENU"
+
+[connection signal="pressed" from="pause/VBoxContainer/ContinueButton" to="pause" method="_on_continue_button_pressed"]
+[connection signal="pressed" from="pause/VBoxContainer/ExitButton" to="pause" method="_on_exit_button_pressed"]

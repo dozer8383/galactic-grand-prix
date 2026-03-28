@@ -12,6 +12,8 @@ var addPower = 0
 var crashed = false
 var canStart = false
 var thrustcolor = Vector3.ZERO
+var raceFinished = false
+var canMove = false
 signal crash
 signal showHud
 
@@ -29,7 +31,7 @@ func getInput(delta: float):
 			enginerpm += moveInput/170
 		turnVel += turnSpeed * turnInput
 	
-	enginepower = 4.5+speed/4
+	enginepower = 4.5+speed/4.0
 	speed = enginerpm * enginepower
 	velocity = -transform.basis.z * speed
 	drift += velocity
@@ -68,32 +70,43 @@ func getInput(delta: float):
 	$ray.rotation.z = clamp((speed-5.5)*0.13,0,0.5)
 	$ray.position.y = clamp((speed-6.5)*0.01,0,0.5)
 	$ray.rotation.x = clamp($ray.rotation.x,-3,3)
-	$"../gui/Speedometer".text = str(int(floor(abs(speed)*60)))
-	$"../gui/TextureProgressBar".value = power
+	position.y = 1.57
+	$"../gui/hud/Speedometer".text = str(int(floor(abs(speed)*60)))
+	$"../gui/hud/TextureProgressBar".value = power
 	if Input.is_action_pressed("forward"):
 		thrust = speed
 	else:
 		thrust = move_toward(thrust, 0, delta*5)
 	$Thrust.light_energy = thrust/40
 	$Thrust2.light_energy = thrust/40
+	if Input.is_action_pressed("lookback"):
+		$Camera3D.rotation.y = PI
+		$Camera3D.position = Vector3(0,0.18,0)
+	else:
+		$Camera3D.rotation.y = 0
+		$Camera3D.position = Vector3(0,0.26,0.2)
 
 func _ready() -> void:
 	$Camera3D.position.z = 15.2
 	$Camera3D.position.y = 7.77
 
 func _physics_process(delta: float) -> void:
-	if !canStart:
-		$Camera3D.position.z = move_toward($Camera3D.position.z, 0.2, delta*8)
-		$Camera3D.position.y = move_toward($Camera3D.position.y, 0.26, delta*4)
-		if round($Camera3D.position.z*100)/100 == 0.2 and round($Camera3D.position.y*100)/100 == 0.26:
-			canStart = true
-			showHud.emit()
+	if !raceFinished:
+		if !canStart:
+			$Camera3D.position.z = move_toward($Camera3D.position.z, 0.2, delta*8)
+			$Camera3D.position.y = move_toward($Camera3D.position.y, 0.26, delta*4)
+			if round($Camera3D.position.z*100)/100 == 0.2 and round($Camera3D.position.y*100)/100 == 0.26:
+				canStart = true
+				showHud.emit()
+		else:
+			if canMove:
+				getInput(delta)
+				move_and_slide()
+				if addPower > 0:
+					addPower -= 1
+					power += 1
 	else:
-		getInput(delta)
-		move_and_slide()
-		if addPower > 0:
-			addPower -= 1
-			power += 1
+		$Camera3D.position = Vector3(0,1,1)
 
 func onRough() -> void:
 	enginerpm *= 0.99
@@ -103,6 +116,12 @@ func onRough() -> void:
 func onSpeed() -> void:
 	enginerpm = 1.5
 	drift *= 0.5
+	
+func raceStart() -> void:
+	canMove = true
 
 func _on_crossedfinish() -> void:
 	addPower += 35
+
+func _on_game_race_finish() -> void:
+	raceFinished = true

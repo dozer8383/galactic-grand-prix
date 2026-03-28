@@ -18,7 +18,7 @@ texture_margin_left = 32.0
 texture_margin_top = 8.0
 texture_margin_right = 32.0
 texture_margin_bottom = 8.0
-modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
+modulate_color = Color(0.7248709, 1.3528494, 1.0493263, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_80ktb"]
 texture = ExtResource("2_cfkk5")

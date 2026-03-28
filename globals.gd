@@ -4,10 +4,15 @@ var currenttrackid = 0
 var start_time = 0
 var timerStarted = false
 var bestTimes = [0,0,0,0,0]
+var raceType = 0
+var raceStarted = false
+
+const timeTrial = 0
+const grandPrix = 1
+const challenge = 2
 
 func _ready() -> void:
 	loadGame()
-
 func timerStart():
 	start_time = Time.get_ticks_msec()
 	timerStarted = true

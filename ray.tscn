@@ -22,6 +22,8 @@ effect_callback_type = 4
 needs_motion_vectors = true
 needs_normal_roughness = false
 script = ExtResource("7_d3nkd")
+tile_size = 32
+intensity = 2.0
 target_constant_framerate = 24.0
 shader_stages/blur_stage = ExtResource("3_xvyl2")
 shader_stages/overlay_stage = ExtResource("5_3d8m2")
@@ -42,7 +44,6 @@ script = ExtResource("1_y0vx7")
 transform = Transform3D(-1.7484555e-09, 0, 0.04, 0, 0.04, 0, -0.04, 0, -1.7484555e-09, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=779243984]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.018925738)
 shape = SubResource("CylinderShape3D_hwms0")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=390519163]
