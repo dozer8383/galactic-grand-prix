@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://dimf2mbsj28mo"]
+
+[ext_resource type="Script" uid="uid://bfxy2agtftx7i" path="res://controls_control.gd" id="1_kxtwu"]
+[ext_resource type="Texture2D" uid="uid://d0oucn8nef64x" path="res://graphics/controls.png" id="2_ff64o"]
+[ext_resource type="StyleBox" uid="uid://b7wa2cf30coej" path="res://arrowSelect.tres" id="3_kxtwu"]
+[ext_resource type="PackedScene" uid="uid://ckfrsuvx3wynb" path="res://track_1.tscn" id="3_kxvun"]
+[ext_resource type="FontFile" uid="uid://dqae8nltbsopi" path="res://graphics/Unbounded-Medium.ttf" id="4_dob1i"]
+[ext_resource type="Theme" uid="uid://v32jg1x66ioj" path="res://trackselect.tres" id="5_hkas0"]
+[ext_resource type="Script" uid="uid://cuuy0ne8lyyix" path="res://back_button.gd" id="6_cf7nr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n3dh0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jwbgh"]
+
+[sub_resource type="Theme" id="Theme_dist8"]
+default_font = ExtResource("4_dob1i")
+Button/font_sizes/font_size = 24
+Button/styles/focus = ExtResource("3_kxtwu")
+Button/styles/hover = ExtResource("3_kxtwu")
+Button/styles/normal = SubResource("StyleBoxEmpty_n3dh0")
+Button/styles/pressed = SubResource("StyleBoxEmpty_jwbgh")
+ItemList/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 48
+
+[node name="Node3D" type="Node3D" unique_id=1272696323]
+
+[node name="ControlsControl" type="Control" parent="." unique_id=909883907]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kxtwu")
+
+[node name="TextureRect" type="TextureRect" parent="ControlsControl" unique_id=1847103316]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.97882
+offset_top = -139.0
+offset_right = 260.97882
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ff64o")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ControlsControl" unique_id=739882163]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 196.0
+offset_bottom = 47.0
+theme = SubResource("Theme_dist8")
+text = "Controls"
+
+[node name="BackButton" type="Button" parent="ControlsControl" unique_id=1611785350]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -68.0
+offset_right = 154.0
+offset_bottom = -32.0
+grow_vertical = 0
+theme = ExtResource("5_hkas0")
+text = "Back"
+expand_icon = true
+script = ExtResource("6_cf7nr")
+metadata/trackID = 4
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=972953568]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.2872127, 2.0001698, -11.289756)
+fov = 90.0
+
+[node name="track" parent="." unique_id=1495171405 instance=ExtResource("3_kxvun")]

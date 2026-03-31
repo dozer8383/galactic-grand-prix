@@ -18,4 +18,7 @@ func _on_body_entered(body: Node3D) -> void:
 		finishcrossed.emit()
 		playerCount += 1
 	if body.name == "dummyShip":
-		botCount += 1
+		body.lap += 1
+		if body.lap > 4:
+			body.finished = true
+			globals.botFinishes += 1

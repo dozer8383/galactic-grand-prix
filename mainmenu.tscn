@@ -76,11 +76,10 @@ theme = ExtResource("1_wgsso")
 text = "Time Trial"
 alignment = 2
 
-[node name="ChallengesButton" type="Button" parent="Control/VBoxContainer" unique_id=2051879567]
+[node name="ControlsButton" type="Button" parent="Control/VBoxContainer" unique_id=2051879567]
 layout_mode = 2
 theme = ExtResource("1_wgsso")
-disabled = true
-text = "Challenges"
+text = "Controls"
 flat = true
 alignment = 2
 
@@ -138,4 +137,5 @@ fov = 90.0
 
 [connection signal="pressed" from="Control/VBoxContainer/GrandPrixButton" to="Control" method="_on_grand_prix_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/TimeTrialButton" to="Control" method="_on_time_trial_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/ControlsButton" to="Control" method="_on_controls_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/SettingsButton" to="Control" method="_on_settings_button_pressed"]

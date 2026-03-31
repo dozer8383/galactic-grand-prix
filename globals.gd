@@ -4,6 +4,7 @@ var currenttrackid = 0
 var start_time = 0
 var timerStarted = false
 var bestTimes = [0,0,0,0,0]
+var botFinishes = 0
 var raceType = 0
 var raceStarted = false
 

@@ -1,4 +1,4 @@
-extends PathFollow3D
+extends CharacterBody3D
 
 var speed = 0
 var enginerpm = 0
@@ -6,6 +6,10 @@ var enginepower = 0
 var randomwait = 0
 var oldangle = 0
 var skill = 0
+var start_time = 0
+var lap = 0
+var finished = false
+var timerStarted = false
 
 func _ready() -> void:
 	randomwait = int(randf()*30)
@@ -16,15 +20,19 @@ func _physics_process(_delta: float) -> void:
 			enginerpm += 0.005
 		else:
 			randomwait -= 1
-	if abs(angle_difference(rotation.y,oldangle)) >= 0.01:
-		enginerpm *= 1-(abs(angle_difference(rotation.y,oldangle))*0.2)
-		$dummyShip/Thrust.light_energy = 0
-		$dummyShip/Thrust2.light_energy = 0
+	if finished:
+		$"..".rotation.y += 0.06
+		$"..".position.y += 0.015
 	else:
-		$dummyShip/Thrust.light_energy = 0.1
-		$dummyShip/Thrust2.light_energy = 0.1
-	oldangle = rotation.y
-	enginepower = 4.5+speed/4.0
-	speed = enginerpm * enginepower
-	enginerpm *= 0.995
-	progress += speed/40
+		if abs(angle_difference($"..".rotation.y,oldangle)) >= 0.01:
+			enginerpm *= 1-(abs(angle_difference($"..".rotation.y,oldangle))*0.2)
+			$Thrust.light_energy = 0
+			$Thrust2.light_energy = 0
+		else:
+			$Thrust.light_energy = 0.1
+			$Thrust2.light_energy = 0.1
+		oldangle = $"..".rotation.y
+		enginepower = 4.5+speed/4.0
+		speed = enginerpm * enginepower
+		enginerpm *= 0.995
+		$"..".progress += speed/40

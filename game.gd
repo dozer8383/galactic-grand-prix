@@ -5,6 +5,7 @@ var trackscene
 var lapValidated = false
 var laps = 0
 var place = 1
+var placeDisplay
 var raceFinished = false
 
 const retro = preload("res://retro.tres")
@@ -20,6 +21,7 @@ func _ready() -> void:
 	tempBestTime = int(globals.bestTimes[globals.currenttrackid])
 	globals.timerStarted = false
 	globals.raceStarted = false
+	globals.botFinishes = 0
 	match globals.currenttrackid:
 		0:
 			trackscene = preload("res://track_1.tscn")
@@ -69,8 +71,8 @@ func newLap() -> void:
 			if laps == 5:
 				raceFinish.emit()
 				raceFinished = true
+				place = 1+globals.botFinishes
 				$gui/hud.hide()
-				var placeDisplay
 				match place:
 					1:
 						placeDisplay = "1st"
@@ -78,8 +80,8 @@ func newLap() -> void:
 						placeDisplay = "2nd"
 					3:
 						placeDisplay = "3rd"
-				$gui/TrackTitle.text = "FINISH"
-				#$gui/TrackTitle.text = placeDisplay+" position"
+				#$gui/TrackTitle.text = "FINISH"
+				$gui/TrackTitle.text = placeDisplay+" position"
 				$gui/Prompt.show()
 				$gui/TrackTitle.show()
 			$gui/hud/Lap.text = "LAP "+str(max(1,laps))+"/4"

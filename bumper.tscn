@@ -6,6 +6,6 @@
 [node name="bumper" type="PathFollow3D" unique_id=409308425]
 transform = Transform3D(0.99989754, 0, 0, 0, 1, 0, 0, 0, 0.99989754, 0, 0, 0)
 cubic_interp = false
-script = ExtResource("1_h31vo")
 
 [node name="dummyShip" parent="." unique_id=1676720759 instance=ExtResource("2_sn2yj")]
+script = ExtResource("1_h31vo")
