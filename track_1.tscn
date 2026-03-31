@@ -106,7 +106,6 @@ sky_material = SubResource("PanoramaSkyMaterial_oa2pc")
 [sub_resource type="Environment" id="Environment_x6jxe"]
 background_mode = 2
 sky = SubResource("Sky_cqc7h")
-ssr_enabled = true
 sdfgi_use_occlusion = true
 glow_enabled = true
 glow_levels/1 = 0.7

@@ -62,7 +62,6 @@ radiance_size = 4
 [sub_resource type="Environment" id="Environment_2p5kl"]
 background_mode = 2
 sky = SubResource("Sky_cqc7h")
-ssr_enabled = true
 sdfgi_use_occlusion = true
 glow_enabled = true
 glow_levels/1 = 0.7
