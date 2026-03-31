@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cq1wved0llprx"]
 
-[ext_resource type="Script" uid="uid://d4k717qc5n3ib" path="res://bumper_ai.gd" id="1_474dk"]
-[ext_resource type="PackedScene" uid="uid://qvwd3ggvg4dw" path="res://dummy_ship.tscn" id="2_6t2qp"]
+[ext_resource type="PackedScene" uid="uid://do5itvih0pwyk" path="res://bumper.tscn" id="1_r57b2"]
 
 [sub_resource type="Curve3D" id="Curve3D_j5aep"]
 closed = true
@@ -17,18 +16,11 @@ point_count = 12
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5862236, 0)
 curve = SubResource("Curve3D_j5aep")
 
-[node name="bumper" type="PathFollow3D" parent="Path3D" unique_id=649609838]
-transform = Transform3D(0.066496186, 7.682311e-06, -0.997684, -2.600184e-07, 1, 7.681237e-06, 0.997684, -2.5140827e-07, 0.066496186, 2.607909, -5.687972e-05, -10.870447)
-progress = 2.8692248
-cubic_interp = false
-script = ExtResource("1_474dk")
+[node name="bumper" parent="Path3D" unique_id=409308425 instance=ExtResource("1_r57b2")]
+transform = Transform3D(0.062461276, 7.2794837e-06, -0.997944, -2.2975945e-07, 1, 7.278595e-06, 0.997944, -2.253898e-07, 0.062461276, 2.1309679, -5.329658e-05, -10.839564)
+progress = 2.3912845
 
-[node name="dummyShip" parent="Path3D/bumper" unique_id=1676720759 instance=ExtResource("2_6t2qp")]
-
-[node name="bumper2" type="PathFollow3D" parent="Path3D" unique_id=6215421]
-transform = Transform3D(0.062460456, 7.27922e-06, -0.99797094, -2.2974764e-07, 1, 7.2785274e-06, 0.99797094, -2.2537309e-07, 0.062460456, 2.1028655, -5.319147e-05, -11.28367)
-progress = 2.3910208
-h_offset = -0.445
-script = ExtResource("1_474dk")
-
-[node name="dummyShip" parent="Path3D/bumper2" unique_id=378300626 instance=ExtResource("2_6t2qp")]
+[node name="bumper2" parent="Path3D" unique_id=16167483 instance=ExtResource("1_r57b2")]
+transform = Transform3D(0.049162023, 5.8076694e-06, -0.99868536, -1.424499e-07, 1, 5.8070773e-06, 0.9986856, -1.4325518e-07, 0.04916201, 1.1511605, -4.6880632e-05, -11.289892)
+progress = 1.4347706
+h_offset = -0.505

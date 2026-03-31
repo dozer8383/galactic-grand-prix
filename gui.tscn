@@ -256,6 +256,7 @@ text = "LAP 1/4"
 vertical_alignment = 1
 
 [node name="Position" type="Label" parent="hud" unique_id=1234634505]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

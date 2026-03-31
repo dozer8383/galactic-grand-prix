@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b28rqi3ttvywb"]
 
 [ext_resource type="PackedScene" uid="uid://cjuapajw4eex5" path="res://graphics/track4.glb" id="1_w0dne"]
+[ext_resource type="Script" uid="uid://b1bndb5ujgnce" path="res://load_ai.gd" id="2_cadft"]
 [ext_resource type="Texture2D" uid="uid://biwdrg3m88ygo" path="res://graphics/track4_track4.png" id="2_qxh41"]
 [ext_resource type="Texture2D" uid="uid://merpnsin3gui" path="res://graphics/redsky.hdr" id="3_t53s6"]
 [ext_resource type="ArrayMesh" uid="uid://bv88uedbysncd" path="res://graphics/track4-collision.obj" id="4_5caal"]
@@ -110,6 +111,7 @@ size = Vector3(6.594879, 1, 1.9426907)
 size = Vector3(0.6543775, 1, 0.44851026)
 
 [node name="track" unique_id=1039959806 instance=ExtResource("1_w0dne")]
+script = ExtResource("2_cadft")
 
 [node name="trackPlane" parent="." index="0" unique_id=1941047270]
 mesh = SubResource("ArrayMesh_t53s6")

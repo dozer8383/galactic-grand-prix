@@ -1,5 +1,7 @@
 extends Area3D
 
+var playerCount = 0
+var botCount = 0
 signal finishcrossed
 
 # Called when the node enters the scene tree for the first time.
@@ -14,3 +16,6 @@ func _on_body_entered(body: Node3D) -> void:
 	if body.name == "ray":
 		print("start")
 		finishcrossed.emit()
+		playerCount += 1
+	if body.name == "dummyShip":
+		botCount += 1

@@ -16,8 +16,8 @@ func _physics_process(_delta: float) -> void:
 			enginerpm += 0.005
 		else:
 			randomwait -= 1
-	if abs(angle_difference(rotation.y,oldangle)) >= 0.028:
-		enginerpm *= 0.98
+	if abs(angle_difference(rotation.y,oldangle)) >= 0.01:
+		enginerpm *= 1-(abs(angle_difference(rotation.y,oldangle))*0.2)
 		$dummyShip/Thrust.light_energy = 0
 		$dummyShip/Thrust2.light_energy = 0
 	else:
@@ -26,5 +26,5 @@ func _physics_process(_delta: float) -> void:
 	oldangle = rotation.y
 	enginepower = 4.5+speed/4.0
 	speed = enginerpm * enginepower
-	enginerpm *= 0.9952
-	progress_ratio += speed/4000
+	enginerpm *= 0.995
+	progress += speed/40

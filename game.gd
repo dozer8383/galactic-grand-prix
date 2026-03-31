@@ -15,11 +15,11 @@ signal raceFinish
 signal startRace
 signal pauseGame
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	globals.loadGame()
 	tempBestTime = int(globals.bestTimes[globals.currenttrackid])
 	globals.timerStarted = false
+	globals.raceStarted = false
 	match globals.currenttrackid:
 		0:
 			trackscene = preload("res://track_1.tscn")
@@ -78,7 +78,8 @@ func newLap() -> void:
 						placeDisplay = "2nd"
 					3:
 						placeDisplay = "3rd"
-				$gui/TrackTitle.text = placeDisplay+" position"
+				$gui/TrackTitle.text = "FINISH"
+				#$gui/TrackTitle.text = placeDisplay+" position"
 				$gui/Prompt.show()
 				$gui/TrackTitle.show()
 			$gui/hud/Lap.text = "LAP "+str(max(1,laps))+"/4"
@@ -123,3 +124,18 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("forward") and raceFinished:
 		globals.currenttrackid += 1
 		get_tree().reload_current_scene()
+	if event.is_action_pressed("cheat") and false:
+		raceFinish.emit()
+		raceFinished = true
+		$gui/hud.hide()
+		var placeDisplay
+		match place:
+			1:
+				placeDisplay = "1st"
+			2:
+				placeDisplay = "2nd"
+			3:
+				placeDisplay = "3rd"
+		$gui/TrackTitle.text = placeDisplay+" position"
+		$gui/Prompt.show()
+		$gui/TrackTitle.show()
