@@ -12,14 +12,26 @@ var finished = false
 var timerStarted = false
 
 func _ready() -> void:
-	randomwait = int(randf()*30)
+	randomwait = int(randf()*60)
+	$"../Area3D".connect("body_entered",collided)
+	
+func collided(body: Node3D) -> void:
+	if body.name == "ray":
+		randomwait = 30
+		$Thrust.light_energy = 0
+		$Thrust2.light_energy = 0
+		print("hit")
 
 func _physics_process(_delta: float) -> void:
+	$Thrust.light_energy = 0.1
+	$Thrust2.light_energy = 0.1
 	if globals.timerStarted or globals.raceStarted:
 		if randomwait <= 0:
-			enginerpm += 0.005
+			enginerpm += 0.0047
 		else:
 			randomwait -= 1
+			$Thrust.light_energy = 0
+			$Thrust2.light_energy = 0
 	if finished:
 		$"..".rotation.y += 0.06
 		$"..".position.y += 0.015
@@ -28,9 +40,6 @@ func _physics_process(_delta: float) -> void:
 			enginerpm *= 1-(abs(angle_difference($"..".rotation.y,oldangle))*0.2)
 			$Thrust.light_energy = 0
 			$Thrust2.light_energy = 0
-		else:
-			$Thrust.light_energy = 0.1
-			$Thrust2.light_energy = 0.1
 		oldangle = $"..".rotation.y
 		enginepower = 4.5+speed/4.0
 		speed = enginerpm * enginepower

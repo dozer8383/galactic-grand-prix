@@ -17,7 +17,7 @@ radius = 0.080566406
 [sub_resource type="CompositorEffect" id="CompositorEffect_kf1gs"]
 resource_local_to_scene = false
 resource_name = ""
-enabled = true
+enabled = false
 effect_callback_type = 4
 needs_motion_vectors = true
 needs_normal_roughness = false
