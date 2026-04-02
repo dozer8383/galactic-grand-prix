@@ -41,9 +41,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -260.97882
-offset_top = -139.0
+offset_top = -211.0
 offset_right = 260.97882
-offset_bottom = 139.0
+offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_ff64o")
@@ -57,7 +57,7 @@ offset_top = 24.0
 offset_right = 196.0
 offset_bottom = 47.0
 theme = SubResource("Theme_dist8")
-text = "Controls"
+text = "How to Play"
 
 [node name="BackButton" type="Button" parent="ControlsControl" unique_id=1611785350]
 layout_mode = 1
@@ -74,6 +74,30 @@ text = "Back"
 expand_icon = true
 script = ExtResource("6_cf7nr")
 metadata/trackID = 4
+
+[node name="CompatWarning" type="Button" parent="ControlsControl" unique_id=1938442998]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -296.0
+offset_top = -232.0
+offset_right = 296.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = ExtResource("5_hkas0")
+disabled = true
+text = "In Grand Prix mode, make four laps around each track
+against bot opponents. Take corners by releasing the
+throttle and using steering to maneuver carefully.
+Walls are dangerous and you will violently ricochet off,
+as well as take damage.
+Good luck!"
+metadata/trackID = 0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=972953568]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.2872127, 2.0001698, -11.289756)

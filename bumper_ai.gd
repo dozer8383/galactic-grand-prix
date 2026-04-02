@@ -10,6 +10,7 @@ var start_time = 0
 var lap = 0
 var finished = false
 var timerStarted = false
+var hVelocity = 0
 
 func _ready() -> void:
 	randomwait = int(randf()*60)
@@ -22,7 +23,7 @@ func collided(body: Node3D) -> void:
 		$Thrust2.light_energy = 0
 		print("hit")
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	$Thrust.light_energy = 0.1
 	$Thrust2.light_energy = 0.1
 	if globals.timerStarted or globals.raceStarted:
@@ -44,4 +45,10 @@ func _physics_process(_delta: float) -> void:
 		enginepower = 4.5+speed/4.0
 		speed = enginerpm * enginepower
 		enginerpm *= 0.995
-		$"..".progress += speed/40
+		hVelocity *= 0.97
+		if is_on_wall():
+			hVelocity += get_wall_normal().normalized().x
+			enginerpm = 0
+			print(get_wall_normal())
+		#$"..".h_offset -= hVelocity
+		$"..".progress += speed*delta*1.5

@@ -17,10 +17,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5862236, 0)
 curve = SubResource("Curve3D_j5aep")
 
 [node name="bumper" parent="Path3D" unique_id=409308425 instance=ExtResource("1_r57b2")]
-transform = Transform3D(0.062461276, 7.2794837e-06, -0.997944, -2.2975945e-07, 1, 7.278595e-06, 0.997944, -2.253898e-07, 0.062461276, 2.1309679, -5.329658e-05, -10.839564)
+transform = Transform3D(0.06246091, 7.2794837e-06, -0.9979382, -2.297581e-07, 1, 7.278553e-06, 0.9979382, -2.253898e-07, 0.06246091, 2.1484587, -5.3360916e-05, -10.560111)
 progress = 2.3912845
+h_offset = 0.28
 
-[node name="bumper2" parent="Path3D" unique_id=16167483 instance=ExtResource("1_r57b2")]
-transform = Transform3D(0.049162023, 5.8076694e-06, -0.99868536, -1.424499e-07, 1, 5.8070773e-06, 0.9986856, -1.4325518e-07, 0.04916201, 1.1511605, -4.6880632e-05, -11.289892)
-progress = 1.4347706
-h_offset = -0.505
+[node name="bumper2" parent="Path3D" unique_id=1643783609 instance=ExtResource("1_r57b2")]
+transform = Transform3D(0.047059286, 5.564832e-06, -0.99878526, -1.3047844e-07, 1, 5.564263e-06, 0.99878603, -1.315583e-07, 0.04705925, 1.0527462, -4.631528e-05, -11.175112)
+progress = 1.33
+h_offset = -0.395
+
+[node name="bumper3" parent="Path3D" unique_id=322607782 instance=ExtResource("1_r57b2")]
+transform = Transform3D(0.015458853, 1.8085431e-06, -0.999663, -1.3479248e-08, 1, 1.8081575e-06, 0.999663, -1.4483634e-08, 0.015458853, 0.03629139, -4.2255375e-05, -10.465823)
+progress = 0.29
+h_offset = 0.28
+
+[node name="bumper4" parent="Path3D" unique_id=576673917 instance=ExtResource("1_r57b2")]
+transform = Transform3D(-0.022475155, 1.5342305e-06, -0.9996389, 6.824861e-05, 1, 3.2965612e-12, 0.9996401, -6.823869e-05, -0.022475129, -1.143951, -6.892276e-05, -11.1488)
+progress = 104.87
+h_offset = -0.395

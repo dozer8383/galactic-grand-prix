@@ -80,6 +80,8 @@ func newLap() -> void:
 						placeDisplay = "2nd"
 					3:
 						placeDisplay = "3rd"
+					4,5,6,7,8,9:
+						placeDisplay = str(place)+"st"
 				#$gui/TrackTitle.text = "FINISH"
 				$gui/TrackTitle.text = placeDisplay+" position"
 				$gui/Prompt.show()
@@ -125,12 +127,15 @@ func introFinished() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("forward") and raceFinished:
 		globals.currenttrackid += 1
-		get_tree().reload_current_scene()
-	if event.is_action_pressed("cheat") and false:
+		if globals.currenttrackid % 5 == 0:
+			get_tree().change_scene_to_file("res://mainmenu.tscn")
+		else:
+			get_tree().reload_current_scene()
+	if event.is_action_pressed("cheat") and 1:
 		raceFinish.emit()
 		raceFinished = true
+		place = 1+globals.botFinishes
 		$gui/hud.hide()
-		var placeDisplay
 		match place:
 			1:
 				placeDisplay = "1st"

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://2wvysfo2pev3"]
 
 [ext_resource type="PackedScene" uid="uid://ovcoynpqh4a8" path="res://graphics/track5.glb" id="1_xi7w4"]
+[ext_resource type="Script" uid="uid://b1bndb5ujgnce" path="res://load_ai.gd" id="2_epjh3"]
 [ext_resource type="Texture2D" uid="uid://jopjnp3whld0" path="res://graphics/luminous.hdr" id="2_jpjk8"]
 [ext_resource type="Texture2D" uid="uid://cjaju65xryj2l" path="res://graphics/track5_track5.png" id="2_p2qx2"]
 [ext_resource type="Texture2D" uid="uid://ncpasr7kwxec" path="res://graphics/track5_surface5.png" id="3_o74p1"]
@@ -112,9 +113,12 @@ glow_levels/1 = 0.7
 glow_levels/2 = 0.0
 glow_levels/5 = 1.05
 glow_normalized = true
-fog_light_color = Color(0, 0.35137707, 0.30895698, 1)
-fog_density = 0.0203
-fog_sky_affect = 0.557
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(6.3923653e-09, 0.019796215, 0.01526962, 1)
+fog_density = 1.0
+fog_sky_affect = 0.0
+fog_depth_begin = 0.0
 volumetric_fog_density = 0.0
 volumetric_fog_albedo = Color(0, 0.34552464, 0.27362192, 1)
 volumetric_fog_emission_energy = 0.0
@@ -142,6 +146,7 @@ size = Vector3(6.1209106, 1, 2.435227)
 size = Vector3(0.6543775, 1, 0.44851026)
 
 [node name="track" unique_id=1661743994 instance=ExtResource("1_xi7w4")]
+script = ExtResource("2_epjh3")
 
 [node name="trackPlane" parent="." index="0" unique_id=1079198296]
 mesh = SubResource("ArrayMesh_o74p1")
