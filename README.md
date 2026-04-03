@@ -3,7 +3,8 @@
 
 A chaotically fast, futuristic, and beautiful racing game. Find yourself speeding down straights at 400+ km/h and hurtling through hairpin corners on tracks in exotic locations throughout the galaxy.
 
-# Getting Started
+# Quick Start
+The binaries do not need to be installed. Just download and run.
 ### Download the game on the releases page: https://github.com/dozer8383/galactic-grand-prix/releases/latest
 
 # Screenshots
