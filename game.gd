@@ -5,6 +5,7 @@ var trackscene
 var lapValidated = false
 var laps = 0
 var place = 1
+var addpoints = 0
 var placeDisplay
 var raceFinished = false
 
@@ -44,11 +45,12 @@ func _ready() -> void:
 	$"track/MidCheckpoint".connect("validateLap",lapOK)
 	for node in $track.get_children():
 		if node.name.contains("rough"):
-			node.connect("shipOnRough",$ray.onRough)
+			node.connect("shipOnRough",$player.onRough)
 		if node.name.contains("speed"):
-			node.connect("shipOnSpeed",$ray.onSpeed)
-	$ray.connect("showHud",introFinished)
-	connect("startRace",$ray.raceStart)
+			node.connect("shipOnSpeed",$player.onSpeed)
+	$player.connect("showHud",introFinished)
+	$player.connect("crash",_on_crash)
+	connect("startRace",$player.raceStart)
 	connect("pauseGame",$gui/pause.pause)
 	if globals.raceType == globals.grandPrix:
 		$gui/hud/Lap.show()
@@ -76,16 +78,22 @@ func newLap() -> void:
 				match place:
 					1:
 						placeDisplay = "1st"
+						addpoints = 12
 					2:
 						placeDisplay = "2nd"
+						addpoints = 8
 					3:
 						placeDisplay = "3rd"
+						addpoints = 5
 					4,5,6,7,8,9:
 						placeDisplay = str(place)+"st"
-				#$gui/TrackTitle.text = "FINISH"
+						addpoints = 2
+				globals.points += addpoints
 				$gui/TrackTitle.text = placeDisplay+" position"
+				$gui/PointsAdded.text = "+"+str(addpoints)+" points"
 				$gui/Prompt.show()
 				$gui/TrackTitle.show()
+				$gui/PointsAdded.show()
 			$gui/hud/Lap.text = "LAP "+str(max(1,laps))+"/4"
 
 func lapOK() -> void:
@@ -108,7 +116,10 @@ func _on_crash() -> void:
 		$gui/Countdown.label_settings = retro
 		$gui/Countdown.text = "ELIMINATED"
 		$gui/Countdown.show()
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(2.0).timeout
+		globals.timerStarted = false
+		globals.raceStarted = false
+		globals.raceType = 0
 		get_tree().change_scene_to_file("res://grandprixmenu.tscn")
 	
 func introFinished() -> void:

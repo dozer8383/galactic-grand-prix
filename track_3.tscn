@@ -179,11 +179,11 @@ shape = SubResource("BoxShape3D_2p5kl")
 script = ExtResource("7_5d4uf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="speed" index="0" unique_id=1904884686]
-transform = Transform3D(0.99998975, 0, -0.004520446, 0, 1, 0, 0.004520446, 0, 0.99998975, -11.83227, 1.8807008, 6.701222)
+transform = Transform3D(0.25445, 0, -0.9670859, 0, 1, 0, 0.9670859, 0, 0.25445, -6.0646267, 1.8807008, 0.6434598)
 shape = SubResource("BoxShape3D_ut2nc")
 
 [node name="DashPanelGlow" type="OmniLight3D" parent="." index="11" unique_id=140473632]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.832553, 1.8349373, 6.710602)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.013199, 1.8349373, 0.63609886)
 light_color = Color(0.99999994, 0.7097535, 0.10690499, 1)
 light_energy = 0.5
 omni_range = 3.0

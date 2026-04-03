@@ -105,6 +105,7 @@ sky_material = SubResource("PanoramaSkyMaterial_oa2pc")
 
 [sub_resource type="Environment" id="Environment_x6jxe"]
 background_mode = 2
+background_color = Color(1, 1, 1, 1)
 sky = SubResource("Sky_cqc7h")
 sdfgi_use_occlusion = true
 glow_enabled = true
@@ -216,11 +217,11 @@ shape = SubResource("BoxShape3D_tmpgx")
 script = ExtResource("9_tms4g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="speed" index="0" unique_id=209937240]
-transform = Transform3D(0.64834577, 0, -0.761346, 0, 1, 0, 0.761346, 0, 0.64834577, -10.310992, 1.8807008, 0.919266)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.248393, 1.8807008, 7.755398)
 shape = SubResource("BoxShape3D_npa3b")
 
 [node name="DashPanelGlow" type="OmniLight3D" parent="." index="11" unique_id=928674280]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.343323, 1.8349373, 0.9230885)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.240666, 1.8349373, 7.732517)
 light_color = Color(0.99999994, 0.7097535, 0.10690499, 1)
 light_energy = 0.5
 omni_range = 3.0

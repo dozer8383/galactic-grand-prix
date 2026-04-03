@@ -75,7 +75,7 @@ expand_icon = true
 script = ExtResource("6_cf7nr")
 metadata/trackID = 4
 
-[node name="CompatWarning" type="Button" parent="ControlsControl" unique_id=1938442998]
+[node name="HowTo" type="Button" parent="ControlsControl" unique_id=1938442998]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -95,7 +95,7 @@ text = "In Grand Prix mode, make four laps around each track
 against bot opponents. Take corners by releasing the
 throttle and using steering to maneuver carefully.
 Walls are dangerous and you will violently ricochet off,
-as well as take damage.
+as well as take damage. Don't run out of shield power!
 Good luck!"
 metadata/trackID = 0
 

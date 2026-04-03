@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bo6myix788ekl"]
+
+[ext_resource type="PackedScene" uid="uid://dcomwjx7pxn86" path="res://graphics/vector.glb" id="1_hm48i"]
+
+[node name="vector" unique_id=692112806 instance=ExtResource("1_hm48i")]
+transform = Transform3D(-5.2453664e-09, 0, 0.12, 0, 0.12, 0, -0.12, 0, -5.2453664e-09, 0, 0, 0)
+
+[node name="Cube" parent="." index="0" unique_id=323503166]
+transform = Transform3D(1.7881393e-07, 0, 1, 0, 1, 0, -1, 0, 1.7881393e-07, 0.55724543, 0.09791326, 2.4357957e-08)
+
+[node name="Thruster_002" parent="." index="1" unique_id=410088812]
+transform = Transform3D(0, -0.20407753, 3.5527137e-15, 0.20407753, 0, 0, 0, 3.5527137e-15, 0.20407753, -0.66660565, -0.11324205, 2.435797e-08)
+
+[node name="Thruster_001" parent="." index="2" unique_id=752724108]
+transform = Transform3D(0, -0.2550969, 3.5527137e-15, 0.2550969, 0, 0, 0, 3.5527137e-15, 0.2550969, -0.6229224, -0.07970112, -0.3000001)
+
+[node name="Thruster_003" parent="." index="3" unique_id=1820630275]
+transform = Transform3D(0, -0.2550969, 3.5527137e-15, 0.2550969, 0, 0, 0, 3.5527137e-15, 0.2550969, -0.6229224, -0.07970112, 0.3000001)

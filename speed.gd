@@ -14,5 +14,5 @@ func _process(_delta: float) -> void:
 
 func _on_body_entered(_body: Node3D) -> void:
 	for body2 in get_overlapping_bodies():
-		if body2.name == "ray":
+		if body2.name == "player":
 			shipOnSpeed.emit()

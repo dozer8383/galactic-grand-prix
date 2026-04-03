@@ -87,6 +87,25 @@ text = "READY"
 label_settings = ExtResource("3_67jta")
 horizontal_alignment = 1
 
+[node name="PointsAdded" type="Label" parent="." unique_id=920525160]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.0
+offset_top = 20.5
+offset_right = 174.0
+offset_bottom = 43.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "+0 POINTS"
+label_settings = SubResource("LabelSettings_axmix")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Prompt" type="Label" parent="." unique_id=878882648]
 visible = false
 layout_mode = 1
@@ -116,6 +135,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="DebugLabel" type="Label" parent="hud" unique_id=1965364392]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -4,9 +4,12 @@ var currenttrackid = 0
 var start_time = 0
 var timerStarted = false
 var bestTimes = [0,0,0,0,0]
+var bestPoints = [0,0,0]
 var botFinishes = 0
 var raceType = 0
+var points = 0
 var raceStarted = false
+var shipChoice = 0
 
 const timeTrial = 0
 const grandPrix = 1

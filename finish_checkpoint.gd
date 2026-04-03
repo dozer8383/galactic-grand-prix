@@ -13,7 +13,7 @@ func _process(_delta: float) -> void:
 	pass
 
 func _on_body_entered(body: Node3D) -> void:
-	if body.name == "ray":
+	if body.name == "player":
 		print("start")
 		finishcrossed.emit()
 		playerCount += 1

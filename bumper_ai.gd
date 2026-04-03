@@ -17,7 +17,7 @@ func _ready() -> void:
 	$"../Area3D".connect("body_entered",collided)
 	
 func collided(body: Node3D) -> void:
-	if body.name == "ray":
+	if body.name == "player":
 		randomwait = 30
 		$Thrust.light_energy = 0
 		$Thrust2.light_energy = 0

@@ -1,10 +1,6 @@
 extends Button
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if RenderingServer.get_current_rendering_method() == "gl_compatibility":
-		show()
-		
-func _pressed() -> void:
-	OS.shell_open("https://github.com/dozer8383/galactic-grand-prix/releases/latest")
+	var trackid = get_meta("trackID")
+	var temptime: float = globals.bestTimes[trackid]
+	text = "%01d:%02d.%03d" % [temptime/60000,int(temptime/1000.0)%60,int(temptime)%1000]

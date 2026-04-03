@@ -4,12 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://1qn3mxxt2j6h" path="res://graphics/ggp-logo.png" id="1_d2nv2"]
 [ext_resource type="Theme" uid="uid://cxh21tuuh01u3" path="res://graphics/SixCaps.tres" id="1_wgsso"]
 [ext_resource type="PackedScene" uid="uid://ckfrsuvx3wynb" path="res://track_1.tscn" id="2_d2nv2"]
+[ext_resource type="Texture2D" uid="uid://ekbt87kkyhc2" path="res://graphics/ray.png" id="3_qrn07"]
 [ext_resource type="StyleBox" uid="uid://dwhhwupgv26ua" path="res://orangeMarble.tres" id="4_0y70q"]
 [ext_resource type="Texture2D" uid="uid://pkxe1k7073ai" path="res://graphics/button-white.png" id="4_rqglp"]
 [ext_resource type="Texture2D" uid="uid://bqn6m2h0y7jhc" path="res://graphics/button.png" id="5_0y70q"]
 [ext_resource type="StyleBox" uid="uid://by3hp1m22vg40" path="res://marbleButton.tres" id="6_qrn07"]
 [ext_resource type="FontFile" uid="uid://dqae8nltbsopi" path="res://graphics/Unbounded-Medium.ttf" id="7_lidg2"]
-[ext_resource type="Script" uid="uid://djo6nm8kuxvlt" path="res://tracktime.gd" id="8_raimv"]
+[ext_resource type="Script" uid="uid://c4sgh5rtem5m3" path="res://compat_warning.gd" id="9_0y70q"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0y70q"]
 texture = ExtResource("5_0y70q")
@@ -57,10 +58,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -118.0
-offset_top = 46.0
-offset_right = 118.0
-offset_bottom = 178.0
+offset_left = -156.0
+offset_top = 14.0
+offset_right = 156.0
+offset_bottom = 191.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -87,6 +88,19 @@ layout_mode = 2
 theme = ExtResource("1_wgsso")
 text = "Settings"
 alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer" unique_id=1196978895]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MachineButton" type="Button" parent="Control/VBoxContainer" unique_id=960894110]
+layout_mode = 2
+theme = ExtResource("1_wgsso")
+text = "Change Machine"
+icon = ExtResource("3_qrn07")
+alignment = 2
+icon_alignment = 2
+expand_icon = true
 
 [node name="TextureRect" type="TextureRect" parent="Control" unique_id=1847103316]
 layout_mode = 1
@@ -125,7 +139,7 @@ text = "WARNING
 Playing Galactic Grand Prix in the brower sucks!
 Click this button to be taken to the downloads page
 and select the native executable for your OS."
-script = ExtResource("8_raimv")
+script = ExtResource("9_0y70q")
 metadata/trackID = 0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=972953568]
@@ -138,3 +152,4 @@ fov = 90.0
 [connection signal="pressed" from="Control/VBoxContainer/TimeTrialButton" to="Control" method="_on_time_trial_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/ControlsButton" to="Control" method="_on_controls_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/SettingsButton" to="Control" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/MachineButton" to="Control" method="_on_machine_button_pressed"]

@@ -1,18 +1,16 @@
 [gd_scene format=3 uid="uid://dhpgy2mgt2k76"]
 
 [ext_resource type="Script" uid="uid://bq6t6f2c3pg1j" path="res://game.gd" id="1_fc0e3"]
-[ext_resource type="PackedScene" uid="uid://bqjtooq2j1son" path="res://ray.tscn" id="2_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://bqcas01uj6y0e" path="res://gui.tscn" id="3_7jktm"]
+[ext_resource type="PackedScene" uid="uid://cw5dgvh7l5go7" path="res://player.tscn" id="3_feb5d"]
 
 [node name="Game" type="Node3D" unique_id=299422792]
 script = ExtResource("1_fc0e3")
 
-[node name="ray" parent="." unique_id=1185787226 instance=ExtResource("2_fc0e3")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.895831, 1.57, -10.937741)
-motion_mode = 0
-
 [node name="gui" parent="." unique_id=700108634 instance=ExtResource("3_7jktm")]
 
-[connection signal="crossedfinish" from="." to="ray" method="_on_crossedfinish"]
-[connection signal="raceFinish" from="." to="ray" method="_on_game_race_finish"]
-[connection signal="crash" from="ray" to="." method="_on_crash"]
+[node name="player" parent="." unique_id=1552050558 instance=ExtResource("3_feb5d")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.895831, 1.57, -10.937741)
+
+[connection signal="crossedfinish" from="." to="player" method="_on_game_crossedfinish"]
+[connection signal="raceFinish" from="." to="player" method="_on_game_race_finish"]

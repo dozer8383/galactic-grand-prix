@@ -11,12 +11,14 @@ config_version=5
 [application]
 
 config/name="GalacticGrandPrix"
+config/version="0.4.0"
 run/main_scene="uid://bwlxuy1akqmnt"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/bg_color=Color(0.050980393, 0.03529412, 0.08627451, 1)
 boot_splash/stretch_mode=4
-boot_splash/image="uid://c3td6kovqr802"
-config/icon="res://icon.svg"
-boot_splash/minimum_display_time=2000
+boot_splash/image="uid://cui5unumagn7o"
+config/icon="uid://lrxad47u4eik"
+boot_splash/minimum_display_time=1000
 
 [autoload]
 
@@ -25,6 +27,7 @@ globals="*uid://m71bsom4wd0g"
 
 [display]
 
+window/size/mode=4
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

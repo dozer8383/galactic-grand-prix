@@ -14,6 +14,7 @@ var canStart = false
 var thrustcolor = Vector3.ZERO
 var raceFinished = false
 var canMove = false
+var shipVisual
 signal crash
 signal showHud
 
@@ -63,13 +64,13 @@ func getInput(delta: float):
 		turnVel += (get_wall_normal().x+get_wall_normal().z)/3
 		enginerpm *= 0.9
 		rotation.z = move_toward(rotation.z, get_wall_normal().x+get_wall_normal().z,delta)
-		$ray.rotation.x = move_toward($ray.rotation.x, get_wall_normal().x+get_wall_normal().z,delta)
+		shipVisual.rotation.x = move_toward(shipVisual.rotation.x, get_wall_normal().x+get_wall_normal().z,delta)
 		
-	$ray.rotation.x = move_toward($ray.rotation.x,-turnInput*0.1,delta*0.3)
+	shipVisual.rotation.x = move_toward(shipVisual.rotation.x,-turnInput*0.1,delta*0.3)
 	rotation.z = move_toward(rotation.z,turnInput*0.02,delta*0.05)
-	$ray.rotation.z = clamp((speed-5.5)*0.13,0,0.5)
-	$ray.position.y = clamp((speed-6.5)*0.01,0,0.5)
-	$ray.rotation.x = clamp($ray.rotation.x,-3,3)
+	shipVisual.rotation.z = clamp((speed-5.5)*0.13,0,0.5)
+	shipVisual.position.y = clamp((speed-6.5)*0.01,0,0.5)
+	shipVisual.rotation.x = clamp(shipVisual.rotation.x,-3,3)
 	position.y = 1.57
 	$"../gui/hud/Speedometer".text = str(int(floor(abs(speed)*60)))
 	$"../gui/hud/TextureProgressBar".value = power
@@ -89,6 +90,16 @@ func getInput(delta: float):
 func _ready() -> void:
 	$Camera3D.position.z = 15.2
 	$Camera3D.position.y = 7.77
+	match globals.shipChoice:
+		0:
+			$ray.show()
+			shipVisual = $ray
+		1:
+			$vector.show()
+			shipVisual = $vector
+		2:
+			$tracer.show()
+			shipVisual = $tracer
 
 func _physics_process(delta: float) -> void:
 	if !raceFinished:
@@ -111,7 +122,7 @@ func _physics_process(delta: float) -> void:
 func onRough() -> void:
 	enginerpm *= 0.99
 	drift *= 0.98
-	$ray.position.y -= 0.004*randf()+0.002
+	shipVisual.position.y -= 0.004*randf()+0.002
 
 func onSpeed() -> void:
 	enginerpm = 1.5
@@ -120,8 +131,8 @@ func onSpeed() -> void:
 func raceStart() -> void:
 	canMove = true
 
-func _on_crossedfinish() -> void:
-	addPower += 35
-
 func _on_game_race_finish() -> void:
 	raceFinished = true
+
+func _on_game_crossedfinish() -> void:
+	addPower += 35

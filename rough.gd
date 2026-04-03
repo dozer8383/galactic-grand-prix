@@ -10,5 +10,5 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	for body in get_overlapping_bodies():
-		if body.name == "ray":
+		if body.name == "player":
 			shipOnRough.emit()

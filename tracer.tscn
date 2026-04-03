@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://drnlde8h2swwn"]
+
+[ext_resource type="PackedScene" uid="uid://dlq68a8n234mt" path="res://graphics/tracer.glb" id="1_yt2qg"]
+
+[node name="tracer" unique_id=1399689473 instance=ExtResource("1_yt2qg")]
+transform = Transform3D(-3.059797e-09, 0, 0.07, 0, 0.07, 0, -0.07, 0, -3.059797e-09, 0, 0, 0)
+
+[node name="Cube" parent="." index="0" unique_id=747831510]
+transform = Transform3D(1.7881393e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, 1.7881393e-07, 0.4351091, 0.16652325, 1.9019224e-08)
+
+[node name="Pipe" parent="." index="1" unique_id=2105549993]
+transform = Transform3D(0.14389762, 0, 0, 0, 0.32117116, 0, 0, 0, 0.14389761, -0.8752686, -0.018270021, 1.9019247e-08)
+
+[node name="Pipe_001" parent="." index="2" unique_id=1792049100]
+transform = Transform3D(0.24341846, 0, 0, 0, 0, -0.24341843, 0, 0.45677263, 0, -0.87539923, 0.45369756, 1.9019225e-08)
+
+[node name="Thruster" parent="." index="3" unique_id=1630164547]
+transform = Transform3D(3.9319513e-08, -0.65967196, 0, 0.65967196, 3.9319513e-08, 0, 0, 0, 0.65967196, -0.9880472, 0.45696795, -0.81516623)
+
+[node name="Thruster_001" parent="." index="4" unique_id=1165472768]
+transform = Transform3D(3.9319513e-08, -0.65967196, 0, 0.65967196, 3.9319513e-08, 0, 0, 0, 0.65967196, -0.9880473, 0.45696795, 0.8151662)
+
+[node name="Thruster_002" parent="." index="5" unique_id=718193758]
+transform = Transform3D(0, -0.7108073, 0, 0.7108073, 0, 0, 0, 0, 0.7108073, -0.96489084, -0.00015454633, 1.9019218e-08)
