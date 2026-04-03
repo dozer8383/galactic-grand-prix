@@ -4,39 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://bqjtooq2j1son" path="res://ray.tscn" id="2_b26j0"]
 [ext_resource type="PackedScene" uid="uid://drnlde8h2swwn" path="res://tracer.tscn" id="2_n7ghd"]
 [ext_resource type="PackedScene" uid="uid://bo6myix788ekl" path="res://vector.tscn" id="2_nvl01"]
-[ext_resource type="Resource" uid="uid://ca45noqewsyvp" path="res://addons/sphynx_motion_blur_toolkit/guertin/shader_stages/guertin_blur_stage.tres" id="3_nvl01"]
-[ext_resource type="Resource" uid="uid://cvb65hfs2lrxo" path="res://addons/sphynx_motion_blur_toolkit/guertin/shader_stages/guertin_neighbor_max_stage.tres" id="4_ivps1"]
-[ext_resource type="Resource" uid="uid://bidsfymvdyhek" path="res://addons/sphynx_motion_blur_toolkit/guertin/shader_stages/guertin_overlay_stage.tres" id="5_urp6f"]
-[ext_resource type="Resource" uid="uid://c8ulad7utgrg7" path="res://addons/sphynx_motion_blur_toolkit/pre_blur_processing/shader_stages/pre_blur_processing_stage.tres" id="6_bwjto"]
-[ext_resource type="Script" uid="uid://c5jewnyvlca7j" path="res://addons/sphynx_motion_blur_toolkit/guertin/guertin_motion_blur.gd" id="7_606se"]
-[ext_resource type="Resource" uid="uid://dipvwksvqb3dm" path="res://addons/sphynx_motion_blur_toolkit/guertin/shader_stages/guertin_tile_max_x_stage.tres" id="8_u1c27"]
-[ext_resource type="Resource" uid="uid://bxfg45ubc2pv7" path="res://addons/sphynx_motion_blur_toolkit/guertin/shader_stages/guertin_tile_max_y_stage.tres" id="9_op7ga"]
+[ext_resource type="Compositor" uid="uid://kvda7fwejwjw" path="res://motionblur.tres" id="5_sweqy"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hwms0"]
 height = 0.1015625
 radius = 0.080566406
-
-[sub_resource type="CompositorEffect" id="CompositorEffect_kf1gs"]
-resource_local_to_scene = false
-resource_name = ""
-enabled = true
-effect_callback_type = 4
-needs_motion_vectors = true
-needs_normal_roughness = false
-script = ExtResource("7_606se")
-tile_size = 32
-intensity = 2.0
-target_constant_framerate = 24.0
-shader_stages/blur_stage = ExtResource("3_nvl01")
-shader_stages/overlay_stage = ExtResource("5_urp6f")
-shader_stages/tile_max_x_stage = ExtResource("8_u1c27")
-shader_stages/tile_max_y_stage = ExtResource("9_op7ga")
-shader_stages/neighbor_max_stage = ExtResource("4_ivps1")
-shader_stages/pre_blur_processor_stage = ExtResource("6_bwjto")
-metadata/_custom_type_script = "uid://c5jewnyvlca7j"
-
-[sub_resource type="Compositor" id="Compositor_nk5m5"]
-compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_kf1gs")])
 
 [node name="player" type="CharacterBody3D" unique_id=1552050558]
 motion_mode = 1
@@ -57,7 +29,7 @@ debug_color = Color(0.98, 0, 0.26133308, 1)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=390519163]
 transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0, 0.262, 0.2)
-compositor = SubResource("Compositor_nk5m5")
+compositor = ExtResource("5_sweqy")
 fov = 110.0
 size = 0.1
 

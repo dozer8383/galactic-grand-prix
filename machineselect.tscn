@@ -121,7 +121,6 @@ size_flags_horizontal = 3
 [node name="RayMachine" type="Button" parent="MachineSelect/VBoxContainer" unique_id=1020374619]
 layout_mode = 2
 size_flags_vertical = 3
-tooltip_text = "Clears best time trials permanently."
 theme = ExtResource("7_n7spt")
 text = "RAY"
 icon = ExtResource("11_u2m88")
@@ -131,7 +130,6 @@ metadata/trackID = 0
 [node name="VectorMachine" type="Button" parent="MachineSelect/VBoxContainer" unique_id=1569777932]
 layout_mode = 2
 size_flags_vertical = 3
-tooltip_text = "Clears best time trials permanently."
 theme = ExtResource("7_n7spt")
 text = "VECTOR"
 icon = ExtResource("12_v4y61")
@@ -141,7 +139,6 @@ metadata/trackID = 0
 [node name="TracerMachine" type="Button" parent="MachineSelect/VBoxContainer" unique_id=903910556]
 layout_mode = 2
 size_flags_vertical = 3
-tooltip_text = "Clears best time trials permanently."
 theme = ExtResource("7_n7spt")
 text = "TRACER"
 icon = ExtResource("13_0t8mk")

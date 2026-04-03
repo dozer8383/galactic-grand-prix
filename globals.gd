@@ -26,15 +26,25 @@ func timerGet():
 		return Time.get_ticks_msec() - start_time
 	else:
 		return 0
+		
+func saveItem(json: Variant, savefile: FileAccess):
+	var json_string = JSON.stringify(json)
+	savefile.store_line(json_string)
+	
+func readItem(savefile: FileAccess) -> Variant:
+	var json_string = savefile.get_line()
+	var json = JSON.new()
+	var parse_result = json.parse(json_string)
+	if not parse_result == OK:
+		printerr("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+		return
+	return json.data
 
 func saveGame():
 	var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
-
-	# JSON provides a static method to serialized JSON string.
-	var json_string = JSON.stringify(globals.bestTimes)
-
-	# Store the save dictionary as a new line in the save file.
-	save_file.store_line(json_string)
+	saveItem(globals.bestTimes, save_file)
+	saveItem(globals.bestPoints, save_file)
+	save_file.store_line(str(globals.shipChoice))
 
 func loadGame():
 	if not FileAccess.file_exists("user://savegame.save"):
@@ -42,13 +52,21 @@ func loadGame():
 		
 	var save_file = FileAccess.open("user://savegame.save", FileAccess.READ)
 	var json_string = save_file.get_line()
-	
 	var json = JSON.new()
-	
 	var parse_result = json.parse(json_string)
 	if not parse_result == OK:
-		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
-	
+		printerr("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+		return
 	globals.bestTimes = json.data
 	if len(globals.bestTimes) < 5:
 		globals.bestTimes.resize(5)
+	json_string = save_file.get_line()
+	json = JSON.new()
+	parse_result = json.parse(json_string)
+	if not parse_result == OK:
+		printerr("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+		return
+	globals.bestPoints = json.data
+	if len(globals.bestTimes) < 3:
+		globals.bestTimes.resize(3)
+	globals.shipChoice = int(save_file.get_line())

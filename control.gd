@@ -7,6 +7,7 @@ func _ready() -> void:
 	globals.raceType = 0
 	globals.raceStarted = false
 	globals.points = 0
+	globals.loadGame()
 	match globals.shipChoice:
 		0:
 			$VBoxContainer/MachineButton.icon = load("res://graphics/ray.png")
@@ -34,3 +35,7 @@ func _on_controls_button_pressed() -> void:
 
 func _on_machine_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://machineselect.tscn")
+
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()
