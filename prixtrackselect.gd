@@ -3,8 +3,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_node("VBoxContainer/BronzeLeague").grab_focus()
-
+	get_node("VBoxContainer/HBoxContainer/BronzeLeague").grab_focus()
+	$VBoxContainer/HBoxContainer/BronzePoints.text = str(int(globals.bestPoints[0]))+" POINTS"
 
 func _on_bronze_league_pressed() -> void:
 	globals.currenttrackid = 0

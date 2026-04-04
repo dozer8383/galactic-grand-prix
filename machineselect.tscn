@@ -13,6 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://ekbt87kkyhc2" path="res://graphics/ray.png" id="11_u2m88"]
 [ext_resource type="Texture2D" uid="uid://csdkuvi2m3yxq" path="res://graphics/vector.png" id="12_v4y61"]
 [ext_resource type="Texture2D" uid="uid://ny83r4s22bwd" path="res://graphics/tracer.png" id="13_0t8mk"]
+[ext_resource type="LabelSettings" uid="uid://dipk8jb5iw8h7" path="res://normal.tres" id="14_jsxev"]
+[ext_resource type="Texture2D" uid="uid://csdpwvblc5gto" path="res://graphics/power-under.png" id="15_gehps"]
+[ext_resource type="Texture2D" uid="uid://dqbhtqlet1178" path="res://graphics/generic-progress.png" id="16_niubu"]
+[ext_resource type="Texture2D" uid="uid://dsdr0je66mugy" path="res://graphics/generic-progress-negative.png" id="17_gehps"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n3dh0"]
 
@@ -144,6 +148,85 @@ text = "TRACER"
 icon = ExtResource("13_0t8mk")
 expand_icon = true
 metadata/trackID = 0
+
+[node name="Stats" type="VBoxContainer" parent="MachineSelect" unique_id=1640870714]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -394.0
+offset_top = -203.99997
+offset_right = 48.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+
+[node name="Speed" type="HBoxContainer" parent="MachineSelect/Stats" unique_id=399818157]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MachineSelect/Stats/Speed" unique_id=1288718154]
+layout_mode = 2
+text = "TOP SPEED"
+label_settings = ExtResource("14_jsxev")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MachineSelect/Stats/Speed" unique_id=1661317216]
+layout_mode = 2
+size_flags_horizontal = 10
+min_value = 350.0
+max_value = 530.0
+value = 440.0
+texture_under = ExtResource("15_gehps")
+texture_progress = ExtResource("16_niubu")
+
+[node name="Acceleration" type="HBoxContainer" parent="MachineSelect/Stats" unique_id=2021720758]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MachineSelect/Stats/Acceleration" unique_id=1994879345]
+layout_mode = 2
+text = "ACCELERATION"
+label_settings = ExtResource("14_jsxev")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MachineSelect/Stats/Acceleration" unique_id=676398034]
+layout_mode = 2
+size_flags_horizontal = 10
+max_value = 10.0
+value = 4.0
+texture_under = ExtResource("15_gehps")
+texture_progress = ExtResource("16_niubu")
+
+[node name="Handling" type="HBoxContainer" parent="MachineSelect/Stats" unique_id=72798589]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MachineSelect/Stats/Handling" unique_id=819854883]
+layout_mode = 2
+text = "HANDLING"
+label_settings = ExtResource("14_jsxev")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MachineSelect/Stats/Handling" unique_id=863923325]
+layout_mode = 2
+size_flags_horizontal = 10
+max_value = 6.0
+value = 3.0
+texture_under = ExtResource("15_gehps")
+texture_progress = ExtResource("16_niubu")
+
+[node name="Weight" type="HBoxContainer" parent="MachineSelect/Stats" unique_id=1518638759]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MachineSelect/Stats/Weight" unique_id=825666658]
+layout_mode = 2
+text = "WEIGHT"
+label_settings = ExtResource("14_jsxev")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MachineSelect/Stats/Weight" unique_id=710797354]
+layout_mode = 2
+size_flags_horizontal = 10
+max_value = 10.0
+value = 6.0
+texture_under = ExtResource("15_gehps")
+texture_progress = ExtResource("17_gehps")
 
 [connection signal="focus_entered" from="MachineSelect/VBoxContainer/RayMachine" to="MachineSelect" method="_on_ray_machine_focus_entered"]
 [connection signal="pressed" from="MachineSelect/VBoxContainer/RayMachine" to="MachineSelect" method="_on_ray_machine_pressed"]

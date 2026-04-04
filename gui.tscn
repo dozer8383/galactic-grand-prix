@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://dqae8nltbsopi" path="res://graphics/Unbounded-Medium.ttf" id="2_jf511"]
 [ext_resource type="Texture2D" uid="uid://csdpwvblc5gto" path="res://graphics/power-under.png" id="3_0wv8u"]
 [ext_resource type="LabelSettings" uid="uid://mgwoxa57ag8d" path="res://retro.tres" id="3_67jta"]
+[ext_resource type="LabelSettings" uid="uid://dipk8jb5iw8h7" path="res://normal.tres" id="4_7u6ry"]
 [ext_resource type="Texture2D" uid="uid://dj76cgn4g37ui" path="res://graphics/power-over.png" id="4_67jta"]
 [ext_resource type="Texture2D" uid="uid://bydeuouoaadbw" path="res://graphics/power-progress.png" id="5_p8208"]
 [ext_resource type="Theme" uid="uid://v32jg1x66ioj" path="res://trackselect.tres" id="8_67jta"]
@@ -126,7 +127,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="hud" type="Control" parent="." unique_id=662537484]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -135,19 +135,20 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="DebugLabel" type="Label" parent="hud" unique_id=1965364392]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 536.0
-offset_top = 228.5
-offset_right = 576.0
-offset_bottom = 251.5
+offset_left = -20.0
+offset_top = 100.5
+offset_right = 20.0
+offset_bottom = 123.5
 grow_horizontal = 2
 grow_vertical = 2
+label_settings = ExtResource("4_7u6ry")
+horizontal_alignment = 1
 
 [node name="Speedometer" type="Label" parent="hud" unique_id=1872463156]
 layout_mode = 1

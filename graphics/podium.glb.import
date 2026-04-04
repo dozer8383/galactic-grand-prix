@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://pc4gg6onq574"
-path="res://.godot/imported/sparkparticle.glb-db2988f5b286c78a52ed34f9581e87cb.scn"
+uid="uid://1pljjobybsfa"
+path="res://.godot/imported/podium.glb-4d63c5e4875afbe4966ead1ad039eccf.scn"
 
 [deps]
 
-source_file="res://graphics/sparkparticle.glb"
-dest_files=["res://.godot/imported/sparkparticle.glb-db2988f5b286c78a52ed34f9581e87cb.scn"]
+source_file="res://graphics/podium.glb"
+dest_files=["res://.godot/imported/podium.glb-4d63c5e4875afbe4966ead1ad039eccf.scn"]
 
 [params]
 

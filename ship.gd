@@ -1,7 +1,6 @@
 extends CharacterBody3D
 
 var enginepower = 5
-const turnSpeed = 0.3
 var speed = 0
 var thrust = 0
 var turnVel = 0
@@ -25,47 +24,120 @@ func getInput(delta: float):
 	if power <= 0 and not crashed:
 		crashed = true
 		crash.emit()
-	if power > 0:
-		if power < 15:
-			enginerpm += moveInput/200
+	
+	if globals.shipChoice == 0:
+		var turnSpeed = 0.3
+		if power > 0:
+			if power < 15:
+				enginerpm += moveInput/200
+			else:
+				enginerpm += moveInput/170
+			turnVel += turnSpeed * turnInput
+		enginepower = 4.5+speed/4.0
+		speed = enginerpm * enginepower
+		velocity = -transform.basis.z * speed
+		drift += velocity
+		velocity = (velocity+(drift*clamp((speed-6.5)*0.9,0.03,0.7))).normalized()*speed
+		$"../gui/hud/DebugLabel".text = str(clamp((speed-6.5)*0.9,0.03,0.7))
+		turnVel = clamp(turnVel,-3,3)
+		rotate_y(turnVel * delta)
+		enginerpm *= (1-Input.get_action_strength("backward")*0.01)
+		
+		drift *= 0.98
+		if moveInput:
+			enginerpm *= 0.995
 		else:
-			enginerpm += moveInput/170
-		turnVel += turnSpeed * turnInput
-	
-	enginepower = 4.5+speed/4.0
-	speed = enginerpm * enginepower
-	velocity = -transform.basis.z * speed
-	drift += velocity
-	velocity = (velocity+(drift*clamp((speed-6.5)*1.3,0.03,0.7))).normalized()*speed
-	turnVel = clamp(turnVel,-3,3)
-	rotate_y(turnVel * delta)
-	#drift *= (1-Input.get_action_strength("backward"))
-	enginerpm *= (1-Input.get_action_strength("backward")*0.01)
-	
+			enginerpm *= 0.9965
+		power = clamp(power,0,100)
+		
+		if Input.is_action_just_pressed("forward") or Input.is_action_pressed("backward"):
+			drift *= 0.85
+			enginerpm *= 0.96
+		
+		if is_on_wall():
+			power -= 0.8*speed
+			drift += get_wall_normal()*speed*25
+			turnVel += (get_wall_normal().x+get_wall_normal().z)/3
+			enginerpm *= 0.9
+			rotation.z = move_toward(rotation.z, get_wall_normal().x+get_wall_normal().z,delta)
+			shipVisual.rotation.x = move_toward(shipVisual.rotation.x, get_wall_normal().x+get_wall_normal().z,delta)
+	elif globals.shipChoice == 1:
+		var turnSpeed = 0.3
+		if power > 0:
+			if power < 15:
+				enginerpm += moveInput/120
+			else:
+				enginerpm += moveInput/90
+			turnVel += turnSpeed * turnInput
+		enginepower = 5.9
+		speed = enginerpm * enginepower
+		velocity = -transform.basis.z * speed
+		drift += velocity
+		velocity = (velocity+(drift*clamp((speed-5.7)*0.9,0.03,0.7))).normalized()*speed
+		$"../gui/hud/DebugLabel".text = str(clamp((speed-5.7)*0.9,0.03,0.7))
+		turnVel = clamp(turnVel,-4,4)
+		rotate_y(turnVel * delta)
+		enginerpm *= (1-Input.get_action_strength("backward")*0.01)
+		
+		drift *= 0.97
+		if moveInput:
+			enginerpm *= 0.99
+		else:
+			enginerpm *= 0.9965
+		power = clamp(power,0,100)
+		
+		if Input.is_action_just_pressed("forward") or Input.is_action_pressed("backward"):
+			drift *= 0.85
+			enginerpm *= 0.96
+		
+		if is_on_wall():
+			power -= 0.8*speed
+			drift += get_wall_normal()*speed*30
+			turnVel += (get_wall_normal().x+get_wall_normal().z)/3
+			enginerpm *= 0.9
+			rotation.z = move_toward(rotation.z, get_wall_normal().x+get_wall_normal().z,delta)
+			shipVisual.rotation.x = move_toward(shipVisual.rotation.x, get_wall_normal().x+get_wall_normal().z,delta)
+	elif globals.shipChoice == 2:
+		var turnSpeed = 0.3
+		if power > 0:
+			if power < 15:
+				enginerpm += moveInput/80
+			else:
+				enginerpm += moveInput/75
+			turnVel += turnSpeed * turnInput
+		enginepower = 0.8+speed/4.0
+		speed = enginerpm * enginepower
+		velocity = -transform.basis.z * speed
+		drift += velocity
+		velocity = (velocity+(drift*clamp((speed-7.5)*0.5,0.015,0.9))).normalized()*speed
+		$"../gui/hud/DebugLabel".text = str(clamp((speed-7.5)*0.5,0.015,0.9))
+		turnVel = clamp(turnVel,-2.5,2.5)
+		rotate_y(turnVel * delta)
+		enginerpm *= (1-Input.get_action_strength("backward")*0.01)
+		
+		drift *= 0.96
+		if moveInput:
+			enginerpm *= 0.9954
+		else:
+			enginerpm *= 0.9985
+		power = clamp(power,0,100)
+		
+		if Input.is_action_just_pressed("forward") or Input.is_action_pressed("backward"):
+			drift *= 0.85
+			enginerpm *= 0.96
+		
+		if is_on_wall():
+			power -= 0.8*speed
+			drift += get_wall_normal()*speed*15
+			turnVel += (get_wall_normal().x+get_wall_normal().z)/3
+			enginerpm *= 0.9
+			rotation.z = move_toward(rotation.z, get_wall_normal().x+get_wall_normal().z,delta)
+			shipVisual.rotation.x = move_toward(shipVisual.rotation.x, get_wall_normal().x+get_wall_normal().z,delta)
+		
 	if power > 0:
 		turnVel *= 0.95
 	else:
 		turnVel *= 0.99
-	drift *= 0.98
-	enginerpm *= 0.995
-	power = clamp(power,0,100)
-	
-	if Input.is_action_just_pressed("forward") or Input.is_action_pressed("backward"):
-		drift *= 0.85
-		enginerpm *= 0.96
-	
-	#$"../Control/DebugLabel".text = str(abs(velocity.normalized()-drift.normalized()) > Vector3(0.1,0,0.1))
-	#$"../gui/DebugLabel".text = str(clamp((speed-6.5)*1.3,0.03,0.7))
-	#$"../gui/DebugLabel".text = str(enginerpm)
-	
-	if is_on_wall():
-		power -= 0.8*speed
-		drift += get_wall_normal()*speed*25
-		turnVel += (get_wall_normal().x+get_wall_normal().z)/3
-		enginerpm *= 0.9
-		rotation.z = move_toward(rotation.z, get_wall_normal().x+get_wall_normal().z,delta)
-		shipVisual.rotation.x = move_toward(shipVisual.rotation.x, get_wall_normal().x+get_wall_normal().z,delta)
-		
 	shipVisual.rotation.x = move_toward(shipVisual.rotation.x,-turnInput*0.1,delta*0.3)
 	rotation.z = move_toward(rotation.z,turnInput*0.02,delta*0.05)
 	shipVisual.rotation.z = clamp((speed-5.5)*0.13,0,0.5)
@@ -125,7 +197,12 @@ func onRough() -> void:
 	shipVisual.position.y -= 0.004*randf()+0.002
 
 func onSpeed() -> void:
-	enginerpm = 1.5
+	if globals.shipChoice == 0:
+		enginerpm = 1.5
+	elif globals.shipChoice == 1:
+		enginerpm = 1.5
+	elif globals.shipChoice == 2:
+		enginerpm = 3
 	drift *= 0.5
 	
 func raceStart() -> void:

@@ -127,7 +127,8 @@ func introFinished() -> void:
 	$gui/TrackTitle.hide()
 	$gui/Countdown.text = "READY"
 	$gui/Countdown.show()
-	await get_tree().create_timer(2+(randf()*1.5)).timeout
+	if globals.raceType == 1:
+		await get_tree().create_timer(2+(randf()*1.5)).timeout
 	startRace.emit()
 	globals.raceStarted = true
 	$gui/Countdown.label_settings = retrogreen
@@ -139,10 +140,15 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("forward") and raceFinished:
 		globals.currenttrackid += 1
 		if globals.currenttrackid % 5 == 0:
-			get_tree().change_scene_to_file("res://mainmenu.tscn")
+			print("podiuming")
+			globals.raceType = 0
+			globals.timerStarted = false
+			globals.raceStarted = false
+			get_tree().change_scene_to_file("res://podium.tscn")
 		else:
+			print("reloading")
 			get_tree().reload_current_scene()
-	if event.is_action_pressed("cheat") and 1:
+	if event.is_action_pressed("cheat") and false:
 		raceFinish.emit()
 		raceFinished = true
 		place = 1+globals.botFinishes
@@ -150,10 +156,19 @@ func _input(event: InputEvent) -> void:
 		match place:
 			1:
 				placeDisplay = "1st"
+				addpoints = 12
 			2:
 				placeDisplay = "2nd"
+				addpoints = 8
 			3:
 				placeDisplay = "3rd"
+				addpoints = 5
+			4,5,6,7,8,9:
+				placeDisplay = str(place)+"st"
+				addpoints = 2
+		globals.points += addpoints
 		$gui/TrackTitle.text = placeDisplay+" position"
+		$gui/PointsAdded.text = "+"+str(addpoints)+" points"
 		$gui/Prompt.show()
 		$gui/TrackTitle.show()
+		$gui/PointsAdded.show()

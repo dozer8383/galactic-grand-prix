@@ -11,6 +11,7 @@ var lap = 0
 var finished = false
 var timerStarted = false
 var hVelocity = 0
+@onready var player = $"../../../../../player"
 
 func _ready() -> void:
 	randomwait = int(randf()*60)
@@ -21,7 +22,6 @@ func collided(body: Node3D) -> void:
 		randomwait = 30
 		$Thrust.light_energy = 0
 		$Thrust2.light_energy = 0
-		print("hit")
 
 func _physics_process(delta: float) -> void:
 	$Thrust.light_energy = 0.1
@@ -52,3 +52,9 @@ func _physics_process(delta: float) -> void:
 			print(get_wall_normal())
 		#$"..".h_offset -= hVelocity
 		$"..".progress += speed*delta*1.5
+	for body in $"../..".get_children():
+		if body != $"..":
+			if body.name.contains("bumper"):
+				if global_position.distance_to(body.global_position) < 0.5:
+					if abs(global_position.signed_angle_to(body.global_position,Vector3(0,1,0))) < (PI/6):
+						randomwait = 10
