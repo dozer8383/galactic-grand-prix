@@ -11,7 +11,6 @@ var lap = 0
 var finished = false
 var timerStarted = false
 var hVelocity = 0
-@onready var player = $"../../../../../player"
 
 func _ready() -> void:
 	randomwait = int(randf()*60)
@@ -37,7 +36,7 @@ func _physics_process(delta: float) -> void:
 		$"..".rotation.y += 0.06
 		$"..".position.y += 0.015
 	else:
-		if abs(angle_difference($"..".rotation.y,oldangle)) >= 0.01:
+		if abs(angle_difference($"..".rotation.y,oldangle)) >= 0.015:
 			enginerpm *= 1-(abs(angle_difference($"..".rotation.y,oldangle))*0.2)
 			$Thrust.light_energy = 0
 			$Thrust2.light_energy = 0
@@ -52,6 +51,7 @@ func _physics_process(delta: float) -> void:
 			print(get_wall_normal())
 		#$"..".h_offset -= hVelocity
 		$"..".progress += speed*delta*1.5
+	$"../EngineNoise".pitch_scale = speed+6
 	var globalpos2 = Vector2(global_position.x,global_position.z)
 	for body in $"../..".get_children():
 		if body != $"..":

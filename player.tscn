@@ -5,10 +5,18 @@
 [ext_resource type="PackedScene" uid="uid://drnlde8h2swwn" path="res://tracer.tscn" id="2_n7ghd"]
 [ext_resource type="PackedScene" uid="uid://bo6myix788ekl" path="res://vector.tscn" id="2_nvl01"]
 [ext_resource type="Compositor" uid="uid://kvda7fwejwjw" path="res://motionblur.tres" id="5_sweqy"]
+[ext_resource type="AudioStream" uid="uid://b4v6gmtpxb32" path="res://engine.res" id="6_2hs0m"]
+[ext_resource type="AudioStream" uid="uid://dgw0kd30iujea" path="res://assets/collide1.wav" id="7_1jxqw"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hwms0"]
 height = 0.1015625
 radius = 0.080566406
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dw050"]
+random_pitch = 1.0708452
+random_volume_offset_db = 1.73
+streams_count = 1
+stream_0/stream = ExtResource("7_1jxqw")
 
 [node name="player" type="CharacterBody3D" unique_id=1552050558]
 motion_mode = 1
@@ -30,6 +38,7 @@ debug_color = Color(0.98, 0, 0.26133308, 1)
 [node name="Camera3D" type="Camera3D" parent="." unique_id=390519163]
 transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0, 0.262, 0.2)
 compositor = ExtResource("5_sweqy")
+doppler_tracking = 2
 fov = 110.0
 size = 0.1
 
@@ -48,3 +57,16 @@ light_energy = 0.0
 omni_range = 1.0
 omni_attenuation = 1.2
 omni_shadow_mode = 0
+
+[node name="EngineNoise" type="AudioStreamPlayer3D" parent="." unique_id=1521270089]
+stream = ExtResource("6_2hs0m")
+volume_db = -26.024
+pitch_scale = 7.5
+autoplay = true
+bus = &"PlayerEngine"
+
+[node name="CollisionNoise" type="AudioStreamPlayer3D" parent="." unique_id=1712096122]
+stream = SubResource("AudioStreamRandomizer_dw050")
+volume_db = 5.783
+pitch_scale = 2.66
+max_polyphony = 3

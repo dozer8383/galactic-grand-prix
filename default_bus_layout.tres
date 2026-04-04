@@ -1,0 +1,62 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://b73u3wcmmly1p"]
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_j3pel"]
+resource_name = "Distortion"
+keep_hf_hz = 1189.0
+drive = 0.35
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_j3pel"]
+resource_name = "Reverb"
+room_size = 0.72
+damping = 1.0
+hipass = 0.09
+wet = 0.06
+
+[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_j3pel"]
+resource_name = "Chorus"
+dry = 0.77
+voice/1/delay_ms = 28.35
+voice/1/rate_hz = 6.4
+voice/1/depth_ms = 3.86
+voice/2/delay_ms = 50.0
+voice/2/rate_hz = 3.8
+voice/2/depth_ms = 6.98
+
+[sub_resource type="AudioEffectEQ6" id="AudioEffectEQ6_j3pel"]
+resource_name = "EQ6"
+band_db/32_hz = 3.0
+band_db/100_hz = 9.0
+band_db/320_hz = 3.5
+band_db/1000_hz = 0.5
+band_db/3200_hz = -8.6
+band_db/10000_hz = -2.0
+
+[sub_resource type="AudioEffectStereoEnhance" id="AudioEffectStereoEnhance_j3pel"]
+resource_name = "StereoEnhance"
+pan_pullout = 4.0
+time_pullout_ms = 4.29
+surround = 1.0
+
+[resource]
+bus/1/name = &"PlayerEngine"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -1.519247
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectDistortion_j3pel")
+bus/1/effect/0/enabled = true
+bus/1/effect/1/effect = SubResource("AudioEffectReverb_j3pel")
+bus/1/effect/1/enabled = true
+bus/1/effect/2/effect = SubResource("AudioEffectChorus_j3pel")
+bus/1/effect/2/enabled = true
+bus/1/effect/3/effect = SubResource("AudioEffectEQ6_j3pel")
+bus/1/effect/3/enabled = true
+bus/2/name = &"BotEngine"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = -1.7170057
+bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectStereoEnhance_j3pel")
+bus/2/effect/0/enabled = true

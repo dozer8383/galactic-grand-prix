@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d4k717qc5n3ib" path="res://bumper_ai.gd" id="1_h31vo"]
 [ext_resource type="PackedScene" uid="uid://qvwd3ggvg4dw" path="res://dummy_ship.tscn" id="2_sn2yj"]
+[ext_resource type="AudioStream" uid="uid://b4v6gmtpxb32" path="res://engine.res" id="3_sn2yj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h31vo"]
 size = Vector3(0.15722656, 0.13330078, 0.39587402)
@@ -19,3 +20,11 @@ script = ExtResource("1_h31vo")
 transform = Transform3D(0.9999418, 0, 0, 0, 0.9999418, 0, 0, 0, 0.9999418, 0, 0.021729084, -0.0035267642)
 shape = SubResource("BoxShape3D_h31vo")
 debug_color = Color(1, 0, 0.29411766, 1)
+
+[node name="EngineNoise" type="AudioStreamPlayer3D" parent="." unique_id=583500020]
+stream = ExtResource("3_sn2yj")
+volume_db = -23.122
+pitch_scale = 7.5
+autoplay = true
+bus = &"BotEngine"
+doppler_tracking = 2

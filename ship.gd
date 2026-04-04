@@ -98,26 +98,26 @@ func getInput(delta: float):
 			rotation.z = move_toward(rotation.z, get_wall_normal().x+get_wall_normal().z,delta)
 			shipVisual.rotation.x = move_toward(shipVisual.rotation.x, get_wall_normal().x+get_wall_normal().z,delta)
 	elif globals.shipChoice == 2:
-		var turnSpeed = 0.3
+		var turnSpeed = 0.25
 		if power > 0:
 			if power < 15:
 				enginerpm += moveInput/80
 			else:
 				enginerpm += moveInput/75
 			turnVel += turnSpeed * turnInput
-		enginepower = 0.9965+speed/4.0
+		enginepower = 0.6+speed/4.0
 		speed = enginerpm * enginepower
 		velocity = -transform.basis.z * speed
 		drift += velocity
-		velocity = (velocity+(drift*clamp((speed-7.5)*0.5,0.015,0.9))).normalized()*speed
-		$"../gui/hud/DebugLabel".text = str(clamp((speed-7.5)*0.5,0.015,0.9))
+		velocity = (velocity+(drift*clamp((speed-7.5)*0.7,0.015,0.9))).normalized()*speed
+		$"../gui/hud/DebugLabel".text = str(clamp((speed-7.5)*0.7,0.015,0.9))
 		turnVel = clamp(turnVel,-2.5,2.5)
 		rotate_y(turnVel * delta)
 		enginerpm *= (1-Input.get_action_strength("backward")*0.005)
 		
 		drift *= 0.96
 		if moveInput:
-			enginerpm *= 0.995
+			enginerpm *= 0.99565
 		else:
 			enginerpm *= 0.999
 		power = clamp(power,0,100)
@@ -133,6 +133,10 @@ func getInput(delta: float):
 			enginerpm *= 0.9
 			rotation.z = move_toward(rotation.z, get_wall_normal().x+get_wall_normal().z,delta)
 			shipVisual.rotation.x = move_toward(shipVisual.rotation.x, get_wall_normal().x+get_wall_normal().z,delta)
+			$CollisionNoise.pitch_scale = 15-speed
+			$CollisionNoise.volume_db = speed+2
+			print(15-speed*2)
+			$CollisionNoise.play()
 		
 	if power > 0:
 		turnVel *= 0.95
@@ -144,6 +148,8 @@ func getInput(delta: float):
 	shipVisual.position.y = clamp((speed-6.5)*0.01,0,0.5)
 	shipVisual.rotation.x = clamp(shipVisual.rotation.x,-3,3)
 	position.y = 1.57
+	#$EngineNoise.stream.stereo = moveInput
+	$EngineNoise.pitch_scale = speed*(1+moveInput)+4
 	$"../gui/hud/Speedometer".text = str(int(floor(abs(speed)*60)))
 	$"../gui/hud/TextureProgressBar".value = power
 	if Input.is_action_pressed("forward"):
@@ -172,6 +178,8 @@ func _ready() -> void:
 		2:
 			$tracer.show()
 			shipVisual = $tracer
+	if $"..".name == "pedestal":
+		$EngineNoise.stop()
 
 func _physics_process(delta: float) -> void:
 	if !raceFinished:
@@ -192,7 +200,10 @@ func _physics_process(delta: float) -> void:
 		$Camera3D.position = Vector3(0,1,1)
 
 func onRough() -> void:
-	enginerpm *= 0.99
+	if globals.shipChoice == 1:
+		enginerpm *= 0.998
+	else:
+		enginerpm *= 0.991
 	drift *= 0.98
 	shipVisual.position.y -= 0.004*randf()+0.002
 
@@ -202,7 +213,7 @@ func onSpeed() -> void:
 	elif globals.shipChoice == 1:
 		enginerpm = 1.5
 	elif globals.shipChoice == 2:
-		enginerpm = 3
+		enginerpm = 3.1
 	drift *= 0.5
 	
 func raceStart() -> void:
