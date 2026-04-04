@@ -41,13 +41,13 @@ func getInput(delta: float):
 		$"../gui/hud/DebugLabel".text = str(clamp((speed-6.5)*0.9,0.03,0.7))
 		turnVel = clamp(turnVel,-3,3)
 		rotate_y(turnVel * delta)
-		enginerpm *= (1-Input.get_action_strength("backward")*0.01)
+		enginerpm *= (1-Input.get_action_strength("backward")*0.005)
 		
 		drift *= 0.98
 		if moveInput:
 			enginerpm *= 0.995
 		else:
-			enginerpm *= 0.9965
+			enginerpm *= 0.999
 		power = clamp(power,0,100)
 		
 		if Input.is_action_just_pressed("forward") or Input.is_action_pressed("backward"):
@@ -55,7 +55,7 @@ func getInput(delta: float):
 			enginerpm *= 0.96
 		
 		if is_on_wall():
-			power -= 0.8*speed
+			power -= 0.6*speed
 			drift += get_wall_normal()*speed*25
 			turnVel += (get_wall_normal().x+get_wall_normal().z)/3
 			enginerpm *= 0.9
@@ -77,13 +77,13 @@ func getInput(delta: float):
 		$"../gui/hud/DebugLabel".text = str(clamp((speed-5.7)*0.9,0.03,0.7))
 		turnVel = clamp(turnVel,-4,4)
 		rotate_y(turnVel * delta)
-		enginerpm *= (1-Input.get_action_strength("backward")*0.01)
+		enginerpm *= (1-Input.get_action_strength("backward")*0.005)
 		
 		drift *= 0.97
 		if moveInput:
 			enginerpm *= 0.99
 		else:
-			enginerpm *= 0.9965
+			enginerpm *= 0.999
 		power = clamp(power,0,100)
 		
 		if Input.is_action_just_pressed("forward") or Input.is_action_pressed("backward"):
@@ -91,7 +91,7 @@ func getInput(delta: float):
 			enginerpm *= 0.96
 		
 		if is_on_wall():
-			power -= 0.8*speed
+			power -= 0.6*speed
 			drift += get_wall_normal()*speed*30
 			turnVel += (get_wall_normal().x+get_wall_normal().z)/3
 			enginerpm *= 0.9
@@ -105,7 +105,7 @@ func getInput(delta: float):
 			else:
 				enginerpm += moveInput/75
 			turnVel += turnSpeed * turnInput
-		enginepower = 0.8+speed/4.0
+		enginepower = 0.9965+speed/4.0
 		speed = enginerpm * enginepower
 		velocity = -transform.basis.z * speed
 		drift += velocity
@@ -113,13 +113,13 @@ func getInput(delta: float):
 		$"../gui/hud/DebugLabel".text = str(clamp((speed-7.5)*0.5,0.015,0.9))
 		turnVel = clamp(turnVel,-2.5,2.5)
 		rotate_y(turnVel * delta)
-		enginerpm *= (1-Input.get_action_strength("backward")*0.01)
+		enginerpm *= (1-Input.get_action_strength("backward")*0.005)
 		
 		drift *= 0.96
 		if moveInput:
-			enginerpm *= 0.9954
+			enginerpm *= 0.995
 		else:
-			enginerpm *= 0.9985
+			enginerpm *= 0.999
 		power = clamp(power,0,100)
 		
 		if Input.is_action_just_pressed("forward") or Input.is_action_pressed("backward"):
@@ -127,7 +127,7 @@ func getInput(delta: float):
 			enginerpm *= 0.96
 		
 		if is_on_wall():
-			power -= 0.8*speed
+			power -= 0.6*speed
 			drift += get_wall_normal()*speed*15
 			turnVel += (get_wall_normal().x+get_wall_normal().z)/3
 			enginerpm *= 0.9

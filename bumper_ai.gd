@@ -52,9 +52,11 @@ func _physics_process(delta: float) -> void:
 			print(get_wall_normal())
 		#$"..".h_offset -= hVelocity
 		$"..".progress += speed*delta*1.5
+	var globalpos2 = Vector2(global_position.x,global_position.z)
 	for body in $"../..".get_children():
 		if body != $"..":
 			if body.name.contains("bumper"):
-				if global_position.distance_to(body.global_position) < 0.5:
-					if abs(global_position.signed_angle_to(body.global_position,Vector3(0,1,0))) < (PI/6):
+				var bodyglobalpos2 = Vector2(body.global_position.x,body.global_position.z)
+				if global_position.distance_to(body.global_position) < 0.7:
+					if abs(globalpos2.angle_to_point(bodyglobalpos2)) < (PI/4):
 						randomwait = 10

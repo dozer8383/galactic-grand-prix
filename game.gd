@@ -117,10 +117,11 @@ func _on_crash() -> void:
 		$gui/Countdown.text = "ELIMINATED"
 		$gui/Countdown.show()
 		await get_tree().create_timer(2.0).timeout
-		globals.timerStarted = false
-		globals.raceStarted = false
-		globals.raceType = 0
-		get_tree().change_scene_to_file("res://grandprixmenu.tscn")
+		get_tree().reload_current_scene()
+		#globals.timerStarted = false
+		#globals.raceStarted = false
+		#globals.raceType = 0
+		#get_tree().change_scene_to_file("res://grandprixmenu.tscn")
 	
 func introFinished() -> void:
 	$gui/hud.show()

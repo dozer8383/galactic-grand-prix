@@ -55,3 +55,11 @@ func _on_tracer_machine_focus_entered() -> void:
 	$Stats/Acceleration/TextureProgressBar.value = 10-8
 	$Stats/Handling/TextureProgressBar.value = 2
 	$Stats/Weight/TextureProgressBar.value = 9
+
+
+func _on_ray_machine_mouse_entered() -> void:
+	pass # Replace with function body.
+
+
+func _on_vector_machine_mouse_entered() -> void:
+	pass # Replace with function body.
