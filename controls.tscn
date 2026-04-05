@@ -8,7 +8,7 @@
 [ext_resource type="Theme" uid="uid://v32jg1x66ioj" path="res://trackselect.tres" id="5_hkas0"]
 [ext_resource type="Script" uid="uid://cuuy0ne8lyyix" path="res://back_button.gd" id="6_cf7nr"]
 [ext_resource type="Texture2D" uid="uid://cqbphcmifgeqs" path="res://graphics/keyboard-controls.png" id="7_hkas0"]
-[ext_resource type="LabelSettings" uid="uid://dipk8jb5iw8h7" path="res://normal.tres" id="8_cf7nr"]
+[ext_resource type="LabelSettings" uid="uid://n6weqjhxi17d" path="res://normal-shadow.tres" id="8_hkas0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n3dh0"]
 
@@ -108,7 +108,7 @@ offset_bottom = 243.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "In Grand Prix mode, make four laps around each track against bot opponents. Take corners by releasing the throttle and using steering to maneuver carefully. Walls are dangerous and you will violently ricochet off, as well as take damage. Don't run out of shield power!"
-label_settings = ExtResource("8_cf7nr")
+label_settings = ExtResource("8_hkas0")
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -128,7 +128,7 @@ grow_vertical = 2
 text = "In Time Trials, you can practice your driving. Shoot for the best time, and try using different machines to see which suits your play style.
 
 TIP: Use a controller. The game is significantly more difficult with a keyboard!"
-label_settings = ExtResource("8_cf7nr")
+label_settings = ExtResource("8_hkas0")
 horizontal_alignment = 1
 autowrap_mode = 3
 

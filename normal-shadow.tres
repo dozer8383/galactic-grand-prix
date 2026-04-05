@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://n6weqjhxi17d"]
+
+[ext_resource type="FontFile" uid="uid://dqae8nltbsopi" path="res://graphics/Unbounded-Medium.ttf" id="1_yoq1q"]
+
+[resource]
+font = ExtResource("1_yoq1q")
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.36078432)
