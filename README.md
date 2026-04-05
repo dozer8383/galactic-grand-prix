@@ -4,9 +4,9 @@
 A chaotically fast, futuristic, and beautiful racing game. Find yourself speeding down straights at 400+ km/h and hurtling through hairpin corners on tracks in exotic locations throughout the galaxy.
 Inspired by F-Zero, made in Godot!
 
-# Quick Start
+# Download the game on the releases page: https://github.com/dozer8383/galactic-grand-prix/releases/latest
 The binaries do not need to be installed. Just download and run.
-### Download the game on the releases page: https://github.com/dozer8383/galactic-grand-prix/releases/latest
+### IF you really, seriously can't run a proper binary, or would like to have a not-great experience, there's a web version here https://jasper7474.itch.io/galactic-grand-prix**
 
 # Screenshots
 <img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/f0678b19-c4f0-44a9-88bf-b655ab735f8d" />
