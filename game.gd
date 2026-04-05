@@ -163,7 +163,7 @@ func _input(event: InputEvent) -> void:
 				placeDisplay = "3rd"
 				addpoints = 5
 			4,5,6,7,8,9:
-				placeDisplay = str(place)+"st"
+				placeDisplay = str(place)+"th"
 				addpoints = 2
 		globals.points += addpoints
 		$gui/TrackTitle.text = placeDisplay+" position"

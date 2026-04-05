@@ -7,6 +7,8 @@
 [ext_resource type="Theme" uid="uid://v32jg1x66ioj" path="res://trackselect.tres" id="3_3j6r5"]
 [ext_resource type="Script" uid="uid://cuuy0ne8lyyix" path="res://back_button.gd" id="4_3lj6o"]
 [ext_resource type="Script" uid="uid://i6lbq20dfi2o" path="res://delete_save.gd" id="6_3j6r5"]
+[ext_resource type="Texture2D" uid="uid://bqn6m2h0y7jhc" path="res://graphics/button.png" id="6_3lj6o"]
+[ext_resource type="Script" uid="uid://bcyyw8knivblg" path="res://motion_blur_toggle.gd" id="7_6mhpt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3c45g"]
 
@@ -25,6 +27,14 @@ Label/font_sizes/font_size = 48
 [sub_resource type="Theme" id="Theme_3j6r5"]
 default_font = ExtResource("2_71mqq")
 Label/font_sizes/font_size = 18
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6mhpt"]
+texture = ExtResource("6_3lj6o")
+texture_margin_left = 32.0
+texture_margin_top = 8.0
+texture_margin_right = 32.0
+texture_margin_bottom = 8.0
+modulate_color = Color(2.263057, 1.502158, 0, 1)
 
 [node name="Node3D" type="Node3D" unique_id=1754734018]
 
@@ -78,21 +88,27 @@ grow_vertical = 2
 size_flags_horizontal = 3
 
 [node name="Label2" type="Label" parent="Settings/VBoxContainer" unique_id=1668901758]
+visible = false
 layout_mode = 2
 theme = SubResource("Theme_3j6r5")
 text = "Graphics"
 horizontal_alignment = 1
 
-[node name="DeleteSave2" type="Button" parent="Settings/VBoxContainer" unique_id=803811866]
+[node name="MotionBlurToggle" type="Button" parent="Settings/VBoxContainer" unique_id=803811866]
+visible = false
 layout_mode = 2
 tooltip_text = "Clears best time trials permanently."
 theme = ExtResource("3_3j6r5")
+theme_override_colors/font_pressed_color = Color(0.99999994, 0.84633815, 0.64209974, 1)
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6mhpt")
+toggle_mode = true
 text = "MOTION BLUR: OFF"
 expand_icon = true
-script = ExtResource("6_3j6r5")
+script = ExtResource("7_6mhpt")
 metadata/trackID = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="Settings/VBoxContainer" unique_id=316476303]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
