@@ -2,6 +2,7 @@
 
 
 A chaotically fast, futuristic, and beautiful racing game. Find yourself speeding down straights at 400+ km/h and hurtling through hairpin corners on tracks in exotic locations throughout the galaxy.
+Inspired by F-Zero, made in Godot!
 
 # Quick Start
 The binaries do not need to be installed. Just download and run.
