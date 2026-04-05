@@ -72,10 +72,29 @@ anchor_bottom = 0.5
 offset_left = -201.0
 offset_top = -223.0
 offset_right = 201.0
-offset_bottom = 252.0
+offset_bottom = -68.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="Settings/VBoxContainer" unique_id=1668901758]
+layout_mode = 2
+theme = SubResource("Theme_3j6r5")
+text = "Graphics"
+horizontal_alignment = 1
+
+[node name="DeleteSave2" type="Button" parent="Settings/VBoxContainer" unique_id=803811866]
+layout_mode = 2
+tooltip_text = "Clears best time trials permanently."
+theme = ExtResource("3_3j6r5")
+text = "MOTION BLUR: OFF"
+expand_icon = true
+script = ExtResource("6_3j6r5")
+metadata/trackID = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Settings/VBoxContainer" unique_id=316476303]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Settings/VBoxContainer" unique_id=969836332]
 layout_mode = 2

@@ -135,7 +135,6 @@ func getInput(delta: float):
 			shipVisual.rotation.x = move_toward(shipVisual.rotation.x, get_wall_normal().x+get_wall_normal().z,delta)
 			$CollisionNoise.pitch_scale = 15-speed
 			$CollisionNoise.volume_db = speed+2
-			print(15-speed*2)
 			$CollisionNoise.play()
 		
 	if power > 0:

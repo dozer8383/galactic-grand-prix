@@ -44,12 +44,6 @@ func _physics_process(delta: float) -> void:
 		enginepower = 4.5+speed/4.0
 		speed = enginerpm * enginepower
 		enginerpm *= 0.995
-		hVelocity *= 0.97
-		if is_on_wall():
-			hVelocity += get_wall_normal().normalized().x
-			enginerpm = 0
-			print(get_wall_normal())
-		#$"..".h_offset -= hVelocity
 		$"..".progress += speed*delta*1.5
 	$"../EngineNoise".pitch_scale = speed+6
 	var globalpos2 = Vector2(global_position.x,global_position.z)

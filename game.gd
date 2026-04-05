@@ -141,13 +141,11 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("forward") and raceFinished:
 		globals.currenttrackid += 1
 		if globals.currenttrackid % 5 == 0:
-			print("podiuming")
 			globals.raceType = 0
 			globals.timerStarted = false
 			globals.raceStarted = false
 			get_tree().change_scene_to_file("res://podium.tscn")
 		else:
-			print("reloading")
 			get_tree().reload_current_scene()
 	if event.is_action_pressed("cheat") and false:
 		raceFinish.emit()

@@ -67,6 +67,8 @@ grow_vertical = 2
 
 [node name="GrandPrixButton" type="Button" parent="Control/VBoxContainer" unique_id=1863225253]
 layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+focus_previous = NodePath("../QuitButton")
 theme = ExtResource("1_wgsso")
 text = "Grand Prix"
 alignment = 2
@@ -104,6 +106,8 @@ size_flags_vertical = 3
 
 [node name="QuitButton" type="Button" parent="Control/VBoxContainer" unique_id=767033372]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../GrandPrixButton")
+focus_next = NodePath("../GrandPrixButton")
 theme = ExtResource("1_wgsso")
 text = "Quit Game"
 alignment = 2

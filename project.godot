@@ -20,6 +20,10 @@ boot_splash/image="uid://cui5unumagn7o"
 config/icon="uid://lrxad47u4eik"
 boot_splash/minimum_display_time=1000
 
+[audio]
+
+buses/default_bus_layout="uid://b73u3wcmmly1p"
+
 [autoload]
 
 DebugMenu="*uid://cggqb75a8w8r"
@@ -27,13 +31,12 @@ globals="*uid://m71bsom4wd0g"
 
 [display]
 
-window/size/mode=4
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/debug_menu/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg", "res://addons/sphynx_enhanced_compositor_toolkit/plugin.cfg", "res://addons/sphynx_motion_blur_toolkit/plugin.cfg")
+enabled=PackedStringArray("res://addons/debug_menu/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg")
 
 [input]
 

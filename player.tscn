@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://bqjtooq2j1son" path="res://ray.tscn" id="2_b26j0"]
 [ext_resource type="PackedScene" uid="uid://drnlde8h2swwn" path="res://tracer.tscn" id="2_n7ghd"]
 [ext_resource type="PackedScene" uid="uid://bo6myix788ekl" path="res://vector.tscn" id="2_nvl01"]
-[ext_resource type="Compositor" uid="uid://kvda7fwejwjw" path="res://motionblur.tres" id="5_sweqy"]
 [ext_resource type="AudioStream" uid="uid://b4v6gmtpxb32" path="res://engine.res" id="6_2hs0m"]
 [ext_resource type="AudioStream" uid="uid://dgw0kd30iujea" path="res://assets/collide1.wav" id="7_1jxqw"]
 
@@ -37,7 +36,6 @@ debug_color = Color(0.98, 0, 0.26133308, 1)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=390519163]
 transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0, 0.262, 0.2)
-compositor = ExtResource("5_sweqy")
 doppler_tracking = 2
 fov = 110.0
 size = 0.1

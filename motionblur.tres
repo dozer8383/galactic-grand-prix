@@ -1,31 +1,3 @@
 [gd_resource type="Compositor" format=3 uid="uid://kvda7fwejwjw"]
 
-[ext_resource type="Resource" uid="uid://ca45noqewsyvp" path="res://addons/sphynx_motion_blur_toolkit/guertin/shader_stages/guertin_blur_stage.tres" id="1_qjxqw"]
-[ext_resource type="Resource" uid="uid://cvb65hfs2lrxo" path="res://addons/sphynx_motion_blur_toolkit/guertin/shader_stages/guertin_neighbor_max_stage.tres" id="2_ae6l0"]
-[ext_resource type="Resource" uid="uid://bidsfymvdyhek" path="res://addons/sphynx_motion_blur_toolkit/guertin/shader_stages/guertin_overlay_stage.tres" id="3_6c8re"]
-[ext_resource type="Resource" uid="uid://c8ulad7utgrg7" path="res://addons/sphynx_motion_blur_toolkit/pre_blur_processing/shader_stages/pre_blur_processing_stage.tres" id="4_3kq18"]
-[ext_resource type="Script" uid="uid://c5jewnyvlca7j" path="res://addons/sphynx_motion_blur_toolkit/guertin/guertin_motion_blur.gd" id="5_xbyon"]
-[ext_resource type="Resource" uid="uid://dipvwksvqb3dm" path="res://addons/sphynx_motion_blur_toolkit/guertin/shader_stages/guertin_tile_max_x_stage.tres" id="6_svprn"]
-[ext_resource type="Resource" uid="uid://bxfg45ubc2pv7" path="res://addons/sphynx_motion_blur_toolkit/guertin/shader_stages/guertin_tile_max_y_stage.tres" id="7_nabw4"]
-
-[sub_resource type="CompositorEffect" id="CompositorEffect_kf1gs"]
-resource_local_to_scene = false
-resource_name = ""
-enabled = true
-effect_callback_type = 4
-needs_motion_vectors = true
-needs_normal_roughness = false
-script = ExtResource("5_xbyon")
-tile_size = 32
-intensity = 2.0
-target_constant_framerate = 24.0
-shader_stages/blur_stage = ExtResource("1_qjxqw")
-shader_stages/overlay_stage = ExtResource("3_6c8re")
-shader_stages/tile_max_x_stage = ExtResource("6_svprn")
-shader_stages/tile_max_y_stage = ExtResource("7_nabw4")
-shader_stages/neighbor_max_stage = ExtResource("2_ae6l0")
-shader_stages/pre_blur_processor_stage = ExtResource("4_3kq18")
-metadata/_custom_type_script = "uid://c5jewnyvlca7j"
-
 [resource]
-compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_kf1gs")])
