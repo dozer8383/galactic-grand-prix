@@ -35,7 +35,7 @@ shape = SubResource("CylinderShape3D_hwms0")
 debug_color = Color(0.98, 0, 0.26133308, 1)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=390519163]
-transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0, 0.262, 0.2)
+transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0, 0.387, 0.2)
 doppler_tracking = 2
 fov = 110.0
 size = 0.1

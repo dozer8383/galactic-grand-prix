@@ -2,21 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di3me54js3vlh"
-path.s3tc="res://.godot/imported/track2_track2.png-a92a6b0845fd9878f9bb6c883ff66635.s3tc.ctex"
-path.etc2="res://.godot/imported/track2_track2.png-a92a6b0845fd9878f9bb6c883ff66635.etc2.ctex"
+uid="uid://fq1lcltaa2oi"
+path.s3tc="res://.godot/imported/jump-panel_jump-panel.png-1b841b86bb338275f8f5e902ebf98683.s3tc.ctex"
+path.etc2="res://.godot/imported/jump-panel_jump-panel.png-1b841b86bb338275f8f5e902ebf98683.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "50c57b6eb97288226a4187e51dbfcf0f"
+"md5": "5534d6d3e220f80ca7f55f02f4488d6d"
 }
 
 [deps]
 
-source_file="res://graphics/track2_track2.png"
-dest_files=["res://.godot/imported/track2_track2.png-a92a6b0845fd9878f9bb6c883ff66635.s3tc.ctex", "res://.godot/imported/track2_track2.png-a92a6b0845fd9878f9bb6c883ff66635.etc2.ctex"]
+source_file="res://graphics/jump-panel_jump-panel.png"
+dest_files=["res://.godot/imported/jump-panel_jump-panel.png-1b841b86bb338275f8f5e902ebf98683.s3tc.ctex", "res://.godot/imported/jump-panel_jump-panel.png-1b841b86bb338275f8f5e902ebf98683.etc2.ctex"]
 
 [params]
 
