@@ -23,6 +23,10 @@ func _ready() -> void:
 	globals.timerStarted = false
 	globals.raceStarted = false
 	globals.botFinishes = 0
+	var playerEngineBus = AudioServer.get_bus_index("PlayerEngine")
+	AudioServer.set_bus_volume_linear(playerEngineBus,globals.sfxVolume/100.0)
+	var botEngineBus = AudioServer.get_bus_index("BotEngine")
+	AudioServer.set_bus_volume_linear(botEngineBus,globals.sfxVolume/100.0)
 	match globals.currenttrackid:
 		0:
 			trackscene = preload("res://track_1.tscn")

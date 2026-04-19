@@ -2,21 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dd3fsf2111wwv"
-path.s3tc="res://.godot/imported/track3_track3.png-b7e9ae717296ccd6f104a86ccf97371f.s3tc.ctex"
-path.etc2="res://.godot/imported/track3_track3.png-b7e9ae717296ccd6f104a86ccf97371f.etc2.ctex"
+uid="uid://cyoyy0xjkrj5o"
+path.s3tc="res://.godot/imported/track3_barrierNormal.png-bcecd049d0a160b1343a4cec1927014e.s3tc.ctex"
+path.etc2="res://.godot/imported/track3_barrierNormal.png-bcecd049d0a160b1343a4cec1927014e.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "fbc8dd83f1dcd4b1e106d632d60d34ae"
+"md5": "0911198f9a8fe39b906d7b09cb8f85a8"
 }
 
 [deps]
 
-source_file="res://graphics/track3_track3.png"
-dest_files=["res://.godot/imported/track3_track3.png-b7e9ae717296ccd6f104a86ccf97371f.s3tc.ctex", "res://.godot/imported/track3_track3.png-b7e9ae717296ccd6f104a86ccf97371f.etc2.ctex"]
+source_file="res://graphics/track3_barrierNormal.png"
+dest_files=["res://.godot/imported/track3_barrierNormal.png-bcecd049d0a160b1343a4cec1927014e.s3tc.ctex", "res://.godot/imported/track3_barrierNormal.png-bcecd049d0a160b1343a4cec1927014e.etc2.ctex"]
 
 [params]
 
@@ -26,12 +26,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://graphics/track3_barrierNormal.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

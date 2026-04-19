@@ -7,8 +7,7 @@
 [ext_resource type="Theme" uid="uid://v32jg1x66ioj" path="res://trackselect.tres" id="3_3j6r5"]
 [ext_resource type="Script" uid="uid://cuuy0ne8lyyix" path="res://back_button.gd" id="4_3lj6o"]
 [ext_resource type="Script" uid="uid://i6lbq20dfi2o" path="res://delete_save.gd" id="6_3j6r5"]
-[ext_resource type="Texture2D" uid="uid://bqn6m2h0y7jhc" path="res://graphics/button.png" id="6_3lj6o"]
-[ext_resource type="Script" uid="uid://bcyyw8knivblg" path="res://motion_blur_toggle.gd" id="7_6mhpt"]
+[ext_resource type="LabelSettings" uid="uid://dipk8jb5iw8h7" path="res://normal.tres" id="6_3lj6o"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3c45g"]
 
@@ -28,15 +27,12 @@ Label/font_sizes/font_size = 48
 default_font = ExtResource("2_71mqq")
 Label/font_sizes/font_size = 18
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6mhpt"]
-texture = ExtResource("6_3lj6o")
-texture_margin_left = 32.0
-texture_margin_top = 8.0
-texture_margin_right = 32.0
-texture_margin_bottom = 8.0
-modulate_color = Color(2.263057, 1.502158, 0, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_6mhpt"]
+font = ExtResource("2_71mqq")
+font_size = 12
 
 [node name="Node3D" type="Node3D" unique_id=1754734018]
+metadata/_edit_vertical_guides_ = [-258.0]
 
 [node name="Settings" type="Control" parent="." unique_id=2091775594]
 layout_mode = 3
@@ -82,40 +78,38 @@ anchor_bottom = 0.5
 offset_left = -201.0
 offset_top = -223.0
 offset_right = 201.0
-offset_bottom = -68.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
 [node name="Label2" type="Label" parent="Settings/VBoxContainer" unique_id=1668901758]
-visible = false
 layout_mode = 2
 theme = SubResource("Theme_3j6r5")
-text = "Graphics"
+text = "AUDIO"
+label_settings = ExtResource("6_3lj6o")
 horizontal_alignment = 1
 
-[node name="MotionBlurToggle" type="Button" parent="Settings/VBoxContainer" unique_id=803811866]
-visible = false
+[node name="Label3" type="Label" parent="Settings/VBoxContainer" unique_id=1552332052]
 layout_mode = 2
-tooltip_text = "Clears best time trials permanently."
+theme = SubResource("Theme_3j6r5")
+text = "SFX Volume"
+label_settings = SubResource("LabelSettings_6mhpt")
+
+[node name="HSlider" type="HSlider" parent="Settings/VBoxContainer" unique_id=968808233]
+layout_mode = 2
 theme = ExtResource("3_3j6r5")
-theme_override_colors/font_pressed_color = Color(0.99999994, 0.84633815, 0.64209974, 1)
-theme_override_styles/pressed = SubResource("StyleBoxTexture_6mhpt")
-toggle_mode = true
-text = "MOTION BLUR: OFF"
-expand_icon = true
-script = ExtResource("7_6mhpt")
-metadata/trackID = 0
+value = 29.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Settings/VBoxContainer" unique_id=316476303]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Settings/VBoxContainer" unique_id=969836332]
 layout_mode = 2
 theme = SubResource("Theme_3j6r5")
-text = "Game"
+text = "GAME"
+label_settings = ExtResource("6_3lj6o")
 horizontal_alignment = 1
 
 [node name="DeleteSave" type="Button" parent="Settings/VBoxContainer" unique_id=1549873555]
@@ -132,3 +126,6 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.28
 fov = 90.0
 
 [node name="track" parent="." unique_id=1495171405 instance=ExtResource("1_x2hje")]
+
+[connection signal="drag_ended" from="Settings/VBoxContainer/HSlider" to="Settings" method="_on_h_slider_drag_ended"]
+[connection signal="value_changed" from="Settings/VBoxContainer/HSlider" to="Settings" method="_on_h_slider_value_changed"]

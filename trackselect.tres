@@ -4,6 +4,9 @@
 [ext_resource type="FontFile" uid="uid://dqae8nltbsopi" path="res://graphics/Unbounded-Medium.ttf" id="2_88hm4"]
 [ext_resource type="Texture2D" uid="uid://bqn6m2h0y7jhc" path="res://graphics/button.png" id="2_cfkk5"]
 [ext_resource type="StyleBox" uid="uid://by3hp1m22vg40" path="res://marbleButton.tres" id="2_n1lar"]
+[ext_resource type="Texture2D" uid="uid://dvpiwxjry75a7" path="res://graphics/slider-handle.png" id="4_80ktb"]
+[ext_resource type="Texture2D" uid="uid://csdpwvblc5gto" path="res://graphics/power-under.png" id="5_80ktb"]
+[ext_resource type="Texture2D" uid="uid://bbhvdvbfo3fhx" path="res://graphics/button-rectangle.png" id="5_hn3h6"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n1lar"]
 texture = ExtResource("1_cfkk5")
@@ -28,6 +31,31 @@ texture_margin_right = 32.0
 texture_margin_bottom = 8.0
 modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iw3xk"]
+texture = ExtResource("5_hn3h6")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+axis_stretch_horizontal = 1
+modulate_color = Color(1, 0.70980394, 0.47058824, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hn3h6"]
+texture = ExtResource("5_hn3h6")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+axis_stretch_horizontal = 1
+modulate_color = Color(0.17480001, 0.76, 0.6234533, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qk4tk"]
+texture = ExtResource("5_80ktb")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
 [resource]
 default_font = ExtResource("2_88hm4")
 Button/colors/font_disabled_color = Color(0.17430946, 0.3049821, 0.29870704, 1)
@@ -37,5 +65,11 @@ Button/styles/focus = SubResource("StyleBoxTexture_yxp4k")
 Button/styles/hover = SubResource("StyleBoxTexture_80ktb")
 Button/styles/normal = ExtResource("2_n1lar")
 Button/styles/pressed = ExtResource("2_n1lar")
+HSlider/icons/grabber = ExtResource("4_80ktb")
+HSlider/icons/grabber_disabled = ExtResource("4_80ktb")
+HSlider/icons/grabber_highlight = ExtResource("4_80ktb")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_iw3xk")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_hn3h6")
+HSlider/styles/slider = SubResource("StyleBoxTexture_qk4tk")
 ItemList/colors/font_color = Color(1, 1, 1, 1)
 Label/font_sizes/font_size = 65

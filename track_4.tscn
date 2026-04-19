@@ -116,10 +116,10 @@ size = Vector3(0.6543775, 1, 0.44851026)
 [node name="track" unique_id=1039959806 instance=ExtResource("1_w0dne")]
 script = ExtResource("2_cadft")
 
-[node name="trackPlane" parent="." index="0" unique_id=1941047270]
+[node name="trackPlane" parent="." index="0" unique_id=1301286120]
 mesh = SubResource("ArrayMesh_t53s6")
 
-[node name="surfacePlane" parent="." index="1" unique_id=162218490]
+[node name="surfacePlane" parent="." index="1" unique_id=1110524040]
 transform = Transform3D(100, 0, 0, 0, 2, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2" unique_id=954058874]

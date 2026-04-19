@@ -107,7 +107,7 @@ size = Vector3(0.6543775, 1, 0.44851026)
 [node name="track" unique_id=1225507885 instance=ExtResource("1_e514l")]
 script = ExtResource("2_ut2nc")
 
-[node name="trackPlane" parent="." index="0" unique_id=1519047274]
+[node name="trackPlane" parent="." index="0" unique_id=2138389982]
 mesh = SubResource("ArrayMesh_5d4uf")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="1" unique_id=869478762]
