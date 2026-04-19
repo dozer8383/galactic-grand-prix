@@ -76,9 +76,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -201.0
-offset_top = -223.0
+offset_top = -244.5
 offset_right = 201.0
-offset_bottom = -36.0
+offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -96,10 +96,13 @@ theme = SubResource("Theme_3j6r5")
 text = "SFX Volume"
 label_settings = SubResource("LabelSettings_6mhpt")
 
-[node name="HSlider" type="HSlider" parent="Settings/VBoxContainer" unique_id=968808233]
+[node name="SFXSlider" type="HSlider" parent="Settings/VBoxContainer" unique_id=968808233]
 layout_mode = 2
 theme = ExtResource("3_3j6r5")
 value = 29.0
+tick_count = 15
+ticks_on_borders = true
+ticks_position = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="Settings/VBoxContainer" unique_id=316476303]
 layout_mode = 2
@@ -112,9 +115,26 @@ text = "GAME"
 label_settings = ExtResource("6_3lj6o")
 horizontal_alignment = 1
 
+[node name="Label4" type="Label" parent="Settings/VBoxContainer" unique_id=1056352159]
+layout_mode = 2
+theme = SubResource("Theme_3j6r5")
+text = "Steering Sensitivity"
+label_settings = SubResource("LabelSettings_6mhpt")
+
+[node name="SensitivitySlider" type="HSlider" parent="Settings/VBoxContainer" unique_id=1589796767]
+layout_mode = 2
+theme = ExtResource("3_3j6r5")
+min_value = 0.5
+max_value = 1.5
+step = 0.1
+value = 1.0
+tick_count = 15
+ticks_on_borders = true
+ticks_position = 3
+
 [node name="DeleteSave" type="Button" parent="Settings/VBoxContainer" unique_id=1549873555]
 layout_mode = 2
-tooltip_text = "Clears best time trials permanently."
+tooltip_text = "Clears best times, scores, and settings."
 theme = ExtResource("3_3j6r5")
 text = "(!) DELETE SAVE DATA"
 expand_icon = true
@@ -127,5 +147,5 @@ fov = 90.0
 
 [node name="track" parent="." unique_id=1495171405 instance=ExtResource("1_x2hje")]
 
-[connection signal="drag_ended" from="Settings/VBoxContainer/HSlider" to="Settings" method="_on_h_slider_drag_ended"]
-[connection signal="value_changed" from="Settings/VBoxContainer/HSlider" to="Settings" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Settings/VBoxContainer/SFXSlider" to="Settings" method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="Settings/VBoxContainer/SensitivitySlider" to="Settings" method="_on_sensitivity_slider_value_changed"]

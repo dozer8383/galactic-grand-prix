@@ -9,6 +9,7 @@ func _pressed() -> void:
 		globals.shipChoice = 0
 		globals.saveGame()
 		text = "Deleted."
+		globals.loadGame()
 	else:
 		text = "u sure bro?"
 		sure = true

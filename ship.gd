@@ -26,7 +26,7 @@ func getInput(delta: float):
 		crash.emit()
 	
 	if globals.shipChoice == 0:
-		var turnSpeed = 0.3
+		var turnSpeed = 0.3 * globals.sensitivity
 		if power > 0:
 			if power < 15:
 				enginerpm += moveInput/200
@@ -62,7 +62,7 @@ func getInput(delta: float):
 			rotation.z = move_toward(rotation.z, get_wall_normal().x+get_wall_normal().z,delta)
 			shipVisual.rotation.x = move_toward(shipVisual.rotation.x, get_wall_normal().x+get_wall_normal().z,delta)
 	elif globals.shipChoice == 1:
-		var turnSpeed = 0.3
+		var turnSpeed = 0.3 * globals.sensitivity
 		if power > 0:
 			if power < 15:
 				enginerpm += moveInput/120
@@ -98,7 +98,7 @@ func getInput(delta: float):
 			rotation.z = move_toward(rotation.z, get_wall_normal().x+get_wall_normal().z,delta)
 			shipVisual.rotation.x = move_toward(shipVisual.rotation.x, get_wall_normal().x+get_wall_normal().z,delta)
 	elif globals.shipChoice == 2:
-		var turnSpeed = 0.25
+		var turnSpeed = 0.25 * globals.sensitivity
 		if power > 0:
 			if power < 15:
 				enginerpm += moveInput/80

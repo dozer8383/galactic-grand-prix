@@ -11,6 +11,9 @@
 [ext_resource type="Theme" uid="uid://v32jg1x66ioj" path="res://trackselect.tres" id="8_67jta"]
 [ext_resource type="Script" uid="uid://df61ft88bwk2t" path="res://pause.gd" id="8_axmix"]
 [ext_resource type="LabelSettings" uid="uid://tsukxknl8shi" path="res://retro-green.tres" id="8_p8208"]
+[ext_resource type="Texture2D" uid="uid://bop5a1liy8b76" path="res://graphics/track1.png" id="9_hl6be"]
+[ext_resource type="Script" uid="uid://5x7u7iplsi6m" path="res://minimap.gd" id="10_k81xp"]
+[ext_resource type="Texture2D" uid="uid://ekbt87kkyhc2" path="res://graphics/ray.png" id="10_sbet0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jf511"]
 font = ExtResource("2_jf511")
@@ -127,7 +130,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="hud" type="Control" parent="." unique_id=662537484]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -295,6 +297,28 @@ grow_vertical = 0
 text = "1st"
 label_settings = SubResource("LabelSettings_7u6ry")
 horizontal_alignment = 1
+
+[node name="Minimap" type="TextureRect" parent="hud" unique_id=614942082]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -196.0
+offset_top = -196.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("9_hl6be")
+expand_mode = 1
+script = ExtResource("10_k81xp")
+
+[node name="PlayerIcon" type="TextureRect" parent="hud/Minimap" unique_id=1792032619]
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+texture = ExtResource("10_sbet0")
+expand_mode = 1
 
 [node name="pause" type="Control" parent="." unique_id=344183915]
 process_mode = 2

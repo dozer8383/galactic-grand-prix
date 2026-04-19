@@ -84,6 +84,7 @@ metadata/trackID = 0
 [node name="BronzePoints" type="Button" parent="TrackSelect/VBoxContainer/HBoxContainer" unique_id=1050483106]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
 theme = ExtResource("8_480bq")
 disabled = true
 text = "48 POINTS"
@@ -105,6 +106,7 @@ metadata/trackID = 1
 [node name="SilverPoints" type="Button" parent="TrackSelect/VBoxContainer/HBoxContainer2" unique_id=1169251337]
 visible = false
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("8_480bq")
 disabled = true
 text = "---"
@@ -126,6 +128,7 @@ metadata/trackID = 2
 [node name="GoldPoints" type="Button" parent="TrackSelect/VBoxContainer/HBoxContainer3" unique_id=1226201179]
 visible = false
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("8_480bq")
 disabled = true
 text = "---"

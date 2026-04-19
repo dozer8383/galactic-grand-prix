@@ -11,6 +11,7 @@ var points = 0
 var raceStarted = false
 var shipChoice = 0
 var sfxVolume = 50
+var sensitivity = 1.0
 
 const timeTrial = 0
 const grandPrix = 1
@@ -47,6 +48,7 @@ func saveGame():
 	saveItem(globals.bestPoints, save_file)
 	save_file.store_line(str(globals.shipChoice))
 	save_file.store_line(str(globals.sfxVolume))
+	save_file.store_line(str(globals.sensitivity))
 
 func loadGame():
 	if not FileAccess.file_exists("user://savegame.save"):
@@ -73,3 +75,4 @@ func loadGame():
 		globals.bestTimes.resize(3)
 	globals.shipChoice = int(save_file.get_line())
 	globals.sfxVolume = int(save_file.get_line())
+	globals.sensitivity = float(save_file.get_line())
