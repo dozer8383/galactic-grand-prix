@@ -1,0 +1,33 @@
+[gd_resource type="Environment" format=3 uid="uid://b631k7n5bsxsk"]
+
+[ext_resource type="Texture2D" uid="uid://merpnsin3gui" path="res://graphics/redsky.hdr" id="1_ytcpj"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5caal"]
+panorama = ExtResource("1_ytcpj")
+
+[sub_resource type="Sky" id="Sky_e31gr"]
+sky_material = SubResource("PanoramaSkyMaterial_5caal")
+radiance_size = 4
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_e31gr")
+sky_custom_fov = 70.0
+tonemap_mode = 3
+sdfgi_use_occlusion = true
+glow_enabled = true
+glow_levels/1 = 0.7
+glow_levels/2 = 0.0
+glow_levels/5 = 1.05
+glow_normalized = true
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.59, 0.17385331, 0.047199987, 1)
+fog_density = 1.0
+fog_sky_affect = 0.0
+fog_depth_begin = 0.0
+fog_depth_end = 73.7
+volumetric_fog_density = 0.0
+volumetric_fog_albedo = Color(0, 0.34552464, 0.27362192, 1)
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_length = 116.78

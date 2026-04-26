@@ -4,6 +4,7 @@ var enginepower = 5
 var speed = 0
 var thrust = 0
 var turnVel = 0
+var yvel = 0
 var drift = Vector3.ZERO
 var enginerpm = 0
 var power = 100
@@ -50,13 +51,13 @@ func getInput(delta: float):
 			enginerpm *= 0.999
 		power = clamp(power,0,100)
 		
-		if Input.is_action_just_pressed("forward") or Input.is_action_pressed("backward"):
+		if Input.is_action_just_pressed("forward"):
 			drift *= 0.85
 			enginerpm *= 0.96
 		
 		if is_on_wall():
 			power -= 0.6*speed
-			drift += get_wall_normal()*speed*25
+			drift += get_wall_normal()*speed*20
 			turnVel += (get_wall_normal().x+get_wall_normal().z)/3
 			enginerpm *= 0.9
 			rotation.z = move_toward(rotation.z, get_wall_normal().x+get_wall_normal().z,delta)
@@ -86,13 +87,13 @@ func getInput(delta: float):
 			enginerpm *= 0.999
 		power = clamp(power,0,100)
 		
-		if Input.is_action_just_pressed("forward") or Input.is_action_pressed("backward"):
+		if Input.is_action_just_pressed("forward"):
 			drift *= 0.85
 			enginerpm *= 0.96
 		
 		if is_on_wall():
 			power -= 0.6*speed
-			drift += get_wall_normal()*speed*30
+			drift += get_wall_normal()*speed*25
 			turnVel += (get_wall_normal().x+get_wall_normal().z)/3
 			enginerpm *= 0.9
 			rotation.z = move_toward(rotation.z, get_wall_normal().x+get_wall_normal().z,delta)
@@ -113,7 +114,7 @@ func getInput(delta: float):
 		$"../gui/hud/DebugLabel".text = str(clamp((speed-7.5)*0.7,0.015,0.9))
 		turnVel = clamp(turnVel,-2.5,2.5)
 		rotate_y(turnVel * delta)
-		enginerpm *= (1-Input.get_action_strength("backward")*0.005)
+		enginerpm *= (1-(Input.get_action_strength("backward")*0.005))
 		
 		drift *= 0.96
 		if moveInput:
@@ -122,13 +123,13 @@ func getInput(delta: float):
 			enginerpm *= 0.999
 		power = clamp(power,0,100)
 		
-		if Input.is_action_just_pressed("forward") or Input.is_action_pressed("backward"):
+		if Input.is_action_just_pressed("forward"):
 			drift *= 0.85
 			enginerpm *= 0.96
 		
 		if is_on_wall():
 			power -= 0.6*speed
-			drift += get_wall_normal()*speed*15
+			drift += get_wall_normal()*speed*12
 			turnVel += (get_wall_normal().x+get_wall_normal().z)/3
 			enginerpm *= 0.9
 			rotation.z = move_toward(rotation.z, get_wall_normal().x+get_wall_normal().z,delta)
@@ -144,10 +145,14 @@ func getInput(delta: float):
 	shipVisual.rotation.x = move_toward(shipVisual.rotation.x,-turnInput*0.1,delta*0.3)
 	rotation.z = move_toward(rotation.z,turnInput*0.02,delta*0.05)
 	shipVisual.rotation.z = clamp((speed-5.5)*0.13,0,0.5)
-	shipVisual.position.y = clamp((speed-6.5)*0.01,0,0.5)
 	shipVisual.rotation.x = clamp(shipVisual.rotation.x,-3,3)
-	position.y = 1.57
-	#$EngineNoise.stream.stereo = moveInput
+	shipVisual.position.y = clamp((speed-6.5)*0.01,0,0.5)
+	position.y += yvel
+	if position.y < 1.57:
+		position.y = 1.57
+		yvel = 0
+	else:
+		yvel -= 0.001
 	$EngineNoise.pitch_scale = speed*(1+moveInput)+4
 	$"../gui/hud/Speedometer".text = str(int(floor(abs(speed)*60)))
 	$"../gui/hud/TextureProgressBar".value = power
@@ -199,12 +204,36 @@ func _physics_process(delta: float) -> void:
 		$Camera3D.position = Vector3(0,1,1)
 
 func onRough() -> void:
-	if globals.shipChoice == 1:
-		enginerpm *= 0.998
-	else:
-		enginerpm *= 0.991
+	match globals.shipChoice:
+		0:
+			enginerpm *= 0.991
+		1:
+			enginerpm *= 0.998
+		2:
+			enginerpm *= 0.998
 	drift *= 0.98
 	shipVisual.position.y -= 0.004*randf()+0.002
+	
+func onIce() -> void:
+	match globals.shipChoice:
+		0:
+			drift *= 1.005
+		1:
+			pass
+		2:
+			drift *= 1.01
+
+func onHeater() -> void:
+	match globals.shipChoice:
+		0:
+			enginerpm *= 0.991
+		1:
+			enginerpm *= 0.998
+		2:
+			enginerpm *= 0.998
+	drift *= 0.98
+	shipVisual.position.y -= 0.004*randf()+0.002
+	power -= 0.1
 
 func onSpeed() -> void:
 	if globals.shipChoice == 0:

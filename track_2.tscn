@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://dafhjtpuge438" path="res://graphics/track2.glb" id="1_ht7c6"]
 [ext_resource type="Script" uid="uid://b1bndb5ujgnce" path="res://load_ai.gd" id="2_nd1r1"]
-[ext_resource type="Texture2D" uid="uid://d33ysrw7j6ui5" path="res://graphics/sky.hdr" id="2_nw4t1"]
 [ext_resource type="Texture2D" uid="uid://di3me54js3vlh" path="res://graphics/track2_track2.png" id="2_qc5db"]
 [ext_resource type="ArrayMesh" uid="uid://buli7sih6l0no" path="res://graphics/track2-collision.obj" id="3_lpn3u"]
 [ext_resource type="Texture2D" uid="uid://dtyxvy17nkrn8" path="res://graphics/track2_surface2.png" id="3_ncy53"]
 [ext_resource type="Texture2D" uid="uid://dar8gimg31xi7" path="res://graphics/track2_surface2-bump.png" id="4_davg4"]
+[ext_resource type="Environment" uid="uid://bxka0npqblx2" path="res://crystalplateau.tres" id="6_nd1r1"]
 [ext_resource type="Script" uid="uid://4tbfbh854hxt" path="res://finish_checkpoint.gd" id="7_ncy53"]
 [ext_resource type="Script" uid="uid://tth7vtpn1lxr" path="res://rough.gd" id="8_davg4"]
 [ext_resource type="Script" uid="uid://cvyehwxdwex2j" path="res://mid_checkpoint.gd" id="8_s7n6n"]
@@ -84,31 +84,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_r3som")
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_lpn3u"]
-panorama = ExtResource("2_nw4t1")
-energy_multiplier = 0.7
-
-[sub_resource type="Sky" id="Sky_ncy53"]
-sky_material = SubResource("PanoramaSkyMaterial_lpn3u")
-radiance_size = 4
-
-[sub_resource type="Environment" id="Environment_ebjun"]
-background_mode = 2
-sky = SubResource("Sky_ncy53")
-sdfgi_use_occlusion = true
-glow_enabled = true
-glow_levels/1 = 0.7
-glow_levels/2 = 0.0
-glow_levels/5 = 1.05
-glow_normalized = true
-fog_light_color = Color(0, 0.35137707, 0.30895698, 1)
-fog_density = 0.0203
-fog_sky_affect = 0.557
-volumetric_fog_density = 0.0
-volumetric_fog_albedo = Color(0, 0.34552464, 0.27362192, 1)
-volumetric_fog_emission_energy = 0.0
-volumetric_fog_length = 116.78
-
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a2o3v"]
 bounce = 3.05
 
@@ -139,15 +114,15 @@ size = Vector3(0.6543775, 1, 0.44851026)
 [node name="track" unique_id=461639217 instance=ExtResource("1_ht7c6")]
 script = ExtResource("2_nd1r1")
 
-[node name="trackPlane" parent="." index="0" unique_id=1689211692]
+[node name="trackPlane" parent="." index="0" unique_id=1589034865]
 mesh = SubResource("ArrayMesh_s7n6n")
 
-[node name="Plane" parent="." index="1" unique_id=988254975]
+[node name="Plane" parent="." index="1" unique_id=997435017]
 transform = Transform3D(100, 0, 0, 0, 2, 0, 0, 0, 100, 0, 0, 0)
 mesh = SubResource("ArrayMesh_rrudx")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2" unique_id=1406401025]
-environment = SubResource("Environment_ebjun")
+environment = ExtResource("6_nd1r1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="3" unique_id=1981482022]
 transform = Transform3D(0.5934189, -0.22725488, 0.77214587, 0, 0.959314, 0.28234145, -0.8048938, -0.16754675, 0.569275, 0, 0, 0)

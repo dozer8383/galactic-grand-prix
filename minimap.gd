@@ -10,7 +10,7 @@ func _ready() -> void:
 			$PlayerIcon.texture = load("res://graphics/vector.png")
 		2:
 			$PlayerIcon.texture = load("res://graphics/tracer.png")
-	texture = load("res://graphics/track"+str(globals.currenttrackid+1)+".png")
+	texture = load("res://graphics/minimap"+str(globals.currenttrackid+1)+".png")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

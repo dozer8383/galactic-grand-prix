@@ -3,7 +3,7 @@ extends Node
 var currenttrackid = 0
 var start_time = 0
 var timerStarted = false
-var bestTimes = [0,0,0,0,0]
+var bestTimes = [0,0,0,0,0,0,0,0,0,0]
 var bestPoints = [0,0,0]
 var botFinishes = 0
 var raceType = 0
@@ -12,6 +12,7 @@ var raceStarted = false
 var shipChoice = 0
 var sfxVolume = 50
 var sensitivity = 1.0
+var currentprix = 0
 
 const timeTrial = 0
 const grandPrix = 1
@@ -62,8 +63,8 @@ func loadGame():
 		printerr("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
 		return
 	globals.bestTimes = json.data
-	if len(globals.bestTimes) < 5:
-		globals.bestTimes.resize(5)
+	if len(globals.bestTimes) < 10:
+		globals.bestTimes.resize(10)
 	json_string = save_file.get_line()
 	json = JSON.new()
 	parse_result = json.parse(json_string)
@@ -76,3 +77,4 @@ func loadGame():
 	globals.shipChoice = int(save_file.get_line())
 	globals.sfxVolume = int(save_file.get_line())
 	globals.sensitivity = float(save_file.get_line())
+	if globals.sensitivity < 0.5: globals.sensitivity = 1

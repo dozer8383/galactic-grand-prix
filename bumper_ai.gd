@@ -11,6 +11,7 @@ var lap = 0
 var finished = false
 var timerStarted = false
 var hVelocity = 0
+var yvel = 0
 
 func _ready() -> void:
 	randomwait = int(randf()*60)
@@ -19,6 +20,7 @@ func _ready() -> void:
 func collided(body: Node3D) -> void:
 	if body.name == "player":
 		randomwait = 30
+		enginerpm *= 0.8
 		$Thrust.light_energy = 0
 		$Thrust2.light_energy = 0
 
@@ -54,3 +56,9 @@ func _physics_process(delta: float) -> void:
 				if global_position.distance_to(body.global_position) < 0.7:
 					if abs(globalpos2.angle_to_point(bodyglobalpos2)) < (PI/4):
 						randomwait = 10
+	position.y += yvel
+	if position.y < 0:
+		position.y = 0
+		yvel = 0
+	else:
+		yvel -= 0.0009

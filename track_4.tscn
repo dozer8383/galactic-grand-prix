@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cjuapajw4eex5" path="res://graphics/track4.glb" id="1_w0dne"]
 [ext_resource type="Script" uid="uid://b1bndb5ujgnce" path="res://load_ai.gd" id="2_cadft"]
 [ext_resource type="Texture2D" uid="uid://biwdrg3m88ygo" path="res://graphics/track4_track4.png" id="2_qxh41"]
-[ext_resource type="Texture2D" uid="uid://merpnsin3gui" path="res://graphics/redsky.hdr" id="3_t53s6"]
 [ext_resource type="ArrayMesh" uid="uid://bv88uedbysncd" path="res://graphics/track4-collision.obj" id="4_5caal"]
+[ext_resource type="Environment" uid="uid://b631k7n5bsxsk" path="res://firestorm.tres" id="4_84ljm"]
 [ext_resource type="Script" uid="uid://4tbfbh854hxt" path="res://finish_checkpoint.gd" id="4_lgih1"]
 [ext_resource type="Script" uid="uid://tth7vtpn1lxr" path="res://rough.gd" id="6_5caal"]
 [ext_resource type="Script" uid="uid://cvyehwxdwex2j" path="res://mid_checkpoint.gd" id="6_taxx2"]
@@ -51,35 +51,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_w21aj")
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5caal"]
-panorama = ExtResource("3_t53s6")
-energy_multiplier = 0.7
-
-[sub_resource type="Sky" id="Sky_e31gr"]
-sky_material = SubResource("PanoramaSkyMaterial_5caal")
-radiance_size = 4
-
-[sub_resource type="Environment" id="Environment_e31gr"]
-background_mode = 2
-sky = SubResource("Sky_e31gr")
-sdfgi_use_occlusion = true
-glow_enabled = true
-glow_levels/1 = 0.7
-glow_levels/2 = 0.0
-glow_levels/5 = 1.05
-glow_normalized = true
-fog_enabled = true
-fog_mode = 1
-fog_light_color = Color(0.99766225, 0.34156424, 1.92523e-06, 1)
-fog_density = 1.0
-fog_sky_affect = 0.0
-fog_depth_begin = 0.0
-fog_depth_end = 73.7
-volumetric_fog_density = 0.0
-volumetric_fog_albedo = Color(0, 0.34552464, 0.27362192, 1)
-volumetric_fog_emission_energy = 0.0
-volumetric_fog_length = 116.78
-
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_taxx2"]
 bounce = 3.05
 
@@ -123,7 +94,7 @@ mesh = SubResource("ArrayMesh_t53s6")
 transform = Transform3D(100, 0, 0, 0, 2, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2" unique_id=954058874]
-environment = SubResource("Environment_e31gr")
+environment = ExtResource("4_84ljm")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="3" unique_id=751798468]
 transform = Transform3D(1, 0, 0, 0, 0.959314, 0.28234148, 0, -0.28234145, 0.9593141, 0, 0, 0)

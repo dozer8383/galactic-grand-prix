@@ -11,8 +11,8 @@ func _ready() -> void:
 		overallPlace = 2
 	else:
 		overallPlace = 3
-	if globals.bestPoints[0] < globals.points:
-		globals.bestPoints[0] = globals.points
+	if globals.bestPoints[globals.currentprix] < globals.points:
+		globals.bestPoints[globals.currentprix] = globals.points
 		globals.saveGame()
 	match overallPlace:
 		1:

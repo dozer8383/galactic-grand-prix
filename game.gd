@@ -19,7 +19,7 @@ signal pauseGame
 
 func _ready() -> void:
 	globals.loadGame()
-	tempBestTime = int(globals.bestTimes[globals.currenttrackid])
+	tempBestTime = 0 if globals.bestTimes[globals.currenttrackid] == null else int(globals.bestTimes[globals.currenttrackid])
 	globals.timerStarted = false
 	globals.raceStarted = false
 	globals.botFinishes = 0
@@ -43,6 +43,21 @@ func _ready() -> void:
 		4:
 			trackscene = preload("res://track_5.tscn")
 			$gui/TrackTitle.text = "LUMINOUS OCEAN"
+		5:
+			trackscene = preload("res://track_6.tscn")
+			$gui/TrackTitle.text = "CRYSTAL PLATEAU II"
+		6:
+			trackscene = preload("res://track_7.tscn")
+			$gui/TrackTitle.text = "BLIZZARD LAND I"
+		7:
+			trackscene = preload("res://track_8.tscn")
+			$gui/TrackTitle.text = "MIASMA LAKE II"
+		8:
+			trackscene = preload("res://track_9.tscn")
+			$gui/TrackTitle.text = "DESERT DUNES I"
+		9:
+			trackscene = preload("res://track_10.tscn")
+			$gui/TrackTitle.text = "STRATOSPHERE"
 	var track = trackscene.instantiate()
 	add_child(track)
 	$"track/FinishCheckpoint".connect("finishcrossed",newLap)
@@ -50,8 +65,12 @@ func _ready() -> void:
 	for node in $track.get_children():
 		if node.name.contains("rough"):
 			node.connect("shipOnRough",$player.onRough)
+		if node.name.contains("ice"):
+			node.connect("shipOnIce",$player.onIce)
 		if node.name.contains("speed"):
 			node.connect("shipOnSpeed",$player.onSpeed)
+		if node.name.contains("heater"):
+			node.connect("shipOnHeater",$player.onHeater)
 	$player.connect("showHud",introFinished)
 	$player.connect("crash",_on_crash)
 	connect("startRace",$player.raceStart)
@@ -151,7 +170,7 @@ func _input(event: InputEvent) -> void:
 			get_tree().change_scene_to_file("res://podium.tscn")
 		else:
 			get_tree().reload_current_scene()
-	if event.is_action_pressed("cheat") and false:
+	if event.is_action_pressed("cheat") and true:
 		raceFinish.emit()
 		raceFinished = true
 		place = 1+globals.botFinishes

@@ -2,18 +2,23 @@
 
 [ext_resource type="FontFile" uid="uid://dqae8nltbsopi" path="res://graphics/Unbounded-Medium.ttf" id="1_6vlms"]
 [ext_resource type="Script" uid="uid://cu4m7kit5xjbc" path="res://trackselect.gd" id="1_7wbs0"]
-[ext_resource type="Theme" uid="uid://cxh21tuuh01u3" path="res://graphics/SixCaps.tres" id="2_7aadh"]
-[ext_resource type="Texture2D" uid="uid://pdixhj40tl88" path="res://graphics/track1_track1.png" id="5_q7p7d"]
-[ext_resource type="Texture2D" uid="uid://di3me54js3vlh" path="res://graphics/track2_track2.png" id="6_1p8ft"]
-[ext_resource type="Texture2D" uid="uid://dd3fsf2111wwv" path="res://graphics/track3_track3.png" id="7_1p8ft"]
-[ext_resource type="Texture2D" uid="uid://biwdrg3m88ygo" path="res://graphics/track4_track4.png" id="8_voa2l"]
-[ext_resource type="Texture2D" uid="uid://cjaju65xryj2l" path="res://graphics/track5_track5.png" id="9_4qkc3"]
+[ext_resource type="Texture2D" uid="uid://bkpwitqbl2n4q" path="res://graphics/minimap1.png" id="4_7hpvg"]
+[ext_resource type="Texture2D" uid="uid://intriwlmj86k" path="res://graphics/minimap2.png" id="6_k02pm"]
+[ext_resource type="Texture2D" uid="uid://bhdao1pkwdyda" path="res://graphics/minimap3.png" id="7_t3cgh"]
+[ext_resource type="Texture2D" uid="uid://d13di7iylr7jy" path="res://graphics/minimap4.png" id="8_xfwl2"]
+[ext_resource type="Texture2D" uid="uid://bvcgwe4lcukki" path="res://graphics/minimap5.png" id="9_csgfq"]
 [ext_resource type="Theme" uid="uid://v32jg1x66ioj" path="res://trackselect.tres" id="10_1l5nq"]
 [ext_resource type="PackedScene" uid="uid://ckfrsuvx3wynb" path="res://track_1.tscn" id="10_si4sn"]
 [ext_resource type="Script" uid="uid://cmmmku2nx2r6s" path="res://trackbutton.gd" id="11_a4abw"]
+[ext_resource type="Texture2D" uid="uid://cgkrotjg1uo3l" path="res://graphics/minimap6.png" id="11_hnwqp"]
 [ext_resource type="Script" uid="uid://djo6nm8kuxvlt" path="res://tracktime.gd" id="12_n3dh0"]
+[ext_resource type="Texture2D" uid="uid://brni5bmq1xa7y" path="res://graphics/minimap7.png" id="12_o34p3"]
 [ext_resource type="StyleBox" uid="uid://b7wa2cf30coej" path="res://arrowSelect.tres" id="12_r4j7a"]
+[ext_resource type="Texture2D" uid="uid://qmi7wd2crv5a" path="res://graphics/minimap8.png" id="13_7hpvg"]
+[ext_resource type="Shortcut" uid="uid://bx23tv53u7uhv" path="res://escape.tres" id="14_1rbqu"]
 [ext_resource type="Script" uid="uid://cuuy0ne8lyyix" path="res://back_button.gd" id="14_jwbgh"]
+[ext_resource type="Texture2D" uid="uid://c4dfcix5xl7os" path="res://graphics/minimap9.png" id="14_k02pm"]
+[ext_resource type="Texture2D" uid="uid://1gwax1a8tbql" path="res://graphics/minimap10.png" id="15_k02pm"]
 
 [sub_resource type="Theme" id="Theme_7aadh"]
 default_font = ExtResource("1_6vlms")
@@ -54,120 +59,80 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7wbs0")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TrackSelect" unique_id=1306346051]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ScrollContainer" type="ScrollContainer" parent="TrackSelect" unique_id=47783866]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 171.0
+offset_right = 826.0
+offset_bottom = 484.0
+follow_focus = true
 
-[node name="MarginContainer" type="MarginContainer" parent="TrackSelect/HBoxContainer" unique_id=2063348419]
+[node name="VBoxContainer" type="VBoxContainer" parent="TrackSelect/ScrollContainer" unique_id=1782641834]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 400
-theme_override_constants/margin_top = 48
-theme_override_constants/margin_right = 400
-theme_override_constants/margin_bottom = 48
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TrackSelect" unique_id=1782641834]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -119.0
-offset_right = 250.0
-offset_bottom = 196.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="TrackSelect/VBoxContainer" unique_id=1541875853]
+[node name="Label" type="Label" parent="TrackSelect/ScrollContainer/VBoxContainer" unique_id=1541875853]
 layout_mode = 2
 theme = SubResource("Theme_7aadh")
 text = "Bronze League"
 horizontal_alignment = 1
 
-[node name="BronzeTracks" type="ItemList" parent="TrackSelect/VBoxContainer" unique_id=1243745008]
-visible = false
-layout_mode = 2
-theme = ExtResource("2_7aadh")
-auto_width = true
-auto_height = true
-text_overrun_behavior = 0
-item_count = 5
-fixed_icon_size = Vector2i(64, 48)
-item_0/text = "MIASMA LAKE I"
-item_0/icon = ExtResource("5_q7p7d")
-item_1/text = "CRYSTAL PLATEAU I"
-item_1/icon = ExtResource("6_1p8ft")
-item_2/text = "DARKNESS"
-item_2/icon = ExtResource("7_1p8ft")
-item_3/text = "FIRE STORM I"
-item_3/icon = ExtResource("8_voa2l")
-item_4/text = "LUMINOUS OCEAN"
-item_4/icon = ExtResource("9_4qkc3")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="TrackSelect/VBoxContainer" unique_id=1626216809]
+[node name="HBoxContainer" type="HBoxContainer" parent="TrackSelect/ScrollContainer/VBoxContainer" unique_id=1626216809]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TrackSelect/VBoxContainer/HBoxContainer" unique_id=1436347028]
+[node name="VBoxContainer" type="VBoxContainer" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1436347028]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Track1" type="Button" parent="TrackSelect/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=358673439]
+[node name="Track1" type="Button" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=358673439]
 layout_mode = 2
 theme = ExtResource("10_1l5nq")
 text = "MIASMA LAKE I"
-icon = ExtResource("5_q7p7d")
+icon = ExtResource("4_7hpvg")
 expand_icon = true
 script = ExtResource("11_a4abw")
 metadata/trackID = 0
 
-[node name="Track2" type="Button" parent="TrackSelect/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=904746711]
+[node name="Track2" type="Button" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=904746711]
 layout_mode = 2
 theme = ExtResource("10_1l5nq")
 text = "CRYSTAL PLATEAU I"
-icon = ExtResource("6_1p8ft")
+icon = ExtResource("6_k02pm")
 expand_icon = true
 script = ExtResource("11_a4abw")
 metadata/trackID = 1
 
-[node name="Track3" type="Button" parent="TrackSelect/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1565463499]
+[node name="Track3" type="Button" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1565463499]
 layout_mode = 2
 theme = ExtResource("10_1l5nq")
 text = "DARKNESS"
-icon = ExtResource("7_1p8ft")
+icon = ExtResource("7_t3cgh")
 expand_icon = true
 script = ExtResource("11_a4abw")
 metadata/trackID = 2
 
-[node name="Track4" type="Button" parent="TrackSelect/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=307618073]
+[node name="Track4" type="Button" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=307618073]
 layout_mode = 2
 theme = ExtResource("10_1l5nq")
 text = "FIRE STORM I"
-icon = ExtResource("8_voa2l")
+icon = ExtResource("8_xfwl2")
 expand_icon = true
 script = ExtResource("11_a4abw")
 metadata/trackID = 3
 
-[node name="Track5" type="Button" parent="TrackSelect/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1486173163]
+[node name="Track5" type="Button" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1486173163]
 layout_mode = 2
 theme = ExtResource("10_1l5nq")
 text = "LUMINOUS OCEAN"
-icon = ExtResource("9_4qkc3")
+icon = ExtResource("9_csgfq")
 expand_icon = true
 script = ExtResource("11_a4abw")
 metadata/trackID = 4
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="TrackSelect/VBoxContainer/HBoxContainer" unique_id=54269305]
+[node name="VBoxContainer2" type="VBoxContainer" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=54269305]
 layout_mode = 2
 
-[node name="TrackTime1" type="Button" parent="TrackSelect/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1252855479]
+[node name="TrackTime1" type="Button" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1252855479]
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("10_1l5nq")
@@ -176,7 +141,7 @@ text = "0:00.00"
 script = ExtResource("12_n3dh0")
 metadata/trackID = 0
 
-[node name="TrackTime2" type="Button" parent="TrackSelect/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=381695138]
+[node name="TrackTime2" type="Button" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=381695138]
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("10_1l5nq")
@@ -185,7 +150,7 @@ text = "0:00.00"
 script = ExtResource("12_n3dh0")
 metadata/trackID = 1
 
-[node name="TrackTime3" type="Button" parent="TrackSelect/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1139566971]
+[node name="TrackTime3" type="Button" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1139566971]
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("10_1l5nq")
@@ -194,7 +159,7 @@ text = "0:00.00"
 script = ExtResource("12_n3dh0")
 metadata/trackID = 2
 
-[node name="TrackTime4" type="Button" parent="TrackSelect/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1857736604]
+[node name="TrackTime4" type="Button" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1857736604]
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("10_1l5nq")
@@ -203,7 +168,7 @@ text = "0:00.00"
 script = ExtResource("12_n3dh0")
 metadata/trackID = 3
 
-[node name="TrackTime5" type="Button" parent="TrackSelect/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=178517858]
+[node name="TrackTime5" type="Button" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=178517858]
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("10_1l5nq")
@@ -211,6 +176,112 @@ disabled = true
 text = "0:00.00"
 script = ExtResource("12_n3dh0")
 metadata/trackID = 4
+
+[node name="Label2" type="Label" parent="TrackSelect/ScrollContainer/VBoxContainer" unique_id=1162251256]
+layout_mode = 2
+theme = SubResource("Theme_7aadh")
+text = "Silver League"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TrackSelect/ScrollContainer/VBoxContainer" unique_id=621894357]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=686431828]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Track1" type="Button" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1131918575]
+layout_mode = 2
+theme = ExtResource("10_1l5nq")
+text = "CRYSTAL PLATEAU II"
+icon = ExtResource("11_hnwqp")
+expand_icon = true
+script = ExtResource("11_a4abw")
+metadata/trackID = 5
+
+[node name="Track2" type="Button" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1825745779]
+layout_mode = 2
+theme = ExtResource("10_1l5nq")
+text = "BLIZZARD LAND I"
+icon = ExtResource("12_o34p3")
+expand_icon = true
+script = ExtResource("11_a4abw")
+metadata/trackID = 6
+
+[node name="Track3" type="Button" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=68181326]
+layout_mode = 2
+theme = ExtResource("10_1l5nq")
+text = "MIASMA LAKE II"
+icon = ExtResource("13_7hpvg")
+expand_icon = true
+script = ExtResource("11_a4abw")
+metadata/trackID = 7
+
+[node name="Track4" type="Button" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=2023094276]
+layout_mode = 2
+theme = ExtResource("10_1l5nq")
+text = "DESERT DUNES I"
+icon = ExtResource("14_k02pm")
+expand_icon = true
+script = ExtResource("11_a4abw")
+metadata/trackID = 8
+
+[node name="Track5" type="Button" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=782861719]
+layout_mode = 2
+theme = ExtResource("10_1l5nq")
+text = "STRATOSPHERE"
+icon = ExtResource("15_k02pm")
+expand_icon = true
+script = ExtResource("11_a4abw")
+metadata/trackID = 9
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1831352700]
+layout_mode = 2
+
+[node name="TrackTime1" type="Button" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=1579972203]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("10_1l5nq")
+disabled = true
+text = "0:00.00"
+script = ExtResource("12_n3dh0")
+metadata/trackID = 5
+
+[node name="TrackTime2" type="Button" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=1889883363]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("10_1l5nq")
+disabled = true
+text = "0:00.00"
+script = ExtResource("12_n3dh0")
+metadata/trackID = 6
+
+[node name="TrackTime3" type="Button" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=1305069306]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("10_1l5nq")
+disabled = true
+text = "0:00.00"
+script = ExtResource("12_n3dh0")
+metadata/trackID = 7
+
+[node name="TrackTime4" type="Button" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=2026846960]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("10_1l5nq")
+disabled = true
+text = "0:00.00"
+script = ExtResource("12_n3dh0")
+metadata/trackID = 8
+
+[node name="TrackTime5" type="Button" parent="TrackSelect/ScrollContainer/VBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=1226966861]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("10_1l5nq")
+disabled = true
+text = "0:00.00"
+script = ExtResource("12_n3dh0")
+metadata/trackID = 9
 
 [node name="Label" type="Label" parent="TrackSelect" unique_id=1829274835]
 layout_mode = 0
@@ -241,6 +312,8 @@ offset_right = 154.0
 offset_bottom = -32.0
 grow_vertical = 0
 theme = ExtResource("10_1l5nq")
+shortcut = ExtResource("14_1rbqu")
+shortcut_in_tooltip = false
 text = "Back"
 expand_icon = true
 script = ExtResource("14_jwbgh")

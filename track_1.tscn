@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://b1bndb5ujgnce" path="res://load_ai.gd" id="2_npa3b"]
 [ext_resource type="Texture2D" uid="uid://bk8ksm1karrar" path="res://graphics/track1-normal.png" id="3_cqc7h"]
 [ext_resource type="Texture2D" uid="uid://pdixhj40tl88" path="res://graphics/track1_track1.png" id="4_cgp6x"]
-[ext_resource type="Texture2D" uid="uid://d33ysrw7j6ui5" path="res://graphics/sky.hdr" id="4_dw355"]
 [ext_resource type="ArrayMesh" uid="uid://bjmj5j3i0s36b" path="res://graphics/track1-collision.obj" id="6_cqc7h"]
+[ext_resource type="Environment" uid="uid://to8sh5y7t7q6" path="res://miasmalake.tres" id="6_npa3b"]
 [ext_resource type="Script" uid="uid://4tbfbh854hxt" path="res://finish_checkpoint.gd" id="7_x6jxe"]
 [ext_resource type="Script" uid="uid://tth7vtpn1lxr" path="res://rough.gd" id="8_43v1i"]
 [ext_resource type="Script" uid="uid://cvyehwxdwex2j" path="res://mid_checkpoint.gd" id="9_0gted"]
@@ -96,36 +96,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0vvol")
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_oa2pc"]
-panorama = ExtResource("4_dw355")
-energy_multiplier = 0.7
-
-[sub_resource type="Sky" id="Sky_cqc7h"]
-sky_material = SubResource("PanoramaSkyMaterial_oa2pc")
-
-[sub_resource type="Environment" id="Environment_x6jxe"]
-background_mode = 2
-background_color = Color(1, 1, 1, 1)
-sky = SubResource("Sky_cqc7h")
-sdfgi_use_occlusion = true
-glow_enabled = true
-glow_levels/1 = 0.7
-glow_levels/2 = 0.0
-glow_levels/5 = 1.05
-glow_normalized = true
-fog_enabled = true
-fog_mode = 1
-fog_light_color = Color(0.74520004, 0.83551335, 0.92, 1)
-fog_density = 1.0
-fog_sky_affect = 0.0
-fog_depth_curve = 1.189207
-fog_depth_begin = 20.0
-fog_depth_end = 150.0
-volumetric_fog_density = 0.0
-volumetric_fog_albedo = Color(0, 0.34552464, 0.27362192, 1)
-volumetric_fog_emission_energy = 0.0
-volumetric_fog_length = 116.78
-
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cqc7h"]
 bounce = 3.05
 
@@ -158,7 +128,7 @@ mesh = SubResource("ArrayMesh_43v1i")
 mesh = SubResource("ArrayMesh_irn3w")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2" unique_id=1293211455]
-environment = SubResource("Environment_x6jxe")
+environment = ExtResource("6_npa3b")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="3" unique_id=802964106]
 transform = Transform3D(0.5934189, -0.22725488, 0.77214587, 0, 0.959314, 0.28234145, -0.8048938, -0.16754675, 0.569275, 0, 0, 0)

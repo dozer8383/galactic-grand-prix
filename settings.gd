@@ -22,3 +22,7 @@ func _on_sensitivity_slider_value_changed(value: float) -> void:
 func _on_sfx_slider_value_changed(value: float) -> void:
 	globals.sfxVolume = $VBoxContainer/SFXSlider.value
 	globals.saveGame()
+
+
+func _on_quality_select_item_selected(index: int) -> void:
+	RenderingServer.directional_shadow_atlas_set_size(2^(index+10),true)

@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://b4v6gmtpxb32" path="res://engine.res" id="3_sn2yj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h31vo"]
-size = Vector3(0.15722656, 0.13330078, 0.39587402)
+size = Vector3(0.19140625, 0.13330078, 0.39587402)
 
 [node name="bumper" type="PathFollow3D" unique_id=409308425]
 transform = Transform3D(0.99989754, 0, 0, 0, 1, 0, 0, 0, 0.99989754, 0, 0, 0)
@@ -17,7 +17,7 @@ script = ExtResource("1_h31vo")
 [node name="Area3D" type="Area3D" parent="." unique_id=1468034122]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2084689178]
-transform = Transform3D(0.9999418, 0, 0, 0, 0.9999418, 0, 0, 0, 0.9999418, 0, 0.021729084, -0.0035267642)
+transform = Transform3D(0.9999406, 0, 0, 0, 0.9999406, 0, 0, 0, 0.9999406, 0, 0.02172908, -0.0035267638)
 shape = SubResource("BoxShape3D_h31vo")
 debug_color = Color(1, 0, 0.29411766, 1)
 
