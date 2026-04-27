@@ -11,8 +11,12 @@ func _ready() -> void:
 		2:
 			$PlayerIcon.texture = load("res://graphics/tracer.png")
 	texture = load("res://graphics/minimap"+str(globals.currenttrackid+1)+".png")
-
-
+	if globals.raceType == globals.grandPrix:
+		$BotIcon1.show()
+		$BotIcon2.show()
+		$BotIcon3.show()
+		$BotIcon4.show()
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	$PlayerIcon.position = Vector2(

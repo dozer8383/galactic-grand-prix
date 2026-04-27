@@ -25,11 +25,13 @@ h_offset = 0.28
 transform = Transform3D(0.026033849, 5.556857e-06, -0.99955285, -7.0109515e-08, 0.99999976, 5.556315e-06, 0.9995731, -7.4588705e-08, 0.02603332, 1.0246176, -4.6333807e-05, -11.5891695)
 progress = 1.33
 h_offset = -0.395
+metadata/id = 1
 
 [node name="bumper3" parent="Path3D" unique_id=322607782 instance=ExtResource("1_wr0gf")]
 transform = Transform3D(0.0089857755, 1.8071988e-06, -0.9997412, -7.594725e-09, 0.99999994, 1.8068089e-06, 0.99974114, -8.646595e-09, 0.0089857755, -0.0023847828, -4.2253603e-05, -10.894753)
 progress = 0.29
 h_offset = 0.28
+metadata/id = 2
 
 [node name="bumper4" parent="Path3D" unique_id=576673917 instance=ExtResource("1_wr0gf")]
 transform = Transform3D(-0.0031067342, 9.024009e-08, -0.9998759, 2.903958e-05, 0.9999876, 1.1509421e-12, 0.9998744, -2.9042587e-05, -0.003106739, -1.1803424, -5.343369e-05, -11.56965)

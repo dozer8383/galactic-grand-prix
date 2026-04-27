@@ -62,3 +62,20 @@ func _physics_process(delta: float) -> void:
 		yvel = 0
 	else:
 		yvel -= 0.0009
+	match int($"..".name.remove_chars("bumper")):
+		2:
+			$/root/Game/gui/hud/Minimap/BotIcon1.position = Vector2(
+				remap($"..".position.x,-20,20,0,196)-10,
+				remap($"..".position.z,-20,20,0,196)-10)
+		3:
+			$/root/Game/gui/hud/Minimap/BotIcon2.position = Vector2(
+				remap($"..".position.x,-20,20,0,196)-10,
+				remap($"..".position.z,-20,20,0,196)-10)
+		4:
+			$/root/Game/gui/hud/Minimap/BotIcon3.position = Vector2(
+				remap($"..".position.x,-20,20,0,196)-10,
+				remap($"..".position.z,-20,20,0,196)-10)
+		_:
+			$/root/Game/gui/hud/Minimap/BotIcon4.position = Vector2(
+				remap($"..".position.x,-20,20,0,196)-10,
+				remap($"..".position.z,-20,20,0,196)-10)

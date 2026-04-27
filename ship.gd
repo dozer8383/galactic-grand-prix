@@ -154,7 +154,7 @@ func getInput(delta: float):
 		position.y = 1.57
 		yvel = 0
 	else:
-		yvel -= 0.08
+		yvel -= 0.06
 	velocity.y = yvel
 	if position.y <= 1.3:
 		rotate(Vector3(1,0,0),abs(yvel)*0.002)
@@ -267,11 +267,11 @@ func _on_game_crossedfinish() -> void:
 func jump():
 	safe = false
 	print("not safe!")
-	yvel = 3
-	enginerpm += 0.2
-	collision_layer = 0
-	await get_tree().create_timer(0.6).timeout
-	collision_layer = 1
+	yvel = 2.4
+	enginerpm += 0.3
+	collision_mask = 0
+	await get_tree().create_timer(0.3).timeout
+	collision_mask = 1
 
 
 #func _on_area_3d_area_entered(area: Area3D) -> void:
