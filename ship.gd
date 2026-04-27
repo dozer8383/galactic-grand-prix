@@ -268,6 +268,10 @@ func jump():
 	safe = false
 	print("not safe!")
 	yvel = 3
+	enginerpm += 0.2
+	collision_layer = 0
+	await get_tree().create_timer(0.6).timeout
+	collision_layer = 1
 
 
 #func _on_area_3d_area_entered(area: Area3D) -> void:

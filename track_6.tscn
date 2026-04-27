@@ -126,6 +126,27 @@ size = Vector3(6.5650635, 1, 4.204132)
 [sub_resource type="BoxShape3D" id="BoxShape3D_fb3q4"]
 size = Vector3(15.154114, 1, 2.171875)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vxc0i"]
+size = Vector3(5.832445, 1, 4.138733)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7lhg2"]
+size = Vector3(3.8145354, 1, 1.8985062)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3kfmm"]
+size = Vector3(3.8145354, 1, 7.909092)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dbqfv"]
+size = Vector3(10.564108, 1, 3.6923828)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w1rxg"]
+size = Vector3(6.3535156, 1, 3.6923828)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gyvkw"]
+size = Vector3(15.303577, 1, 32.204163)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o8bl6"]
+size = Vector3(23.48772, 1, 3.5817661)
+
 [node name="track" unique_id=2147349889 instance=ExtResource("1_sfnus")]
 script = ExtResource("2_6bs16")
 
@@ -161,16 +182,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.039415, 0)
 script = ExtResource("7_vmh04")
 
 [node name="jump-panel" parent="jump" index="0" unique_id=1401912235 instance=ExtResource("6_a7fxu")]
-transform = Transform3D(-0.0860789, 0, 0.08360876, 0, 0.11999999, 0, -0.08360876, 0, -0.0860789, 1.8905554, -0.4698906, 3.6520545)
+transform = Transform3D(-0.0860789, 0, 0.08360876, 0, 0.11999999, 0, -0.08360876, 0, -0.0860789, 1.9269288, -0.4698906, 3.6187122)
 
 [node name="jump-panel2" parent="jump" index="1" unique_id=1123074443 instance=ExtResource("6_a7fxu")]
-transform = Transform3D(-0.0860789, 0, 0.08360876, 0, 0.11999999, 0, -0.08360876, 0, -0.0860789, 2.679546, -0.4698906, 4.4126635)
+transform = Transform3D(-0.0860789, 0, 0.08360876, 0, 0.11999999, 0, -0.08360876, 0, -0.0860789, 2.7159195, -0.4698906, 4.379321)
 
 [node name="jump-panel3" parent="jump" index="2" unique_id=1423533210 instance=ExtResource("6_a7fxu")]
-transform = Transform3D(-0.0860789, 0, 0.08360876, 0, 0.11999999, 0, -0.08360876, 0, -0.0860789, 3.4721985, -0.4698906, 5.175193)
+transform = Transform3D(-0.0860789, 0, 0.08360876, 0, 0.11999999, 0, -0.08360876, 0, -0.0860789, 3.5085719, -0.4698906, 5.1418505)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="jump" index="3" unique_id=837835615]
-transform = Transform3D(0.71790767, 0, -0.6961383, 0, 1, 0, 0.6961383, 0, 0.71790767, 2.7142463, -0.34887695, 4.4236145)
+transform = Transform3D(0.71790767, 0, -0.6961383, 0, 1, 0, 0.6961383, 0, 0.71790767, 2.7493863, -0.34887695, 4.3557544)
 shape = SubResource("BoxShape3D_akibv")
 
 [node name="FinishCheckpoint" type="Area3D" parent="." index="6" unique_id=895709186]
@@ -238,22 +259,52 @@ script = ExtResource("13_6bs16")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="safeVolume" index="0" unique_id=561509263]
 transform = Transform3D(0.67422503, 0, -0.7385259, 0, 1, 0, 0.7385259, 0, 0.67422503, 0.030222654, 1.9168682, 6.3552637)
 shape = SubResource("BoxShape3D_hxctc")
-debug_color = Color(0.35318393, 0.0014056105, 0.7840588, 1)
+debug_color = Color(1, 1, 1, 1)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="safeVolume" index="1" unique_id=979168058]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 8.123619, 1.9168682, 13.101919)
 shape = SubResource("BoxShape3D_tktdx")
-debug_color = Color(0.35318393, 0.0014056105, 0.7840588, 1)
+debug_color = Color(1, 1, 1, 1)
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="safeVolume" index="2" unique_id=1824358789]
 transform = Transform3D(-4.371138e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -4.371138e-08, 10.2679, 1.9168682, 7.630652)
 shape = SubResource("BoxShape3D_fb3q4")
-debug_color = Color(0.35318393, 0.0014056105, 0.7840588, 1)
+debug_color = Color(1, 1, 1, 1)
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="safeVolume" index="3" unique_id=557962411]
-transform = Transform3D(-4.371138e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -4.371138e-08, 12.615953, 1.9168682, -10.228775)
-shape = SubResource("BoxShape3D_fb3q4")
-debug_color = Color(0.35318393, 0.0014056105, 0.7840588, 1)
+transform = Transform3D(0.66642827, 0, -0.745569, 0, 1, 0, 0.745569, 0, 0.66642827, 4.363138, 1.9168682, 1.5098033)
+shape = SubResource("BoxShape3D_vxc0i")
+debug_color = Color(1, 1, 1, 1)
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="safeVolume" index="4" unique_id=930823717]
+transform = Transform3D(0.73854935, 0, -0.67419916, 0, 1, 0, 0.67419916, 0, 0.73854935, 3.1594176, 1.9168682, 3.8025794)
+shape = SubResource("BoxShape3D_7lhg2")
+debug_color = Color(1, 1, 1, 1)
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="safeVolume" index="5" unique_id=795490006]
+transform = Transform3D(0.58017707, -2.430895e-09, -0.8144904, 1.4654462e-09, 1, -1.9406936e-09, 0.8144904, -6.7646666e-11, 0.58017707, -5.5944343, 1.9168682, 10.986026)
+shape = SubResource("BoxShape3D_3kfmm")
+debug_color = Color(1, 1, 1, 1)
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="safeVolume" index="6" unique_id=1985669065]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9281025, 1.9168682, 13.219757)
+shape = SubResource("BoxShape3D_dbqfv")
+debug_color = Color(1, 1, 1, 1)
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="safeVolume" index="7" unique_id=1343999713]
+transform = Transform3D(0.6584662, 0, -0.7526103, 0, 1, 0, 0.7526103, 0, 0.6584662, -14.7865715, 1.9168682, 11.899267)
+shape = SubResource("BoxShape3D_w1rxg")
+debug_color = Color(1, 1, 1, 1)
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="safeVolume" index="8" unique_id=1825088407]
+transform = Transform3D(-4.371138e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -4.371138e-08, 0.066608265, 1.9168682, -6.861359)
+shape = SubResource("BoxShape3D_gyvkw")
+debug_color = Color(1, 1, 1, 1)
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="safeVolume" index="9" unique_id=808808432]
+transform = Transform3D(-0.11302983, 0, -0.9935915, 0, 1, 0, 0.9935915, 0, -0.11302983, -15.227753, 1.9168682, -0.9977574)
+shape = SubResource("BoxShape3D_o8bl6")
+debug_color = Color(1, 1, 1, 1)
 
 [connection signal="body_entered" from="jump" to="jump" method="_on_body_entered"]
 [connection signal="body_entered" from="FinishCheckpoint" to="FinishCheckpoint" method="_on_body_entered"]
