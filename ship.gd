@@ -14,6 +14,7 @@ var canStart = false
 var thrustcolor = Vector3.ZERO
 var raceFinished = false
 var canMove = false
+var safe = true
 var shipVisual
 signal crash
 signal showHud
@@ -78,7 +79,7 @@ func getInput(delta: float):
 		$"../gui/hud/DebugLabel".text = str(clamp((speed-5.7)*0.9,0.03,0.7))
 		turnVel = clamp(turnVel,-4,4)
 		rotate_y(turnVel * delta)
-		enginerpm *= (1-Input.get_action_strength("backward")*0.005)
+		enginerpm *= (1-Input.get_action_strength("backward")*0.025)
 		
 		drift *= 0.97
 		if moveInput:
@@ -132,6 +133,7 @@ func getInput(delta: float):
 			drift += get_wall_normal()*speed*12
 			turnVel += (get_wall_normal().x+get_wall_normal().z)/3
 			enginerpm *= 0.9
+			position.y = 1.57
 			rotation.z = move_toward(rotation.z, get_wall_normal().x+get_wall_normal().z,delta)
 			shipVisual.rotation.x = move_toward(shipVisual.rotation.x, get_wall_normal().x+get_wall_normal().z,delta)
 			$CollisionNoise.pitch_scale = 15-speed
@@ -147,12 +149,21 @@ func getInput(delta: float):
 	shipVisual.rotation.z = clamp((speed-5.5)*0.13,0,0.5)
 	shipVisual.rotation.x = clamp(shipVisual.rotation.x,-3,3)
 	shipVisual.position.y = clamp((speed-6.5)*0.01,0,0.5)
-	position.y += yvel
-	if position.y < 1.57:
+	$/root/Game/gui/hud/DebugLabel.text = str(safe)
+	if position.y <= 1.58 and safe:
 		position.y = 1.57
 		yvel = 0
 	else:
-		yvel -= 0.001
+		yvel -= 0.08
+	velocity.y = yvel
+	if position.y <= 1.3:
+		rotate(Vector3(1,0,0),abs(yvel)*0.002)
+		rotate(Vector3(0,1,0),abs(yvel)*0.001)
+	if position.y <= 0 and yvel < 0:
+		yvel = -yvel*0.5
+		
+	if position.y <= 1 and !safe:
+		crash.emit()
 	$EngineNoise.pitch_scale = speed*(1+moveInput)+4
 	$"../gui/hud/Speedometer".text = str(int(floor(abs(speed)*60)))
 	$"../gui/hud/TextureProgressBar".value = power
@@ -252,3 +263,21 @@ func _on_game_race_finish() -> void:
 
 func _on_game_crossedfinish() -> void:
 	addPower += 35
+	
+func jump():
+	safe = false
+	print("not safe!")
+	yvel = 3
+
+
+#func _on_area_3d_area_entered(area: Area3D) -> void:
+	#if area.name == "safeVolume":
+		#if safe: print("already")
+		#print("safe!")
+		#safe = true
+#
+#
+#func _on_area_3d_area_exited(area: Area3D) -> void:
+	#if area.name == "safeVolume":
+		#print("not safe!")
+		#safe = false

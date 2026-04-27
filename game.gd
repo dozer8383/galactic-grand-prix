@@ -170,7 +170,7 @@ func _input(event: InputEvent) -> void:
 			get_tree().change_scene_to_file("res://podium.tscn")
 		else:
 			get_tree().reload_current_scene()
-	if event.is_action_pressed("cheat") and true:
+	if event.is_action_pressed("cheat") and false:
 		raceFinish.emit()
 		raceFinished = true
 		place = 1+globals.botFinishes

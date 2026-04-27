@@ -235,4 +235,5 @@ texture_progress = ExtResource("17_gehps")
 [connection signal="mouse_entered" from="MachineSelect/VBoxContainer/VectorMachine" to="MachineSelect" method="_on_vector_machine_mouse_entered"]
 [connection signal="pressed" from="MachineSelect/VBoxContainer/VectorMachine" to="MachineSelect" method="_on_vector_machine_pressed"]
 [connection signal="focus_entered" from="MachineSelect/VBoxContainer/TracerMachine" to="MachineSelect" method="_on_tracer_machine_focus_entered"]
+[connection signal="mouse_entered" from="MachineSelect/VBoxContainer/TracerMachine" to="MachineSelect" method="_on_tracer_machine_mouse_entered"]
 [connection signal="pressed" from="MachineSelect/VBoxContainer/TracerMachine" to="MachineSelect" method="_on_tracer_machine_pressed"]

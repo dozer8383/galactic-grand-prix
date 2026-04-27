@@ -58,8 +58,12 @@ func _on_tracer_machine_focus_entered() -> void:
 
 
 func _on_ray_machine_mouse_entered() -> void:
-	pass # Replace with function body.
+	_on_ray_machine_focus_entered()
 
 
 func _on_vector_machine_mouse_entered() -> void:
-	pass # Replace with function body.
+	_on_vector_machine_focus_entered()
+
+
+func _on_tracer_machine_mouse_entered() -> void:
+	_on_tracer_machine_focus_entered()

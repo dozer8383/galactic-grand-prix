@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bp2bv2uw2eyym" path="res://graphics/track9_track9.png" id="2_2nfpm"]
 [ext_resource type="Script" uid="uid://b1bndb5ujgnce" path="res://load_ai.gd" id="2_48145"]
 [ext_resource type="Texture2D" uid="uid://d33ysrw7j6ui5" path="res://graphics/sky.hdr" id="2_wyoko"]
-[ext_resource type="ArrayMesh" uid="uid://dsckjpy8ns4il" path="res://graphics/track9-collision.obj" id="3_ba0ka"]
 [ext_resource type="Script" uid="uid://4tbfbh854hxt" path="res://finish_checkpoint.gd" id="4_b6iog"]
 [ext_resource type="Script" uid="uid://cvyehwxdwex2j" path="res://mid_checkpoint.gd" id="5_dirx6"]
 [ext_resource type="Script" uid="uid://tth7vtpn1lxr" path="res://rough.gd" id="6_48145"]
@@ -12,6 +11,7 @@
 [ext_resource type="Script" uid="uid://du8w6bvynxm43" path="res://heater.gd" id="8_dirx6"]
 [ext_resource type="Script" uid="uid://b1nrctmu8exsn" path="res://jump.gd" id="9_b6iog"]
 [ext_resource type="PackedScene" uid="uid://c2m14kddsxbbx" path="res://graphics/jump-panel.glb" id="10_dirx6"]
+[ext_resource type="Script" uid="uid://d3u66wb4scjri" path="res://safe_volume.gd" id="12_48145"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dirx6"]
 resource_name = "track"
@@ -113,6 +113,42 @@ size = Vector3(1.1495353, 0.3022461, 0.27618408)
 [sub_resource type="BoxShape3D" id="BoxShape3D_j8eld"]
 size = Vector3(0.6543775, 1, 0.44851026)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_fukub"]
+size = Vector3(25.113388, 1, 5.238159)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b0f87"]
+size = Vector3(9.313477, 1, 2.931549)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5y85e"]
+size = Vector3(9.313477, 1, 19.509766)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rtsl4"]
+size = Vector3(33.190796, 1, 2.274414)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nno17"]
+size = Vector3(4.246563, 1, 20.97522)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_amf6s"]
+size = Vector3(4.246563, 1, 6.0092773)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ifnx8"]
+size = Vector3(1.5672607, 1, 2.781311)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ayjp"]
+size = Vector3(5.899048, 1, 1.6513672)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ek7f0"]
+size = Vector3(1.1242981, 1, 0.90649414)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vid7g"]
+size = Vector3(1.8467484, 1, 2.581543)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fplj5"]
+size = Vector3(3.2414637, 1, 1.7278442)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bbynq"]
+size = Vector3(3.497685, 1, 2.004547)
+
 [node name="track" unique_id=566305905 instance=ExtResource("1_ba0ka")]
 script = ExtResource("2_48145")
 
@@ -135,11 +171,7 @@ directional_shadow_max_distance = 20.0
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="5" unique_id=1843667491]
 physics_material_override = SubResource("PhysicsMaterial_mctbk")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" index="0" unique_id=86480309]
-visible = false
-mesh = ExtResource("3_ba0ka")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1" unique_id=588352678]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=588352678]
 transform = Transform3D(138.5, 0, 0, 0, 138.5, 0, 0, 0, 138.5, 0.02, 1.5, -1.2168463)
 shape = SubResource("ConcavePolygonShape3D_b6iog")
 
@@ -208,7 +240,70 @@ script = ExtResource("7_wmf46")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -17.519674, 1.8807008, -10.970118)
 shape = SubResource("BoxShape3D_j8eld")
 
-[node name="DashPanelGlow" type="OmniLight3D" parent="." index="12" unique_id=677133592]
+[node name="safeVolume" type="Area3D" parent="." index="12" unique_id=1889444082]
+script = ExtResource("12_48145")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="safeVolume" index="0" unique_id=1171767798]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2491207, 1.9168682, 4.9457684)
+shape = SubResource("BoxShape3D_fukub")
+debug_color = Color(0.35318393, 0.0014056105, 0.7840588, 1)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="safeVolume" index="1" unique_id=1292864460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.168762, 1.9168682, 8.707577)
+shape = SubResource("BoxShape3D_b0f87")
+debug_color = Color(0.35318393, 0.0014056105, 0.7840588, 1)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="safeVolume" index="2" unique_id=1849600892]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.437294, 1.9168682, -3.423048)
+shape = SubResource("BoxShape3D_5y85e")
+debug_color = Color(0.35318393, 0.0014056105, 0.7840588, 1)
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="safeVolume" index="3" unique_id=547492880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5162592, 1.9168682, -11.274259)
+shape = SubResource("BoxShape3D_rtsl4")
+debug_color = Color(0.35318393, 0.0014056105, 0.7840588, 1)
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="safeVolume" index="4" unique_id=1258115486]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.638937, 1.9168682, -1.9238558)
+shape = SubResource("BoxShape3D_nno17")
+debug_color = Color(0.35318393, 0.0014056105, 0.7840588, 1)
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="safeVolume" index="5" unique_id=2109151569]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4727545, 1.9168682, 5.344097)
+shape = SubResource("BoxShape3D_amf6s")
+debug_color = Color(0.35318393, 0.0014056105, 0.7840588, 1)
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="safeVolume" index="6" unique_id=143900717]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -15.048229, 1.9168682, 1.9835173)
+shape = SubResource("BoxShape3D_ifnx8")
+debug_color = Color(0.35318393, 0.0014056105, 0.7840588, 1)
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="safeVolume" index="7" unique_id=1405477657]
+transform = Transform3D(0.7443347, 0, 0.6678064, 0, 1, 0, -0.6678064, 0, 0.7443347, -11.818918, 1.9168682, 5.745731)
+shape = SubResource("BoxShape3D_4ayjp")
+debug_color = Color(0.35318393, 0.0014056105, 0.7840588, 1)
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="safeVolume" index="8" unique_id=2032347171]
+transform = Transform3D(0.9999997, 0, 0, 0, 1, 0, 0, 0, 0.9999997, -12.878626, 1.9168682, 5.70972)
+shape = SubResource("BoxShape3D_ek7f0")
+debug_color = Color(0.35318393, 0.0014056105, 0.7840588, 1)
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="safeVolume" index="9" unique_id=856205574]
+transform = Transform3D(0.9999997, 0, 0, 0, 1, 0, 0, 0, 0.9999997, -9.319267, 1.9168682, 4.390477)
+shape = SubResource("BoxShape3D_vid7g")
+debug_color = Color(0.35318393, 0.0014056105, 0.7840588, 1)
+
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="safeVolume" index="10" unique_id=982039267]
+transform = Transform3D(0.7071065, 0, -0.7071065, 0, 1, 0, 0.7071065, 0, 0.7071065, -7.8207617, 1.9168682, 5.000351)
+shape = SubResource("BoxShape3D_fplj5")
+debug_color = Color(0.35318393, 0.0014056105, 0.7840588, 1)
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="safeVolume" index="11" unique_id=643319039]
+transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, -5.4823403, 1.9168682, 6.595677)
+shape = SubResource("BoxShape3D_bbynq")
+debug_color = Color(0.35318393, 0.0014056105, 0.7840588, 1)
+
+[node name="DashPanelGlow" type="OmniLight3D" parent="." index="13" unique_id=677133592]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.479292, 1.8349373, -10.987313)
 light_color = Color(0.99999994, 0.7097535, 0.10690499, 1)
 light_energy = 0.5
@@ -216,7 +311,7 @@ omni_range = 3.0
 omni_attenuation = 2.0
 omni_shadow_mode = 0
 
-[node name="HeaterGlow" type="Node3D" parent="." index="13" unique_id=912607469]
+[node name="HeaterGlow" type="Node3D" parent="." index="14" unique_id=912607469]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="HeaterGlow" index="0" unique_id=1505148931]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.23337, 1.8420415, -1.1588925)
@@ -327,3 +422,5 @@ omni_shadow_mode = 0
 [connection signal="body_entered" from="MidCheckpoint" to="MidCheckpoint" method="_on_body_entered"]
 [connection signal="body_entered" from="jump" to="jump" method="_on_body_entered"]
 [connection signal="body_entered" from="speed" to="speed" method="_on_body_entered"]
+[connection signal="body_entered" from="safeVolume" to="safeVolume" method="_on_body_entered"]
+[connection signal="body_exited" from="safeVolume" to="safeVolume" method="_on_body_exited"]
